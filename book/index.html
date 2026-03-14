@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talk to the Founder | AIdedEQ</title>
+  <meta name="description" content="Choose a focused founder conversation about the AIdedEQ tool or service you already saw. Pick the topic, the timing, and the right amount of time without a generic demo request.">
+  <meta property="og:title" content="Talk to the Founder | AIdedEQ">
+  <meta property="og:description" content="A founder-led scheduling page for tool questions, service fit, partnerships, and ready-to-move conversations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aidedeq.org/book/">
+  <link rel="canonical" href="https://aidedeq.org/book/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css?v=19">
+  <link rel="icon" href="../images/logo-ae-light.png" type="image/png">
+</head>
+<body class="booking-page">
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <a href="../" class="navbar-brand">
+        <img src="../images/logo-ae-light.png" alt="AIded EQ" class="navbar-logo">
+      </a>
+      <nav>
+        <ul class="navbar-links">
+          <li><a href="../#tools">Tools</a></li>
+          <li><a href="../#programs">Programs</a></li>
+          <li><a href="../#about">About</a></li>
+          <li><a href="../#contact">Contact</a></li>
+          <li><a href="#booking-form" class="btn-get-started">Choose a Conversation</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="../#tools" class="mobile-nav-link">Tools</a>
+    <a href="../#programs" class="mobile-nav-link">Programs</a>
+    <a href="../#about" class="mobile-nav-link">About</a>
+    <a href="../#contact" class="mobile-nav-link">Contact</a>
+    <a href="#booking-form" class="btn-primary">Choose a Conversation</a>
+  </div>
+
+  <main>
+    <section class="booking-hero section-padding">
+      <div class="container booking-hero-grid">
+        <div class="booking-hero-copy fade-in">
+          <span class="section-label">Founder Conversations</span>
+          <h1>You already saw the product.<br>Let's make the call useful.</h1>
+          <p>This page is for people who already saw a tool, explored a service, or read a cold email that made sense. Pick what you want to talk about, how much time you need, and the best subject line for the conversation.</p>
+          <div class="booking-hero-actions">
+            <a href="#booking-form" class="btn-primary">Choose your conversation</a>
+            <a href="../#tools" class="btn-outline">Go back to the tools</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="section-padding">
+      <div class="container">
+        <div class="booking-purpose-grid">
+          <article class="booking-purpose-card fade-in">
+            <span class="section-label">Clarity</span>
+            <h3>I have specific questions</h3>
+            <p>I already saw the tool or read the service page. I want direct answers, not another generic walkthrough.</p>
+          </article>
+          <article class="booking-purpose-card fade-in">
+            <span class="section-label">Fit</span>
+            <h3>I want to talk service fit</h3>
+            <p>I want to understand how this would work in my team, program, cohort, school, agency, or community.</p>
+          </article>
+          <article class="booking-purpose-card fade-in">
+            <span class="section-label">Move</span>
+            <h3>I am ready for next steps</h3>
+            <p>I want to talk pilot structure, sponsorship, purchasing, implementation, or a decision we are close to making.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <section class="section-padding">
+      <div class="container fade-in">
+          <span class="section-label">Book The Right Conversation</span>
+          <h2><span class="metallic-text">Choose what sparked the conversation</span></h2>
+          <p class="booking-intro">All times below are Central Time. Pick one slot that works best. Your request will come through with the tool, the reason for the call, and the subject line already attached.</p>
+
+          <form name="founder-conversation" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="booking-workspace" id="booking-form">
+            <input type="hidden" name="form-name" value="founder-conversation">
+            <input type="hidden" name="subject_line" id="subject-line">
+            <input type="hidden" name="selected_slot" id="selected-slot">
+            <input type="hidden" name="selected_slot_start" id="selected-slot-start">
+            <input type="hidden" name="selected_slot_end" id="selected-slot-end">
+            <input type="hidden" name="selected_reason" id="selected-reason">
+            <input type="hidden" name="selected_duration" id="selected-duration">
+            <p style="display:none;">
+              <label>Do not fill this out: <input name="bot-field"></label>
+            </p>
+
+            <div class="booking-form-intro">
+              <div class="form-group">
+                <label for="tool-topic">What did you already look at?</label>
+                <select id="tool-topic" name="tool_topic" required>
+                  <option value="" selected disabled>Select a product, service, or other topic</option>
+                  <option value="AI consultation">AI consultation</option>
+                  <option value="Creator Studio">Creator Studio</option>
+                  <option value="Family inFluency">Family inFluency</option>
+                  <option value="FieldVoices">FieldVoices</option>
+                  <option value="Founder's service package">Founder's service package</option>
+                  <option value="LoreDrop">LoreDrop</option>
+                  <option value="MF Pocket Facilitator">MF Pocket Facilitator</option>
+                  <option value="Mission2Practice Engine">Mission2Practice Engine</option>
+                  <option value="Moxie Studio">Moxie Studio</option>
+                  <option value="Other">Other</option>
+                  <option value="ROP Practice">ROP Practice</option>
+                  <option value="Snapshots">Snapshots</option>
+                  <option value="The Good Skill">The Good Skill</option>
+                  <option value="The Law Is On Our Side">The Law Is On Our Side</option>
+                  <option value="The Volunteer Hive">The Volunteer Hive</option>
+                  <option value="Training or cohort partnership">Training or cohort partnership</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>What kind of conversation do you want?</label>
+                <div class="booking-choice-grid" id="reason-choices">
+                  <button type="button" class="booking-choice active" data-reason="Specific questions after seeing the tool">
+                    <strong>Specific questions</strong>
+                    <span>I already saw it and want a clear answer.</span>
+                  </button>
+                  <button type="button" class="booking-choice" data-reason="Service fit and implementation">
+                    <strong>Service fit</strong>
+                    <span>I want to talk team use, implementation, or delivery.</span>
+                  </button>
+                  <button type="button" class="booking-choice" data-reason="Ready to buy or pilot">
+                    <strong>Ready to move</strong>
+                    <span>I want to talk scope, pilot, sponsorship, or buying.</span>
+                  </button>
+                  <button type="button" class="booking-choice" data-reason="Partnership or sponsored cohort">
+                    <strong>Partnership</strong>
+                    <span>I want to explore a collaboration or sponsored cohort.</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>How much time do you need?</label>
+                <div class="duration-grid" id="duration-choices">
+                  <button type="button" class="duration-chip active" data-duration="15 minutes">
+                    <strong>15 min</strong>
+                    <span>Quick clarity</span>
+                  </button>
+                  <button type="button" class="duration-chip" data-duration="30 minutes">
+                    <strong>30 min</strong>
+                    <span>Focused conversation</span>
+                  </button>
+                  <button type="button" class="duration-chip" data-duration="45 minutes">
+                    <strong>45 min</strong>
+                    <span>Decision or scope</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <aside class="booking-summary-column">
+              <div class="booking-summary-card booking-summary-primary">
+                <span class="section-label">Call Sheet Preview</span>
+                <h3 id="summary-tool">AIdedEQ general inquiry</h3>
+                <p id="summary-reason">Specific questions after seeing the tool</p>
+                <div class="booking-summary-row">
+                  <span>Time requested</span>
+                  <strong id="summary-duration">15 minutes</strong>
+                </div>
+                <div class="booking-summary-row">
+                  <span>Preferred slot</span>
+                  <strong id="summary-slot">Choose a slot below</strong>
+                </div>
+                <div class="booking-summary-subject">
+                  <span class="booking-panel-label">Subject line</span>
+                  <strong id="summary-subject">AIdedEQ general inquiry | Specific questions after seeing the tool</strong>
+                </div>
+              </div>
+            </aside>
+
+            <div class="form-group booking-calendar-panel">
+              <label>Choose a date</label>
+              <p class="booking-slot-note">Use the calendar to move month to month, then click a date to see the available afternoon founder hours.</p>
+              <div class="calendar-shell">
+                <div class="calendar-toolbar">
+                  <button type="button" class="calendar-nav" id="calendar-prev" aria-label="Previous month">&larr;</button>
+                  <div class="calendar-heading">
+                    <strong id="calendar-label">April 2026</strong>
+                    <span>Central Time</span>
+                  </div>
+                  <button type="button" class="calendar-nav" id="calendar-next" aria-label="Next month">&rarr;</button>
+                </div>
+                <div class="calendar-weekdays" aria-hidden="true">
+                  <span>Sun</span>
+                  <span>Mon</span>
+                  <span>Tue</span>
+                  <span>Wed</span>
+                  <span>Thu</span>
+                  <span>Fri</span>
+                  <span>Sat</span>
+                </div>
+                <div id="calendar-grid" class="calendar-grid" aria-live="polite"></div>
+              </div>
+            </div>
+
+            <aside class="booking-summary-card booking-time-card">
+              <span class="section-label">Time Choices</span>
+              <h3>Pick a preferred time</h3>
+              <p id="selected-date-label" class="booking-slot-note">Choose a date first to open the times for that day.</p>
+              <div id="slot-groups" class="slot-groups" aria-live="polite"></div>
+              <p id="slot-help" class="booking-slot-help">Choose one time so the request lands with a clear call time attached.</p>
+            </aside>
+
+            <div class="booking-details-panel">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required>
+                </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+            </div>
+
+            <div id="booking-status" class="booking-status" aria-live="polite"></div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="organization">Organization</label>
+                  <input type="text" id="organization" name="organization">
+                </div>
+              <div class="form-group">
+                  <label for="role">Role</label>
+                  <input type="text" id="role" name="role">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">What should JoYi know before the call?</label>
+                <textarea id="message" name="message" rows="5" placeholder="What did you see, what made you curious, and what do you want this call to answer?"></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" id="booking-submit">Request this conversation</button>
+            </div>
+          </form>
+
+          <div id="booking-success" class="form-success" style="display: none;">
+            <h3>Conversation booked</h3>
+            <p id="booking-success-message">Your conversation is confirmed. A calendar invite should land in the email address you entered, and the Zoom link is attached to the event.</p>
+          </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="section-padding">
+    <div class="container">
+      <div class="contact-intro fade-in">
+        <h2><span class="metallic-text">Need a different route?</span></h2>
+        <p>If email is easier, or if you want to explore press, partnership, or nonprofit collaboration outside the booking flow, reach out directly.</p>
+      </div>
+
+      <div class="footer-grid">
+        <div>
+          <ul class="footer-links">
+            <li>
+              <a href="mailto:Admin@thepracticecenter.org">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                Admin@thepracticecenter.org
+              </a>
+            </li>
+            <li>
+              <a href="../">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                Back to AIdedEQ.org
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-community">
+          <div class="footer-heading">Community</div>
+          <a href="https://womenwhovibe.org/" target="_blank" rel="noopener noreferrer">womenwhovibe.org</a>
+          <a href="https://girlswhovibe.org/" target="_blank" rel="noopener noreferrer">girlswhovibe.org</a>
+        </div>
+        <div class="footer-press">
+          <div class="footer-heading">Press & Partnerships</div>
+          <p>Interested in covering AIdedEQ or The Practice Center? Want to explore a collaboration? Email us directly. We are especially interested in partnerships that center equity, community wellness, and accessible technology.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-brand">
+          <img src="../images/logo-ae-dark.png" alt="AIded EQ" class="footer-logo">
+          <span>AIdedEQ / The Practice Center 501(c)(3)</span>
+        </div>
+        <span>Built with care, in public.</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="return-to-top" id="return-to-top" aria-label="Return to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="../js/main.js?v=13"></script>
+  <script src="../js/booking.js?v=4"></script>
+</body>
+</html>

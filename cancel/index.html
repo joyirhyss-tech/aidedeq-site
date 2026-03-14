@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cancel Conversation | AIdedEQ</title>
+  <meta name="description" content="Cancel a founder conversation and choose another time if you want to rebook.">
+  <meta property="og:title" content="Cancel Conversation | AIdedEQ">
+  <meta property="og:description" content="Cancel a founder conversation cleanly and return to the booking page if needed.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aidedeq.org/cancel/">
+  <link rel="canonical" href="https://aidedeq.org/cancel/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css?v=19">
+  <link rel="icon" href="../images/logo-ae-light.png" type="image/png">
+</head>
+<body class="booking-page">
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <a href="../" class="navbar-brand">
+        <img src="../images/logo-ae-light.png" alt="AIded EQ" class="navbar-logo">
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section-padding">
+      <div class="container booking-shell">
+        <div class="booking-form-column fade-in">
+          <span class="section-label">Cancellation</span>
+          <h1><span class="metallic-text">Need to cancel this conversation?</span></h1>
+          <p class="booking-intro">If you cancel here, we will cancel the Google Calendar event, mark the CRM meeting as canceled, and free the slot on the booking page.</p>
+
+          <div id="cancel-status" class="booking-status is-visible is-info">Checking your cancellation link...</div>
+
+          <div id="cancel-card" class="booking-cancel-card" hidden>
+            <h3>Cancel this meeting</h3>
+            <p>This is the cleanest way to release the time and close the booking loop.</p>
+            <div class="founder-conversation-actions">
+              <button type="button" class="btn-primary" id="cancel-button">Confirm cancellation</button>
+              <a href="../book/" class="btn-outline">Keep this meeting</a>
+            </div>
+          </div>
+
+          <div id="cancel-success" class="form-success" style="display: none;">
+            <h3>Meeting canceled</h3>
+            <p id="cancel-success-message">Your meeting has been canceled. If you still want to talk, return to the booking page and choose another time.</p>
+            <div class="founder-conversation-actions">
+              <a href="../book/" class="btn-primary" id="rebook-link">Return to booking</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/cancel.js?v=1"></script>
+</body>
+</html>

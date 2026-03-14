@@ -1,0 +1,8 @@
+# Local Netlify folder
+.netlify
+
+# Local machine files
+.DS_Store
+
+# Local Codex config
+.claude
