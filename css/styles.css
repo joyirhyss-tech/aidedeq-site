@@ -798,43 +798,46 @@ h2 + p {
 .book:nth-child(1) .book-spine { background-color: #1a1a4e; }
 .book:nth-child(2) .book-spine { background-color: #c5a880; }
 .book:nth-child(3) .book-spine { background-color: #6b6560; }
-.book:nth-child(4) .book-spine { background-color: #2a2a6e; }
-.book:nth-child(5) .book-spine { background-color: #a8865c; }
-.book:nth-child(6) .book-spine { background-color: #4a6741; }
-.book:nth-child(7) .book-spine { background-color: #8b5e3c; }
-.book:nth-child(8) .book-spine { background-color: #3d3d5c; }
-.book:nth-child(9) .book-spine { background-color: #7a3b3b; }
-.book:nth-child(10) .book-spine { background-color: #2d5a5a; }
-.book:nth-child(11) .book-spine { background-color: #5c4a7a; }
-.book:nth-child(12) .book-spine { background-color: #6e4b2a; }
+.book:nth-child(4) .book-spine { background-color: #B85C38; }
+.book:nth-child(5) .book-spine { background-color: #2a2a6e; }
+.book:nth-child(6) .book-spine { background-color: #a8865c; }
+.book:nth-child(7) .book-spine { background-color: #4a6741; }
+.book:nth-child(8) .book-spine { background-color: #8b5e3c; }
+.book:nth-child(9) .book-spine { background-color: #3d3d5c; }
+.book:nth-child(10) .book-spine { background-color: #7a3b3b; }
+.book:nth-child(11) .book-spine { background-color: #2d5a5a; }
+.book:nth-child(12) .book-spine { background-color: #5c4a7a; }
+.book:nth-child(13) .book-spine { background-color: #6e4b2a; }
 
 /* Varied book dimensions for a natural shelf look */
 .book:nth-child(1)  { height: 324px; width: 62px; }
 .book:nth-child(2)  { height: 310px; width: 68px; }
 .book:nth-child(3)  { height: 330px; width: 60px; }
-.book:nth-child(4)  { height: 318px; width: 66px; }
-.book:nth-child(5)  { height: 306px; width: 63px; }
-.book:nth-child(6)  { height: 328px; width: 67px; }
-.book:nth-child(7)  { height: 314px; width: 61px; }
-.book:nth-child(8)  { height: 322px; width: 64px; }
-.book:nth-child(9)  { height: 332px; width: 69px; }
-.book:nth-child(10) { height: 316px; width: 65px; }
-.book:nth-child(11) { height: 308px; width: 62px; }
-.book:nth-child(12) { height: 326px; width: 66px; }
+.book:nth-child(4)  { height: 316px; width: 64px; }
+.book:nth-child(5)  { height: 318px; width: 66px; }
+.book:nth-child(6)  { height: 306px; width: 63px; }
+.book:nth-child(7)  { height: 328px; width: 67px; }
+.book:nth-child(8)  { height: 314px; width: 61px; }
+.book:nth-child(9)  { height: 322px; width: 64px; }
+.book:nth-child(10) { height: 332px; width: 69px; }
+.book:nth-child(11) { height: 316px; width: 65px; }
+.book:nth-child(12) { height: 308px; width: 62px; }
+.book:nth-child(13) { height: 326px; width: 66px; }
 
 /* Varied spine band positions */
 .book:nth-child(1) .book-spine-band  { bottom: 42px; }
 .book:nth-child(2) .book-spine-band  { bottom: 35px; }
 .book:nth-child(3) .book-spine-band  { bottom: 48px; }
-.book:nth-child(4) .book-spine-band  { bottom: 38px; }
-.book:nth-child(5) .book-spine-band  { bottom: 30px; }
-.book:nth-child(6) .book-spine-band  { bottom: 44px; }
-.book:nth-child(7) .book-spine-band  { bottom: 50px; }
-.book:nth-child(8) .book-spine-band  { bottom: 36px; }
-.book:nth-child(9) .book-spine-band  { bottom: 46px; }
-.book:nth-child(10) .book-spine-band { bottom: 40px; }
-.book:nth-child(11) .book-spine-band { bottom: 33px; }
-.book:nth-child(12) .book-spine-band { bottom: 43px; }
+.book:nth-child(4) .book-spine-band  { bottom: 40px; }
+.book:nth-child(5) .book-spine-band  { bottom: 38px; }
+.book:nth-child(6) .book-spine-band  { bottom: 30px; }
+.book:nth-child(7) .book-spine-band  { bottom: 44px; }
+.book:nth-child(8) .book-spine-band  { bottom: 50px; }
+.book:nth-child(9) .book-spine-band  { bottom: 36px; }
+.book:nth-child(10) .book-spine-band { bottom: 46px; }
+.book:nth-child(11) .book-spine-band { bottom: 40px; }
+.book:nth-child(12) .book-spine-band { bottom: 33px; }
+.book:nth-child(13) .book-spine-band { bottom: 43px; }
 
 /* Spine title (vertical text, reads bottom-to-top) */
 .book-spine-title {
@@ -852,10 +855,10 @@ h2 + p {
   max-height: 260px;
 }
 
-/* Dark text on lighter spines (books 2, 5, 7) */
+/* Dark text on lighter spines (books 2, 6, 8) */
 .book:nth-child(2) .book-spine-title,
-.book:nth-child(5) .book-spine-title,
-.book:nth-child(7) .book-spine-title {
+.book:nth-child(6) .book-spine-title,
+.book:nth-child(8) .book-spine-title {
   color: var(--primary);
 }
 
@@ -2628,8 +2631,8 @@ button.calendar-day {
 
   /* Override dark spine text for mobile since all spines are horizontal bars */
   .book:nth-child(2) .book-spine-title,
-  .book:nth-child(5) .book-spine-title,
-  .book:nth-child(7) .book-spine-title {
+  .book:nth-child(6) .book-spine-title,
+  .book:nth-child(8) .book-spine-title {
     color: var(--primary) !important;
   }
 

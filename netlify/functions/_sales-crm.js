@@ -6,7 +6,7 @@ const CRM_PRODUCT_MAP = {
   'The Good Skill': 'aided_eq_services',
   'The Law Is On Our Side': 'aided_eq_services',
   Snapshots: 'aided_eq_services',
-  LoreDrop: 'aided_eq_services',
+  'Festival Lore': 'aided_eq_services',
   "Founder's service package": 'aided_eq_services',
   'Training or cohort partnership': 'aided_eq_services',
 };
