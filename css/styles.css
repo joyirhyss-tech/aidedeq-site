@@ -2464,6 +2464,31 @@ button.calendar-day {
   border-radius: 4px;
 }
 
+/* --- Footer Legal Links --- */
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-legal a {
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+
+.footer-legal a:hover {
+  color: var(--accent-light, #e8d5b7);
+}
+
+.footer-legal-sep {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.75rem;
+}
+
 /* --- Return to Top Button --- */
 .return-to-top {
   position: fixed;
