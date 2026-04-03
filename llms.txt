@@ -1,0 +1,51 @@
+# AIdedEQ — Mission-Aligned AI for Nonprofits and Community Organizations
+> Spend less time on paperwork and more time serving people. AIdedEQ builds practical AI tools, offers grounded consulting, and leads team workshops for nonprofits and community organizations. The only company combining values-based organizational work with practical AI implementation for the nonprofit sector.
+
+## About
+AIdedEQ is the technology arm of The Practice Center, a 501(c)(3) nonprofit founded by JoYi Rhyss. JoYi has 30+ years working with high-risk youth, served as former director at PACT Kalihi, Hawaii, was funded by the State of Hawaii, and contracted through the Stanford University Forgiveness Project to deliver forgiveness and mindfulness programs serving the Department of Human Services. Over 3,000 program participants. AIdedEQ builds equity-first AI tools, offers consulting, and leads workshops so frontline staff can spend less time on paperwork and more time serving people.
+
+## Services
+- Mindful Forgiveness for Teams: 6-week cohort workshop (12 hours total), $2,000/cohort for up to 12 participants. Free 45-minute intro session for teams of 5+. Delivered by JoYi Rhyss. CEU add-on available ($250/cohort, NASW-Hawaii).
+- Nonprofit AI Jumpstart: 3 sessions over 2-4 weeks. Audit your tech, identify automations, build your first working tool. $1,500. Delivered by Gabby, Director of AIdedEQ.
+- Custom Tool Build: Full discovery, build, deploy on Netlify, plus 30 days of support. $2,500-$5,000 depending on scope. Delivered by Gabby.
+- CEO AI Support: Weekly 1-hour session. Month-to-month, no commitment. $500/month. Delivered by Gabby.
+- ROP Practice Pilots: 4-week facilitated pilot for youth-serving organizations. Full tool access, 2 training sessions, feedback cycle. $1,500-$2,500. Target: fatherhood programs, boys mentoring, youth development.
+
+## Live Tools
+- The Good Skill: Equity-first AI research tool. Every search starts at the margins. Centers marginalized voices, runs equity footprint checks, generates representation gap reports. Free and open source. https://github.com/joyirhyss-tech/TPC-AIded-EQ
+- Snapshots: 5-minute self-assessments (WellBeing Snapshot, Sources of Wholeness). No login required, no data stored. https://wellbeingsnapshot.lovable.app/ and https://sources-wholeness.lovable.app/
+- anchorED: AI co-pilot for youth workers. Session planning, crisis support, mindfulness tools, worker check-ins, activities library. https://anchoredpractice.org/
+- ROP Practice V1: Rite-of-passage practice tool for boys and young men. Spot harm, speak up, get help, hold your line. https://rop-practices-v1.netlify.app/
+- Family inFluency: Shared family language-learning tool. Daily practice, reflection, connection. https://www.familyinfluency.com/
+- FieldVoices: Turns feedback into themes, themes into shared action, action into trust. Shortlisted from 237 global hackathon submissions. https://fieldvoices.netlify.app/
+- Not in Jeopardy!: Custom Jeopardy-style team game builder for onboarding, training, team-building. https://not-in-jeopardy-production.up.railway.app/
+- TPC Board Dashboard: Nonprofit board management tool with meeting materials, governance tracking, organizational visibility. https://tpc-board-meeting-dashboard.netlify.app/
+- Festival LoreDrop: Event crew connection tool. Share pics, curate your crew's story. Crew pass $26, public keepsake $4.99. https://festivalloredrop.com/
+- The Law Is On Our Side: Legal research tool for contracts and MOAs. Understand rights, access protections, advocate for community. Demo available.
+- MF Pocket Facilitator: AI assistant for frontline youth workers (in development). Session prep, curriculum reference, guided reflection. https://forgivenessai.org
+
+## Tools In Development
+- EatPlants Kitchen Coach: Plant-based practice tool. Budget-conscious, culturally grounded.
+- The Good Shelf: Equity-first book discovery. Library first, indie bookstores second, marginalized authors default.
+- PeaceTalk: Conflict resolution practice tool.
+- Mission2Practice Engine: Converts strategic plans into daily aligned action. Monitors mission creep.
+- Pocket YDS: Youth Development Services AI assistant.
+
+## Key Facts
+- Equity-first, analog-grounded design philosophy: every tool must work as a real-world practice before becoming software
+- AI can cut nonprofit admin work by 25-50%, freeing 10-20 hours/week per frontline staff member
+- Grant reporting time drops 70-80% with AI automation
+- Case note documentation drops 60-70%
+- AI-native nonprofits achieve 300-500% better cost-effectiveness ratios
+- Social workers currently spend 50%+ of their time on documentation, only 20% with people they serve
+- Only company combining values/culture organizational work with AI implementation for nonprofits
+- Zero direct competitors in this intersection (competitors like Salesforce, Blackbaud, TechSoup offer tech without values work; SIYLI offers mindfulness without tech)
+- Founded on Basic Human Decency framework: notice harm, respond with integrity, repair what you can, rebuild culture on purpose
+- Built on IAMAR organizational alignment lens rooted in Aloha Spirit
+
+## Contact
+- Website: https://aidedeq.org
+- Book a founder conversation: https://aidedeq.org/book/
+- Email: info@aidedeq.org
+- The Practice Center (nonprofit): https://thepracticecenter.org
+- Donate: https://thepracticecenter.org (PayPal, Venmo, Wise)
