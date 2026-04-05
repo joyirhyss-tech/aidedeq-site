@@ -265,7 +265,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="css/styles.css?v=23">
+  <link rel="stylesheet" href="css/styles.css?v=24">
   <link rel="icon" href="images/logo-ae-light.png" type="image/png">
 </head>
 <body>
@@ -309,6 +309,7 @@
           <li><a href="#tools">Tools</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="/resources/safety.html">Safety Resources</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="/book/" class="btn-get-started">Talk to the Founder</a></li>
         </ul>
@@ -328,6 +329,7 @@
     <a href="#tools" class="mobile-nav-link">Tools</a>
     <a href="#faq" class="mobile-nav-link">FAQ</a>
     <a href="#about" class="mobile-nav-link">About</a>
+    <a href="/resources/safety.html" class="mobile-nav-link">Safety Resources</a>
     <a href="#contact" class="mobile-nav-link">Contact</a>
     <a href="/book/" class="btn-primary">Talk to the Founder</a>
   </div>
@@ -613,6 +615,30 @@
               Build
             </h3>
             <p>Use vibe coding and EQ tools to create something real: apps, dashboards, resources for your practice and your community.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <span class="section-label">Who We Are</span>
+        <h2 class="fade-in"><span class="metallic-text">Built from practice, not theory.</span></h2>
+        <div class="about-grid" style="margin-top: 3rem;">
+          <div class="about-image fade-in">
+            <img src="images/founder-speaking.png" alt="JoYi Rhyss, Founder of AIdedEQ, presenting with a lei" loading="lazy">
+          </div>
+          <div class="about-bio fade-in">
+            <div class="about-role">Founder & CEO</div>
+            <h3 class="about-name">JoYi Rhyss</h3>
+            <p>30+ years working with high-risk youth. Former director at PACT Kalihi, Hawaii. Funded by the State of Hawaii and contracted through the Stanford University Forgiveness Project to deliver forgiveness and mindfulness programs serving the Department of Human Services. Over 3,000 people have participated.</p>
+            <p>Built The Good Skill, the first equity-first AI coding skill, using the same tools she teaches others. Moved to Hawaii in 2005 with three kids. Found healing through mindfulness and forgiveness practices. Now building the tools she wished existed when she needed them most.</p>
+            <div class="about-org">
+              AIdedEQ is the technology arm of <strong>The Practice Center</strong>, a 501(c)(3) nonprofit. We build equity-first emotional intelligence tools and teach communities to build their own.
+            </div>
           </div>
         </div>
       </div>
@@ -1227,36 +1253,12 @@
 
     <hr class="section-divider">
 
-    <!-- ===== ABOUT ===== -->
-    <section id="about" class="section-padding">
-      <div class="container">
-        <span class="section-label">Who We Are</span>
-        <h2 class="fade-in"><span class="metallic-text">Built from practice, not theory.</span></h2>
-        <div class="about-grid" style="margin-top: 3rem;">
-          <div class="about-image fade-in">
-            <img src="images/founder-speaking.png" alt="JoYi Rhyss, Founder of AIdedEQ, presenting with a lei" loading="lazy">
-          </div>
-          <div class="about-bio fade-in">
-            <div class="about-role">Founder & CEO</div>
-            <h3 class="about-name">JoYi Rhyss</h3>
-            <p>30+ years working with high-risk youth. Former director at PACT Kalihi, Hawaii. Funded by the State of Hawaii and contracted through the Stanford University Forgiveness Project to deliver forgiveness and mindfulness programs serving the Department of Human Services. Over 3,000 people have participated.</p>
-            <p>Built The Good Skill, the first equity-first AI coding skill, using the same tools she teaches others. Moved to Hawaii in 2005 with three kids. Found healing through mindfulness and forgiveness practices. Now building the tools she wished existed when she needed them most.</p>
-            <div class="about-org">
-              AIdedEQ is the technology arm of <strong>The Practice Center</strong>, a 501(c)(3) nonprofit. We build equity-first emotional intelligence tools and teach communities to build their own.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
     <!-- ===== FAQ ===== -->
-    <section id="faq" class="section-padding">
+    <section id="faq" class="section-padding faq-section-compact">
       <div class="container">
         <span class="section-label">Common Questions</span>
         <h2 class="fade-in"><span class="metallic-text">FAQ</span></h2>
-        <div class="faq-list fade-in">
+        <div class="faq-list fade-in" id="faq-list">
           <details class="faq-item">
             <summary>What does AIdedEQ do?</summary>
             <p>We build AI tools and provide consulting for nonprofits, schools, and mission-driven organizations. Our tools handle admin work so your team can focus on the people they serve.</p>
@@ -1266,42 +1268,41 @@
             <p>Any mission-driven team spending more time on paperwork than with the communities they serve. Nonprofits, schools, youth-serving orgs, government agencies, and social enterprises.</p>
           </details>
           <details class="faq-item">
-            <summary>What is the relationship between AIdedEQ and The Practice Center?</summary>
-            <p>The Practice Center is a 501(c)(3) nonprofit that develops programs and curriculum. AIdedEQ is the for-profit company that builds the technology to scale that work. Same founder, two entities that support each other.</p>
-          </details>
-          <details class="faq-item">
             <summary>How much does consulting cost?</summary>
             <p>Nonprofit AI Jumpstart: $1,500 for 3 sessions. Custom Tool Build: $2,500 to $5,000. CEO AI Support: $500/month, month-to-month. Mindful Forgiveness for Teams: $2,000 per cohort. Free 45-minute intro session available for teams of 5 or more.</p>
           </details>
-          <details class="faq-item">
+          <details class="faq-item faq-item--extra">
+            <summary>What is the relationship between AIdedEQ and The Practice Center?</summary>
+            <p>The Practice Center is a 501(c)(3) nonprofit that develops programs and curriculum. AIdedEQ is the for-profit company that builds the technology to scale that work. Same founder, two entities that support each other.</p>
+          </details>
+          <details class="faq-item faq-item--extra">
             <summary>What is Mindful Forgiveness for Teams?</summary>
             <p>A 6-week cohort workshop (12 hours total) for up to 12 participants. Designed for nonprofit teams, school staff, and community organizations dealing with burnout and team dynamics.</p>
           </details>
-          <details class="faq-item">
+          <details class="faq-item faq-item--extra">
             <summary>Is my data safe?</summary>
             <p>Yes. Our tools are built with privacy by default. Several tools require no login and store no personal data. We never sell or share user data. Full privacy policy at aidedeq.org/privacy.</p>
           </details>
-          <details class="faq-item">
+          <details class="faq-item faq-item--extra">
             <summary>Can you work with organizations outside of Hawaii?</summary>
             <p>Yes. Workshops and consulting sessions are available via Zoom for organizations anywhere. In-person delivery is available in Hawaii.</p>
           </details>
-          <details class="faq-item">
+          <details class="faq-item faq-item--extra">
             <summary>How do I get started?</summary>
             <p>Book a founder conversation at <a href="/book/">aidedeq.org/book</a>, use the chat widget on this page, or email <a href="mailto:info@aidedeq.org">info@aidedeq.org</a>.</p>
           </details>
         </div>
+        <button class="faq-toggle" id="faq-toggle" aria-expanded="false">Show more questions</button>
       </div>
     </section>
 
-    <hr class="section-divider">
-
     <!-- ===== DONATE / SUPPORT ===== -->
-    <section id="donate" class="donate-section section-padding">
+    <section id="donate" class="donate-section donate-section-compact">
       <div class="container">
         <div class="donate-content fade-in">
           <span class="section-label">Support the Work</span>
           <h2><span class="metallic-text">Help us build tools that center equity</span></h2>
-          <p>AIdedEQ is the technology arm of The Practice Center, a 501(c)(3) nonprofit. Every dollar goes directly toward building equity-first tools for communities that are usually last in line for good technology.</p>
+          <p>Every dollar goes directly toward building equity-first tools for communities that are usually last in line for good technology.</p>
           <div class="donate-buttons">
             <a href="https://donate.stripe.com/eVq7sE7GoaRw8wN5WJ4800b" target="_blank" rel="noopener noreferrer" class="btn-donate btn-donate--stripe">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>
@@ -1312,7 +1313,7 @@
               Donate with PayPal
             </a>
           </div>
-          <p class="donate-tax-note">The Practice Center is a 501(c)(3) nonprofit. EIN: 41-3423272. Your donation may be tax-deductible.</p>
+          <p class="donate-tax-note">The Practice Center, a 501(c)(3) nonprofit. EIN: 41-3423272. Your donation may be tax-deductible.</p>
         </div>
       </div>
     </section>
@@ -1419,7 +1420,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
-  <script src="js/main.js?v=13"></script>
+  <script src="js/main.js?v=14"></script>
   <script src="js/chat-widget.js?v=1" defer></script>
 </body>
 </html>

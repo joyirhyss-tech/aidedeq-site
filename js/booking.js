@@ -454,14 +454,14 @@ document.addEventListener('DOMContentLoaded', () => {
             bookingForm.style.display = 'none';
             bookingSuccess.style.display = 'block';
             if (bookingSuccessMessage) {
-              bookingSuccessMessage.textContent = 'Your request is in. We will confirm the time manually and send the Zoom details from admin@thepracticecenter.org.';
+              bookingSuccessMessage.textContent = 'Your request is in. We will confirm the time manually and send the Zoom details from info@aidedeq.org.';
             }
           } else {
-            setBookingStatus('Something went wrong. Please try again or email us directly at admin@thepracticecenter.org.', 'error');
+            setBookingStatus('Something went wrong. Please try again or email us directly at info@aidedeq.org.', 'error');
           }
         })
         .catch(() => {
-          setBookingStatus('Something went wrong. Please try again or email us directly at admin@thepracticecenter.org.', 'error');
+          setBookingStatus('Something went wrong. Please try again or email us directly at info@aidedeq.org.', 'error');
         })
         .finally(() => {
           setSubmittingState(false);
@@ -491,7 +491,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const error = await response.json().catch(() => null);
-        const message = error?.error || 'Something went wrong. Please try again or email us directly at admin@thepracticecenter.org.';
+        const message = error?.error || 'Something went wrong. Please try again or email us directly at info@aidedeq.org.';
         setBookingStatus(message, 'error');
         if (response.status === 409) {
           selectedSlot = null;
@@ -499,7 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       })
       .catch(() => {
-        setBookingStatus('Something went wrong. Please try again or email us directly at admin@thepracticecenter.org.', 'error');
+        setBookingStatus('Something went wrong. Please try again or email us directly at info@aidedeq.org.', 'error');
       })
       .finally(() => {
         setSubmittingState(false);

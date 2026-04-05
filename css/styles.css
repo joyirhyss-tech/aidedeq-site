@@ -2079,42 +2079,80 @@ h2 + p {
 }
 
 /* --- Donate Section --- */
+/* FAQ compact section */
+.faq-section-compact {
+  padding-bottom: 2rem;
+}
+
+.faq-item--extra {
+  display: none;
+}
+
+.faq-list.faq-list--expanded .faq-item--extra {
+  display: block;
+}
+
+.faq-toggle {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 0;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--accent);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+.faq-toggle:hover {
+  color: var(--foreground);
+}
+
+/* Donate compact section */
+.donate-section-compact {
+  padding-top: 2rem;
+}
+
 .donate-section {
   background: var(--secondary);
 }
 
 .donate-content {
-  text-align: center;
-  max-width: 640px;
-  margin: 0 auto;
+  text-align: left;
+  max-width: none;
 }
 
 .donate-content h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  white-space: nowrap;
 }
 
 .donate-content > p {
   color: var(--muted-foreground);
-  margin: 0 0 2rem;
+  margin: 0 0 1.5rem;
 }
 
 .donate-tax-note {
   font-size: 0.8125rem;
   color: var(--muted-foreground);
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
   opacity: 0.75;
 }
 
 .donate-buttons {
   display: flex;
   gap: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
 .btn-donate {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
   color: #fff;
   padding: 0.9rem 1.75rem;
@@ -2124,6 +2162,7 @@ h2 + p {
   transition: transform 0.15s ease, box-shadow 0.3s ease;
   border: none;
   text-decoration: none;
+  min-width: 210px;
 }
 
 .btn-donate:hover {
@@ -3283,14 +3322,16 @@ button.calendar-day {
   }
 
   /* Donate mobile */
+  .donate-content h2 {
+    white-space: normal;
+  }
+
   .donate-buttons {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .btn-donate {
-    width: 100%;
-    max-width: 300px;
     justify-content: center;
   }
 
@@ -3433,7 +3474,7 @@ button.calendar-day {
 }
 
 .faq-item:first-child {
-  border-top: 1px solid var(--border);
+  border-top: none;
 }
 
 .faq-item summary {

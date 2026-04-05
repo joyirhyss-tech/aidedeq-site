@@ -303,11 +303,11 @@ document.addEventListener('DOMContentLoaded', () => {
           form.style.display = 'none';
           successMsg.style.display = 'block';
         } else {
-          alert('Something went wrong. Please try again or email us directly at Admin@thepracticecenter.org.');
+          alert('Something went wrong. Please try again or email us directly at info@aidedeq.org.');
         }
       })
       .catch(() => {
-        alert('Something went wrong. Please try again or email us directly at Admin@thepracticecenter.org.');
+        alert('Something went wrong. Please try again or email us directly at info@aidedeq.org.');
       });
     });
   }
@@ -324,5 +324,16 @@ document.addEventListener('DOMContentLoaded', () => {
   initExpandableCards();
   initFormPreFill();
   initFormSubmission();
+
+  // FAQ toggle
+  var faqToggle = document.getElementById('faq-toggle');
+  var faqList = document.getElementById('faq-list');
+  if (faqToggle && faqList) {
+    faqToggle.addEventListener('click', function() {
+      var expanded = faqList.classList.toggle('faq-list--expanded');
+      faqToggle.textContent = expanded ? 'Show fewer questions' : 'Show more questions';
+      faqToggle.setAttribute('aria-expanded', expanded);
+    });
+  }
 
 });

@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A curated scan of 20+ AI tools and apps focused on women's safety across 6 dimensions: physical, structural, reproductive, digital, economic, and psychological. Find what exists, who built it, and where the gaps are.">
+<meta property="og:title" content="Women Build Safety | AI Tools & Apps Resource Sheet">
+<meta property="og:description" content="20+ tools. 6 safety dimensions. 12 build opportunities. Find what inspires you. Find what's missing. Build what matters.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<title>Women Build Safety | AI Tools & Apps Resource Sheet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --sage: #5B7B5E;
+    --sage-light: #7A9A7D;
+    --sage-bg: #E8F0E9;
+    --cream: #F5F0E8;
+    --cream-dark: #EDE5D8;
+    --charcoal: #2D2D2D;
+    --gold: #C4A265;
+    --gold-light: #D4B87A;
+    --warm-white: #FDFBF7;
+    --physical: #C75B3F;
+    --structural: #8B6DB0;
+    --reproductive: #D4798A;
+    --digital: #3D7EAA;
+    --economic: #C4A265;
+    --psychological: #5B7B5E;
+    --gap-red: #E8836A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--warm-white);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--charcoal) 0%, #3a4a3c 50%, var(--sage) 100%);
+    color: white;
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(196,162,101,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(91,123,94,0.2) 0%, transparent 50%);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero .subtitle {
+    font-size: 1.1em;
+    font-weight: 300;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto 25px;
+    position: relative;
+  }
+  .hero .tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.15em;
+    color: var(--gold-light);
+    position: relative;
+  }
+  .hero .session-badge {
+    display: inline-block;
+    background: rgba(196,162,101,0.2);
+    border: 1px solid var(--gold);
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-size: 0.8em;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 25px 40px;
+    background: var(--cream);
+    border-bottom: 1px solid var(--cream-dark);
+    flex-wrap: wrap;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat .number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--sage);
+  }
+  .stat .label {
+    font-size: 0.75em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #777;
+  }
+
+  /* FILTER BAR */
+  .filter-section {
+    padding: 30px 40px 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .filter-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    color: var(--charcoal);
+  }
+  .filter-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .filter-btn {
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 1.5px solid #ddd;
+    background: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { border-color: var(--sage); background: var(--sage-bg); }
+  .filter-btn.active { background: var(--sage); color: white; border-color: var(--sage); }
+  .filter-btn.active-physical { background: var(--physical); color: white; border-color: var(--physical); }
+  .filter-btn.active-structural { background: var(--structural); color: white; border-color: var(--structural); }
+  .filter-btn.active-reproductive { background: var(--reproductive); color: white; border-color: var(--reproductive); }
+  .filter-btn.active-digital { background: var(--digital); color: white; border-color: var(--digital); }
+  .filter-btn.active-economic { background: var(--economic); color: white; border-color: var(--economic); }
+  .filter-btn.active-psychological { background: var(--psychological); color: white; border-color: var(--psychological); }
+
+  /* CARDS GRID */
+  .cards-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 40px 40px;
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e8e4dc;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  }
+  .card-header {
+    padding: 18px 20px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .card-header h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15em;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+  .card-header .dim-badge {
+    font-size: 0.65em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    border-radius: 10px;
+    color: white;
+    white-space: nowrap;
+  }
+  .dim-physical { background: var(--physical); }
+  .dim-structural { background: var(--structural); }
+  .dim-reproductive { background: var(--reproductive); }
+  .dim-digital { background: var(--digital); }
+  .dim-economic { background: var(--economic); }
+  .dim-psychological { background: var(--psychological); }
+
+  .card-body {
+    padding: 0 20px 15px;
+  }
+  .card-body .desc {
+    font-size: 0.88em;
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.55;
+  }
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  .meta-tag {
+    font-size: 0.7em;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 8px;
+    background: var(--cream);
+    color: #666;
+  }
+  .meta-tag.women-built {
+    background: #F3E8F9;
+    color: #7B4DAA;
+  }
+  .meta-tag.women-funded {
+    background: #FFF3E0;
+    color: #B8860B;
+  }
+  .meta-tag.ai-powered {
+    background: #E3F2FD;
+    color: #1565C0;
+  }
+
+  .card-footer {
+    padding: 12px 20px;
+    background: var(--cream);
+    border-top: 1px solid #ece7dd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8em;
+  }
+  .card-footer .builder {
+    color: #777;
+  }
+  .card-footer .builder strong {
+    color: var(--charcoal);
+  }
+  .card-footer a {
+    color: var(--sage);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .card-footer a:hover { text-decoration: underline; }
+
+  /* GAP CARDS */
+  .gap-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  .gap-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 8px;
+    color: var(--charcoal);
+  }
+  .gap-section .gap-subtitle {
+    text-align: center;
+    font-size: 0.95em;
+    color: #777;
+    margin-bottom: 30px;
+    font-style: italic;
+  }
+  .gap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+  }
+  .gap-card {
+    background: linear-gradient(135deg, #FFF9F5 0%, #FFF5EE 100%);
+    border: 1.5px dashed var(--gap-red);
+    border-radius: 12px;
+    padding: 22px;
+  }
+  .gap-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05em;
+    color: var(--physical);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .gap-card h4::before {
+    content: '⚡';
+    font-size: 1.1em;
+  }
+  .gap-card p {
+    font-size: 0.85em;
+    color: #666;
+    line-height: 1.55;
+  }
+  .gap-card .dim-tags {
+    margin-top: 10px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  /* HACKATHON SECTION */
+  .hackathon-section {
+    background: linear-gradient(135deg, var(--charcoal), #3a4a3c);
+    color: white;
+    padding: 50px 40px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .hackathon-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+  .hackathon-section h2 span { color: var(--gold); }
+  .hackathon-section p {
+    font-size: 0.95em;
+    opacity: 0.85;
+    max-width: 650px;
+    margin: 0 auto 25px;
+    line-height: 1.6;
+  }
+  .hackathon-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  .hackathon-links a {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .hackathon-links a.primary {
+    background: var(--gold);
+    color: var(--charcoal);
+  }
+  .hackathon-links a.secondary {
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+  }
+
+  /* BY THE NUMBERS */
+  .numbers-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  .numbers-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6em;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  .numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 18px;
+  }
+  .number-card {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 22px;
+    text-align: center;
+  }
+  .number-card .big {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--sage);
+  }
+  .number-card .context {
+    font-size: 0.82em;
+    color: #666;
+    margin-top: 5px;
+    line-height: 1.5;
+  }
+  .number-card .source {
+    font-size: 0.7em;
+    color: #999;
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 0.8em;
+    color: #999;
+    background: var(--cream);
+  }
+  footer strong { color: var(--sage); }
+
+  .hidden { display: none !important; }
+
+  @media (max-width: 768px) {
+    .hero { padding: 40px 20px 35px; }
+    .hero h1 { font-size: 2em; }
+    .stats-bar { gap: 20px; padding: 20px; }
+    .filter-section, .cards-section, .gap-section, .numbers-section { padding: 20px; }
+    .cards-grid, .gap-grid, .numbers-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="session-badge">Women Build Safety | Resource Sheet</div>
+  <h1>AI Tools for <span>Women's Safety</span></h1>
+  <p class="subtitle">A curated scan of what exists, who built it, and where the gaps are. Find what inspires you. Find what's missing. Build what matters.</p>
+  <p class="tagline">This is not just reflection. This is design intelligence.</p>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><div class="number">40+</div><div class="label">Tools Scanned</div></div>
+  <div class="stat"><div class="number">6</div><div class="label">Safety Dimensions</div></div>
+  <div class="stat"><div class="number">12</div><div class="label">Gaps Identified</div></div>
+  <div class="stat"><div class="number">$75B</div><div class="label">FemTech Market 2026</div></div>
+</div>
+
+<!-- FILTERS -->
+<div class="filter-section">
+  <h3>Filter by Safety Dimension</h3>
+  <div class="filter-row" id="dimFilters">
+    <button class="filter-btn active" data-filter="all">All Tools</button>
+    <button class="filter-btn" data-filter="physical" data-active-class="active-physical">Physical</button>
+    <button class="filter-btn" data-filter="structural" data-active-class="active-structural">Structural</button>
+    <button class="filter-btn" data-filter="reproductive" data-active-class="active-reproductive">Reproductive</button>
+    <button class="filter-btn" data-filter="digital" data-active-class="active-digital">Digital</button>
+    <button class="filter-btn" data-filter="economic" data-active-class="active-economic">Economic</button>
+    <button class="filter-btn" data-filter="psychological" data-active-class="active-psychological">Psychological</button>
+  </div>
+  <div class="filter-row" id="builderFilters">
+    <button class="filter-btn active" data-filter="all">All Builders</button>
+    <button class="filter-btn" data-filter="women-built">Women-Built / Led</button>
+    <button class="filter-btn" data-filter="women-funded">Women-Funded</button>
+    <button class="filter-btn" data-filter="ai-powered">AI-Powered</button>
+  </div>
+</div>
+
+<!-- TOOL CARDS -->
+<div class="cards-section">
+  <div class="cards-grid" id="toolsGrid">
+
+    <!-- PHYSICAL SAFETY -->
+    <div class="card" data-dim="physical" data-builder="ai-powered">
+      <div class="card-header">
+        <h4>bSafe</h4>
+        <span class="dim-badge dim-physical">Physical</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">Personal safety app with SOS button that live-streams video, voice activation ("Hey bSafe!"), GPS trail sharing with emergency contacts, and fake call feature. AI detects route changes and auto-alerts contacts.</p>
+        <div class="card-meta">
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">GPS Tracking</span>
+          <span class="meta-tag">Voice Activated</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Built by <strong>Silje Vallestad & Charlen Larsen</strong></span>
+        <a href="https://www.getbsafe.com" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="physical" data-builder="women-built ai-powered">
+      <div class="card-header">
+        <h4>Noonlight</h4>
+        <span class="dim-badge dim-physical">Physical</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">Hold-to-feel-safe button connects to real dispatchers. If you release without entering your PIN, emergency services are alerted with your location. Integrates with Tinder for date safety check-ins. Co-founded by a woman.</p>
+        <div class="card-meta">
+          <span class="meta-tag women-built">Women Co-Founded</span>
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">Emergency Dispatch</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Co-founded by <strong>Brittany LeComte</strong></span>
+        <a href="https://www.noonlight.com" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="physical" data-builder="ai-powered">
+      <div class="card-header">
+        <h4>The Guide</h4>
+        <span class="dim-badge dim-physical">Physical</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">CES 2026 Innovation Award winner. An AI predictive safety ecosystem for women combining a risk engine, trauma-informed AI counselor, and discreet motion-sensor tracker. Covers prevention, response, and recovery in one system.</p>
+        <div class="card-meta">
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">Predictive Risk</span>
+          <span class="meta-tag">Trauma-Informed</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder"><strong>CES 2026 Award Winner</strong></span>
+        <a href="https://www.ces.tech/ces-innovation-awards/2026/the-guide-ai-predictive-safety-ecosystem-for-women/" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="physical" data-builder="">
+      <div class="card-header">
+        <h4>I Am Safe</h4>
+        <span class="dim-badge dim-physical">Physical</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">Smart technology safety app featuring journey tracking, safe zone notifications, unusual activity detection, and automatic emergency alerting. Focused on everyday security for walking, commuting, and travel.</p>
+        <div class="card-meta">
+          <span class="meta-tag">Journey Tracking</span>
+          <span class="meta-tag">Safe Zones</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Built by <strong>I Am Safe Team</strong></span>
+        <a href="https://imsafeapps.wordpress.com" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <!-- STRUCTURAL SAFETY -->
+    <div class="card" data-dim="structural" data-builder="women-built ai-powered">
+      <div class="card-header">
+        <h4>Textio</h4>
+        <span class="dim-badge dim-structural">Structural</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">AI writing platform trained on 1B+ HR documents that detects gender bias in job postings and performance reviews. Companies scoring 90+ attract 33% more women applicants. Reveals that women get 22% more personality-focused feedback than men.</p>
+        <div class="card-meta">
+          <span class="meta-tag women-built">Women Co-Founded</span>
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">Bias Detection</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Co-founded by <strong>Kieran Snyder, PhD</strong></span>
+        <a href="https://textio.com" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="structural" data-builder="women-built ai-powered">
+      <div class="card-header">
+        <h4>Pymetrics (now Harver)</h4>
+        <span class="dim-badge dim-structural">Structural</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">Neuroscience-based AI hiring platform that evaluates candidates on skills and potential rather than pedigree. Algorithms are audited to remove gender, ethnic, and socioeconomic bias. Used by Unilever, Accenture, LinkedIn.</p>
+        <div class="card-meta">
+          <span class="meta-tag women-built">Women-Founded</span>
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">Bias Audited</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Founded by <strong>Dr. Frida Polli & Julie Yoo</strong></span>
+        <a href="https://www.pymetrics.ai" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="structural" data-builder="women-built ai-powered">
+      <div class="card-header">
+        <h4>Vanta</h4>
+        <span class="dim-badge dim-structural">Structural</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">Automated security and compliance platform helping companies prove trustworthiness. Real-time risk monitoring, continuous compliance. Makes structural accountability accessible to startups, not just enterprises.</p>
+        <div class="card-meta">
+          <span class="meta-tag women-built">Women-Founded</span>
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">Compliance</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Founded by <strong>Christina Cacioppo</strong></span>
+        <a href="https://www.vanta.com" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <!-- REPRODUCTIVE SAFETY -->
+    <div class="card" data-dim="reproductive" data-builder="women-built ai-powered">
+      <div class="card-header">
+        <h4>Natural Cycles</h4>
+        <span class="dim-badge dim-reproductive">Reproductive</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">World's first FDA-cleared birth control app. AI algorithms analyze basal body temperature from 20M+ daily readings to predict fertility windows. 98% effective with perfect use. End-to-end encrypted.</p>
+        <div class="card-meta">
+          <span class="meta-tag women-built">Women Co-Founded</span>
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">FDA-Cleared</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Co-founded by <strong>Dr. Elina Berglund</strong> (physicist)</span>
+        <a href="https://www.naturalcycles.com" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="reproductive" data-builder="women-built ai-powered">
+      <div class="card-header">
+        <h4>Flo Health</h4>
+        <span class="dim-badge dim-reproductive">Reproductive</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">AI-powered period and ovulation tracker with 380M+ downloads. Anonymous Mode launched post-Dobbs for data privacy. Uses machine learning to predict cycles and provide personalized health insights.</p>
+        <div class="card-meta">
+          <span class="meta-tag women-built">Women-Led</span>
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">Anonymous Mode</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder"><strong>380M+ users worldwide</strong></span>
+        <a href="https://flo.health" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="reproductive" data-builder="women-built">
+      <div class="card-header">
+        <h4>Ovia Health</h4>
+        <span class="dim-badge dim-reproductive">Reproductive</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">Fertility, pregnancy, and parenting app with clinical-grade data models. Identifies health risks early. Employer-sponsored model means users aren't the product. Focus on maternal health outcomes in underserved communities.</p>
+        <div class="card-meta">
+          <span class="meta-tag women-built">Women-Led</span>
+          <span class="meta-tag">Clinical Grade</span>
+          <span class="meta-tag">Employer-Sponsored</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">CEO <strong>Paris Wallace</strong> (Labcorp Women's Health)</span>
+        <a href="https://www.oviahealth.com" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <!-- DIGITAL SAFETY -->
+    <div class="card" data-dim="digital" data-builder="ai-powered">
+      <div class="card-header">
+        <h4>Sensity AI</h4>
+        <span class="dim-badge dim-digital">Digital</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">Deepfake detection platform. Can verify if your face or identity has been used in synthetic media. Critical tool as deepfake videos increased 550% from 2019-2023, with 98% being pornography and 99% targeting women.</p>
+        <div class="card-meta">
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">Deepfake Detection</span>
+          <span class="meta-tag">Identity Protection</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Built by <strong>Sensity Team</strong></span>
+        <a href="https://sensity.ai" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="digital" data-builder="ai-powered">
+      <div class="card-header">
+        <h4>Microsoft Video Authenticator</h4>
+        <span class="dim-badge dim-digital">Digital</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">Analyzes photos and videos to provide a confidence score that media has been artificially manipulated. Detects subtle fading or greyscale elements at the boundary of deepfakes that the human eye can't catch.</p>
+        <div class="card-meta">
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">Deepfake Detection</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Built by <strong>Microsoft</strong></span>
+        <a href="https://www.microsoft.com/en-us/ai/responsible-ai" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="digital" data-builder="women-built ai-powered">
+      <div class="card-header">
+        <h4>HacWare</h4>
+        <span class="dim-badge dim-digital">Digital</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">AI-powered cybersecurity platform specializing in phishing protection and email security. Simulates threats to train users. Critical for women entrepreneurs and small orgs who are often most vulnerable to digital attacks.</p>
+        <div class="card-meta">
+          <span class="meta-tag women-built">Women-Founded</span>
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">Phishing Protection</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Founded by <strong>Tiffany Ricks</strong></span>
+        <a href="https://www.hacware.com" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="digital" data-builder="">
+      <div class="card-header">
+        <h4>Take It Down (NCMEC)</h4>
+        <span class="dim-badge dim-digital">Digital</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">Free service to help remove online intimate images shared without consent. Creates a hash of the image without uploading it, then participating platforms automatically detect and remove matches. Works for minors and adults.</p>
+        <div class="card-meta">
+          <span class="meta-tag">Image Removal</span>
+          <span class="meta-tag">Free Service</span>
+          <span class="meta-tag">Non-Profit</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Built by <strong>National Center for Missing & Exploited Children</strong></span>
+        <a href="https://takeitdown.ncmec.org" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="digital" data-builder="">
+      <div class="card-header">
+        <h4>Digital Resistance (UK)</h4>
+        <span class="dim-badge dim-digital">Digital</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">Resources specifically for AI-powered cyberstalking. Guides on how perpetrators use AI tools and what survivors can do. Addresses the gap between tech capability and legal protection (only 40% of countries have cyber-harassment laws).</p>
+        <div class="card-meta">
+          <span class="meta-tag">Survivor Resources</span>
+          <span class="meta-tag">Cyberstalking</span>
+          <span class="meta-tag">Education</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Built by <strong>Digital Resistance UK</strong></span>
+        <a href="https://www.digitalresistance.org.uk" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <!-- ECONOMIC SAFETY -->
+    <div class="card" data-dim="economic" data-builder="women-built">
+      <div class="card-header">
+        <h4>Ellevest</h4>
+        <span class="dim-badge dim-economic">Economic</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">Investment platform built for women. Accounts for gender-specific salary curves, career breaks, and longer lifespans. AI-driven financial planning that doesn't assume a male earning pattern as default.</p>
+        <div class="card-meta">
+          <span class="meta-tag women-built">Women-Founded</span>
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">Investing</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Founded by <strong>Sallie Krawcheck</strong> (fmr Wall St CEO)</span>
+        <a href="https://www.ellevest.com" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="economic" data-builder="women-built ai-powered">
+      <div class="card-header">
+        <h4>FreeFrom</h4>
+        <span class="dim-badge dim-economic">Economic</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">Economic justice for domestic violence survivors. Builds tools to help survivors achieve financial independence, including compensation funds and policy advocacy. 99% of DV involves financial abuse.</p>
+        <div class="card-meta">
+          <span class="meta-tag women-built">Women-Founded</span>
+          <span class="meta-tag">DV Survivors</span>
+          <span class="meta-tag">Financial Independence</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Founded by <strong>Sonya Passi</strong></span>
+        <a href="https://www.freefrom.org" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="economic" data-builder="women-built">
+      <div class="card-header">
+        <h4>Purple Purse (Allstate Foundation)</h4>
+        <span class="dim-badge dim-economic">Economic</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">Financial empowerment resources for DV survivors. Includes financial literacy tools, safety planning around joint accounts, and guides for rebuilding credit after leaving an abusive partner.</p>
+        <div class="card-meta">
+          <span class="meta-tag">Financial Literacy</span>
+          <span class="meta-tag">DV Support</span>
+          <span class="meta-tag">Free Resources</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Built by <strong>Allstate Foundation + NNEDV</strong></span>
+        <a href="https://www.purplepurse.com" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <!-- PSYCHOLOGICAL SAFETY -->
+    <div class="card" data-dim="psychological" data-builder="women-built ai-powered">
+      <div class="card-header">
+        <h4>Soula</h4>
+        <span class="dim-badge dim-psychological">Psychological</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">AI designed specifically for female emotional health. 24/7 support that learns, adapts, and tracks your patterns. Built on neuroscience-backed methods to lower stress and boost cognitive flexibility. Privacy-first: no data sold.</p>
+        <div class="card-meta">
+          <span class="meta-tag women-built">Women-Built</span>
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">Neuroscience-Backed</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Built by <strong>Soula Care Team</strong></span>
+        <a href="https://soula.care" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="psychological" data-builder="women-built ai-powered">
+      <div class="card-header">
+        <h4>Woebot</h4>
+        <span class="dim-badge dim-psychological">Psychological</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">CBT-based AI chatbot for mental health. Evidence-based, clinically validated. Guides users through emotional processing with empathy and rigor. Not a replacement for therapy but a daily companion for managing anxiety and mood.</p>
+        <div class="card-meta">
+          <span class="meta-tag women-built">Women-Founded</span>
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">Clinically Validated</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Founded by <strong>Dr. Alison Darcy</strong> (clinical psychologist)</span>
+        <a href="https://woebothealth.com" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="psychological" data-builder="ai-powered">
+      <div class="card-header">
+        <h4>Wysa</h4>
+        <span class="dim-badge dim-psychological">Psychological</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">AI mental health companion using CBT, DBT, and mindfulness techniques. Anonymous and judgment-free. Clinically validated to reduce depression symptoms by 31%. Escalation path to human therapists when needed.</p>
+        <div class="card-meta">
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">Clinically Validated</span>
+          <span class="meta-tag">Anonymous</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Co-founded by <strong>Jo Aggarwal</strong></span>
+        <a href="https://www.wysa.com" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="psychological" data-builder="ai-powered">
+      <div class="card-header">
+        <h4>Ash (Talk to Ash)</h4>
+        <span class="dim-badge dim-psychological">Psychological</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">AI specialist in human psychology trained on proprietary expert data. Designed by emotional wellbeing experts to adapt mental health practices for AI. Focus on no triggering content, no careless suggestions.</p>
+        <div class="card-meta">
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">Expert-Designed</span>
+          <span class="meta-tag">Safety-First</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Built by <strong>Ash Team</strong></span>
+        <a href="https://www.talktoash.com" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+    <div class="card" data-dim="psychological" data-builder="women-built">
+      <div class="card-header">
+        <h4>Marbl</h4>
+        <span class="dim-badge dim-psychological">Psychological</span>
+      </div>
+      <div class="card-body">
+        <p class="desc">AI-driven marketplace improving safety and transparency in medical aesthetics. Addresses the psychological harm of unregulated beauty industry practices that disproportionately affect women.</p>
+        <div class="card-meta">
+          <span class="meta-tag women-built">Women-Founded</span>
+          <span class="meta-tag ai-powered">AI-Powered</span>
+          <span class="meta-tag">Transparency</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="builder">Founded by <strong>Shirin Krall</strong></span>
+        <a href="#" target="_blank" rel="noopener noreferrer">Visit →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- BY THE NUMBERS -->
+<div class="numbers-section">
+  <h2>The Landscape, by the Numbers</h2>
+  <div class="numbers-grid">
+    <div class="number-card">
+      <div class="big">550%</div>
+      <div class="context">Increase in deepfake videos since 2019. 98% are pornographic. 99% target women.</div>
+      <div class="source">UN Women, 2025</div>
+    </div>
+    <div class="number-card">
+      <div class="big">38%</div>
+      <div class="context">of women have personal experience of online violence. 85% have witnessed digital violence against other women.</div>
+      <div class="source">UN Women, 2025</div>
+    </div>
+    <div class="number-card">
+      <div class="big">99%</div>
+      <div class="context">of domestic violence cases involve financial abuse. Yet fewer than 5 apps address this intersection directly.</div>
+      <div class="source">FreeFrom / NNEDV</div>
+    </div>
+    <div class="number-card">
+      <div class="big">82%</div>
+      <div class="context">of VC decision-makers are men. Women founders raised $73.6B in 2025, but half went to just 2 companies.</div>
+      <div class="source">PitchBook / Fortune, 2026</div>
+    </div>
+    <div class="number-card">
+      <div class="big">60%</div>
+      <div class="context">of countries lack laws protecting women from cyber-harassment or cyberstalking. 1.8B women without legal safeguards.</div>
+      <div class="source">UN Women, 2025</div>
+    </div>
+    <div class="number-card">
+      <div class="big">$75B</div>
+      <div class="context">Projected FemTech market size by 2026. AI wearables, health data APIs, and personalized coaching leading the way.</div>
+      <div class="source">SpikeAPI / FemTech World</div>
+    </div>
+  </div>
+</div>
+
+<!-- GAP ANALYSIS -->
+<div class="gap-section">
+  <h2>Where Are the Gaps?</h2>
+  <p class="gap-subtitle">These are build opportunities. Things that don't exist yet, or don't exist well enough.</p>
+  <div class="gap-grid">
+
+    <div class="gap-card">
+      <h4>Intersectional Safety Dashboard</h4>
+      <p>No tool maps safety across all 6 dimensions for one person. A woman could be physically safe but economically trapped. Nothing connects these dots in real time.</p>
+      <div class="dim-tags">
+        <span class="meta-tag">All 6 Dimensions</span>
+        <span class="meta-tag">Personalized</span>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <h4>Financial Escape Planning Tool</h4>
+      <p>99% of DV involves financial abuse but almost no apps help women secretly build financial independence while still in unsafe situations. Credit building, hidden savings, job prep.</p>
+      <div class="dim-tags">
+        <span class="meta-tag">Economic</span>
+        <span class="meta-tag">Physical</span>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <h4>AI-Powered Legal Navigator for DV</h4>
+      <p>Legal systems are overwhelming. No app uses AI to walk a survivor through protection orders, custody, housing rights in plain language, step by step, jurisdiction-specific.</p>
+      <div class="dim-tags">
+        <span class="meta-tag">Structural</span>
+        <span class="meta-tag">Economic</span>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <h4>Community Safety Network (Not Just SOS)</h4>
+      <p>Every physical safety app assumes you need police. What about communities where police aren't safe? Peer-based safety networks with check-ins, local safe houses, trusted people.</p>
+      <div class="dim-tags">
+        <span class="meta-tag">Physical</span>
+        <span class="meta-tag">Structural</span>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <h4>Deepfake Shield for Everyday Women</h4>
+      <p>Detection tools exist but are built for enterprises. No simple, free tool lets a woman check if her image is being used in synthetic media and auto-submit takedowns.</p>
+      <div class="dim-tags">
+        <span class="meta-tag">Digital</span>
+        <span class="meta-tag">Psychological</span>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <h4>Reproductive Data Vault</h4>
+      <p>Post-Dobbs, period tracker data is being subpoenaed. No app offers truly sovereign, on-device-only reproductive health tracking where women own and control 100% of their data.</p>
+      <div class="dim-tags">
+        <span class="meta-tag">Reproductive</span>
+        <span class="meta-tag">Digital</span>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <h4>Workplace Microaggression Tracker</h4>
+      <p>AI tools detect bias in job postings but nothing helps women document and pattern-match daily workplace experiences. Private, timestamped, legally useful documentation.</p>
+      <div class="dim-tags">
+        <span class="meta-tag">Structural</span>
+        <span class="meta-tag">Psychological</span>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <h4>Culturally Specific Safety Resources</h4>
+      <p>Most safety apps are built for English-speaking Western women. Huge gap for multilingual, culturally contextualized safety tools for immigrant, Indigenous, and Global South women.</p>
+      <div class="dim-tags">
+        <span class="meta-tag">All 6 Dimensions</span>
+        <span class="meta-tag">Accessibility</span>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <h4>Post-Trauma Financial Recovery AI</h4>
+      <p>After leaving an abusive situation, women face destroyed credit, employment gaps, housing barriers. No AI tool provides a personalized recovery roadmap integrating financial, legal, and emotional rebuilding.</p>
+      <div class="dim-tags">
+        <span class="meta-tag">Economic</span>
+        <span class="meta-tag">Psychological</span>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <h4>Safety-Centered Dating Intelligence</h4>
+      <p>Noonlight integrates with Tinder, but no tool helps women research a date's public records, verify identity, or share safety plans with friends, all in one private flow.</p>
+      <div class="dim-tags">
+        <span class="meta-tag">Physical</span>
+        <span class="meta-tag">Digital</span>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <h4>Housing Safety Checker</h4>
+      <p>No AI tool helps women evaluate rental/housing safety: neighborhood data, landlord reviews, structural features (locks, lighting, exits), proximity to resources, all through a safety lens.</p>
+      <div class="dim-tags">
+        <span class="meta-tag">Physical</span>
+        <span class="meta-tag">Structural</span>
+      </div>
+    </div>
+
+    <div class="gap-card">
+      <h4>Girls' Early Intervention Platform</h4>
+      <p>Almost every tool targets adult women. Nothing uses AI to help girls (ages 10-17) develop safety literacy, recognize early warning signs, and build digital and emotional resilience before crisis.</p>
+      <div class="dim-tags">
+        <span class="meta-tag">Psychological</span>
+        <span class="meta-tag">Digital</span>
+        <span class="meta-tag">Prevention</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- HACKATHON -->
+<div class="hackathon-section">
+  <h2>Ready to <span>Build</span>?</h2>
+  <p>These gaps aren't just observations. They're invitations. Every tool on this sheet was once someone's first idea. The buildathon is where your idea becomes real.</p>
+  <p style="font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold-light); font-size: 1.05em;">"You do not need to be a coder. You need clarity. The tools will meet you there."</p>
+  <div class="hackathon-links">
+    <a class="primary" href="https://www.skool.com/women-building-ai-2577" target="_blank" rel="noopener noreferrer">Join Women Build AI on Skool</a>
+    <a class="secondary" href="#">Session 2: April 9 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Women Build Safety</strong> | Curated by JoYi, Gabby & Jessica | April 2026<br>
+  Built with love and research. Not all information verified independently. Do your own due diligence before building on any platform.
+</footer>
+
+<script>
+  // FILTER LOGIC
+  const dimBtns = document.querySelectorAll('#dimFilters .filter-btn');
+  const builderBtns = document.querySelectorAll('#builderFilters .filter-btn');
+  const cards = document.querySelectorAll('.card');
+
+  let activeDim = 'all';
+  let activeBuilder = 'all';
+
+  function filterCards() {
+    cards.forEach(card => {
+      const dim = card.dataset.dim;
+      const builders = card.dataset.builder || '';
+      const dimMatch = activeDim === 'all' || dim === activeDim;
+      const builderMatch = activeBuilder === 'all' || builders.includes(activeBuilder);
+      card.classList.toggle('hidden', !(dimMatch && builderMatch));
+    });
+  }
+
+  dimBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      dimBtns.forEach(b => {
+        b.classList.remove('active', 'active-physical', 'active-structural', 'active-reproductive', 'active-digital', 'active-economic', 'active-psychological');
+      });
+      const filter = btn.dataset.filter;
+      activeDim = filter;
+      if (filter === 'all') {
+        btn.classList.add('active');
+      } else {
+        btn.classList.add(btn.dataset.activeClass);
+      }
+      filterCards();
+    });
+  });
+
+  builderBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      builderBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeBuilder = btn.dataset.filter;
+      filterCards();
+    });
+  });
+</script>
+</body>
+</html>
