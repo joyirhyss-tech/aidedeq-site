@@ -20,9 +20,27 @@
   --muted-foreground: #6b6560;
   --border: #d4cdc3;
   --radius: 0.5rem;
-  --font-body: 'Space Grotesk', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
-  --font-mono: 'Space Mono', 'Courier New', monospace;
+  /* Type system — V2 editorial fonts mapped onto V1 token names */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-serif: var(--font-display); /* V1 alias — many rules still read --font-serif */
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-hand: 'Caveat', cursive;
+}
+
+/* --- Variable-font axis activation (Fraunces opsz + SOFT) --- */
+h1, h2, h3, h4, h5, h6,
+.hero-title, .section-title, .metallic-text {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  font-feature-settings: "ss01", "ss02";
+  letter-spacing: -0.01em;
+}
+h3, h4, h5, h6 {
+  font-variation-settings: "opsz" 48, "SOFT" 40;
+}
+body {
+  font-feature-settings: "kern", "liga", "calt";
 }
 
 /* --- Skip to Content (accessibility) --- */
@@ -3519,4 +3537,1742 @@ button.calendar-day {
 .faq-item a {
   color: var(--accent);
   text-decoration: underline;
+}
+
+/* ============================================
+   V2 GRAFT — Text logo in navbar (navy + gold)
+   Recolored from V2's ochre palette to match V1's
+   --primary navy (#1a1a4e) and --accent gold (#c5a880).
+   ============================================ */
+.navbar-brand-text {
+  font-family: var(--font-display);
+  font-size: 1.625rem;
+  font-weight: 450;
+  letter-spacing: -0.005em;
+  font-variation-settings: "opsz" 72, "SOFT" 35;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+  line-height: 1;
+  transition: color 220ms ease;
+}
+/* Default state — navbar is transparent sitting over the navy hero,
+   so "AIded" must be cream to read. */
+.navbar-brand-text .brand-aided {
+  color: var(--primary-foreground);
+  transition: color 220ms ease;
+}
+/* After scroll, navbar gains a cream background — flip AIded to navy. */
+.navbar.scrolled .navbar-brand-text .brand-aided {
+  color: var(--primary);
+}
+.navbar-brand-text .brand-eq {
+  color: var(--accent);
+  font-style: italic;
+  font-variation-settings: "opsz" 72, "SOFT" 80;
+  margin-left: 0.02em;
+  /* Subtle metallic shimmer that matches V1's .metallic-text */
+  background: linear-gradient(
+    135deg,
+    #b8986f 0%,
+    #e8d5b7 45%,
+    #c5a880 55%,
+    #9c8560 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 0 rgba(26, 26, 78, 0.08);
+}
+.navbar.scrolled .navbar-brand-text:hover .brand-aided {
+  color: #2a2a6e;
+}
+
+/* Mobile size-down for the text logo */
+@media (max-width: 768px) {
+  .navbar-brand-text {
+    font-size: 1.375rem;
+  }
+}
+
+/* ============================================
+   V2 GRAFT — Breathing invitation + overlay
+   Recolored: V1 navy #1a1a4e backdrop, V1 gold #c5a880 accents.
+   Fireflies keep their warm gold glow (c5a880 family).
+   ============================================ */
+.breath-invite {
+  position: relative;
+  padding: 7rem 1.5rem;
+  background: linear-gradient(180deg, #12123a 0%, #1a1a4e 50%, #0f0f2e 100%);
+  color: #f9f8f5;
+  text-align: center;
+  overflow: hidden;
+  border-top: 1px solid rgba(197, 168, 128, 0.18);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.18);
+}
+.breath-invite::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(232, 213, 183, 0.08), transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(197, 168, 128, 0.05), transparent 70%);
+  pointer-events: none;
+}
+.breath-invite-inner {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
+  z-index: 2;
+}
+.breath-invite .section-label,
+.breath-invite .label {
+  color: rgba(232, 213, 183, 0.7);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.breath-invite h2 {
+  color: #f9f8f5;
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 60;
+  font-weight: 340;
+  font-style: italic;
+  margin: 1rem 0 1.5rem;
+  line-height: 1.15;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+}
+.breath-invite p {
+  color: rgba(249, 248, 245, 0.78);
+  max-width: 52ch;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+}
+.breath-invite-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 2.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-light, #e8d5b7);
+  background: transparent;
+  border: 1px solid rgba(197, 168, 128, 0.45);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 480ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.breath-invite-btn:hover {
+  background: rgba(197, 168, 128, 0.12);
+  border-color: rgba(197, 168, 128, 0.75);
+  box-shadow: 0 0 40px rgba(197, 168, 128, 0.22);
+  color: #f9f8f5;
+}
+.breath-invite-note {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-style: italic;
+  color: rgba(249, 248, 245, 0.38);
+  white-space: nowrap;
+}
+
+/* Pulsing firefly dot inside the button */
+@keyframes firefly-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.75; }
+  50%      { transform: scale(1.15); opacity: 1; }
+}
+.firefly-cue {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-light, #e8d5b7);
+  box-shadow: 0 0 16px 4px rgba(197, 168, 128, 0.6);
+  animation: firefly-pulse 2400ms cubic-bezier(0.7, 0, 0.2, 1) infinite;
+}
+
+/* ---- Full-screen overlay when user clicks Begin ---- */
+.breathing-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  overflow: hidden;
+  pointer-events: auto;
+}
+.breathing-backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 30%, #1a1a4e 0%, #0f0f2e 60%, #05051a 100%);
+}
+.breathing-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.breathing-prompt-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.breathing-prompt {
+  font-family: var(--font-hand);
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  text-align: center;
+  line-height: 1.7;
+  color: rgba(232, 213, 183, 0.92);
+  text-shadow:
+    0 0 40px rgba(197, 168, 128, 0.38),
+    0 0 80px rgba(197, 168, 128, 0.14),
+    0 1px 4px rgba(0, 0, 0, 0.45);
+  max-width: 24ch;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  transition: opacity 300ms ease-out;
+  opacity: 0;
+}
+
+.breathing-closing {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.breathing-closing-inner {
+  text-align: center;
+  max-width: 460px;
+}
+.breathing-closing-main {
+  font-family: var(--font-hand);
+  font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+  color: rgba(232, 213, 183, 0.95);
+  text-shadow: 0 0 40px rgba(197, 168, 128, 0.38), 0 1px 4px rgba(0, 0, 0, 0.45);
+  margin-bottom: 1.5rem;
+}
+.breathing-closing-sub {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: rgba(216, 210, 201, 0.7);
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+.breathing-close-btn {
+  padding: 1rem 2.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(232, 213, 183, 0.9);
+  background: rgba(197, 168, 128, 0.08);
+  border: 1px solid rgba(197, 168, 128, 0.32);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 500ms ease-out;
+}
+.breathing-close-btn:hover {
+  background: rgba(197, 168, 128, 0.18);
+  border-color: rgba(197, 168, 128, 0.6);
+  color: #f9f8f5;
+}
+
+@keyframes breath-word-in {
+  0%   { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.breath-word {
+  display: inline-block;
+  opacity: 0;
+  animation: breath-word-in 900ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+@keyframes gentle-fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================
+   V2 GRAFT — Hybrid bookshelf
+   Keeps V1's <div class="book"><button class="book-spine">...</button>
+   <div class="book-detail">...</div></div> structure and JS. Only
+   rewrites the VISUAL of the spine button. Books are tall enough
+   (~380px) to fit titles up to "EatPlants Kitchen Coach" (23 chars).
+   Palette: V1 navy + V1 gold + cohesive deep earth tones.
+   ============================================ */
+
+/* Shelf container already exists in V1; we add tall-book dressing on top */
+.bookshelf-books {
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 3px !important;
+  padding: 2rem 1.5rem 0 !important;
+  min-height: 420px !important;
+}
+
+/* The .book wrapper has to let hover transforms escape AND grow to fit the spine */
+.bookshelf-books .book {
+  position: relative;
+  overflow: visible !important;
+  background: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  flex: 0 0 auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  align-self: flex-end !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+}
+
+/* Override V1's spine button visuals — now it IS the book spine */
+.bookshelf-books .book-spine {
+  /* Reset button chrome */
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+
+  /* Tall colored book spine */
+  position: relative;
+  width: 58px;
+  height: 380px;
+  background: var(--book-color, #1a1a4e);
+  color: #f9f8f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0 1.5rem;
+  transform-origin: bottom center;
+  transition:
+    transform 480ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 480ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 480ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  box-shadow:
+    inset 3px 0 0 rgba(255, 255, 255, 0.09),
+    inset -3px 0 0 rgba(0, 0, 0, 0.28),
+    inset 0 4px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -4px 0 rgba(0, 0, 0, 0.32),
+    2px 0 6px -2px rgba(20, 20, 40, 0.45);
+  border-radius: 1px;
+}
+
+/* Top + bottom gold stitch bands */
+.bookshelf-books .book-spine::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 22px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.32) 0%,
+    rgba(232, 213, 183, 0.55) 50%,
+    rgba(0, 0, 0, 0.32) 100%
+  );
+  box-shadow:
+    0 calc(380px - 82px) 0 -0.5px rgba(232, 213, 183, 0.5),
+    0 calc(380px - 50px) 0 -0.5px rgba(0, 0, 0, 0.28);
+}
+
+/* Gold-foil diamond near the foot */
+.bookshelf-books .book-spine::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  width: 16px;
+  height: 16px;
+  transform: translateX(-50%) rotate(45deg);
+  background: linear-gradient(
+    135deg,
+    #e8d5b7 0%,
+    #c5a880 50%,
+    #9c8560 100%
+  );
+  border: 1px solid rgba(20, 20, 40, 0.25);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Vertical rotated title — force V1's span to behave */
+.bookshelf-books .book-spine-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  font-variation-settings: "opsz" 36, "SOFT" 20;
+  letter-spacing: 0.005em;
+  line-height: 1.05;
+  color: #f9f8f5;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+  padding: 8px 0;
+  margin-top: 16px;
+  text-align: center;
+  max-height: 290px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Hide V1's spine-band (we have our own stitch bands now) */
+.bookshelf-books .book-spine-band { display: none; }
+
+/* Status dot — reads as a tiny "reading light" on each book.
+   Live = lit golden bulb with a warm glow pool.
+   Dev  = unlit dark bulb with a faint ring. */
+.bookshelf-books .book-spine-dot {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  z-index: 3;
+  /* DEV / OFF state — dark, recessed, matte */
+  background: radial-gradient(circle at 35% 35%,
+    rgba(60, 50, 40, 0.95) 0%,
+    rgba(20, 15, 10, 1) 60%,
+    rgba(0, 0, 0, 1) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.55);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.75),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* LIVE / ON state — hot gold bulb, multi-layer glow pool */
+.bookshelf-books .book-spine-dot--live {
+  background: radial-gradient(circle at 35% 35%,
+    #fff4d0 0%,
+    #ffda7a 25%,
+    #e8b547 55%,
+    #a87628 100%);
+  border: 1px solid rgba(255, 220, 130, 0.85);
+  box-shadow:
+    /* Inner bright rim */
+    inset 0 0 2px rgba(255, 255, 255, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    /* Tight halo */
+    0 0 6px 1px rgba(255, 200, 90, 0.95),
+    /* Wider glow pool */
+    0 0 14px 3px rgba(255, 180, 70, 0.55),
+    /* Soft ambient wash on the book */
+    0 0 28px 8px rgba(255, 170, 60, 0.25);
+  animation: book-dot-breathe 3.2s ease-in-out infinite;
+}
+
+@keyframes book-dot-breathe {
+  0%, 100% {
+    box-shadow:
+      inset 0 0 2px rgba(255, 255, 255, 0.9),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      0 0 6px 1px rgba(255, 200, 90, 0.95),
+      0 0 14px 3px rgba(255, 180, 70, 0.55),
+      0 0 28px 8px rgba(255, 170, 60, 0.25);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 2px rgba(255, 255, 255, 1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.75),
+      0 0 8px 1px rgba(255, 210, 110, 1),
+      0 0 18px 4px rgba(255, 190, 80, 0.7),
+      0 0 36px 10px rgba(255, 180, 70, 0.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bookshelf-books .book-spine-dot--live { animation: none; }
+}
+
+/* Hover: pull the book off the shelf */
+.bookshelf-books .book-spine:hover,
+.bookshelf-books .book-spine:focus-visible {
+  transform: translateY(-14px) rotate(-0.8deg);
+  filter: brightness(1.12);
+  z-index: 5;
+  box-shadow:
+    inset 3px 0 0 rgba(255, 255, 255, 0.14),
+    inset -3px 0 0 rgba(0, 0, 0, 0.28),
+    inset 0 4px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -4px 0 rgba(0, 0, 0, 0.32),
+    4px 14px 26px -6px rgba(20, 20, 40, 0.55);
+  outline: none;
+}
+
+/* When the detail is open, sink the spine back down a touch */
+.bookshelf-books .book[data-expanded="true"] .book-spine {
+  transform: translateY(-6px) rotate(0deg);
+  filter: brightness(1.08);
+}
+
+/* ---- Per-book palette — navy + gold family + deep earth tones ---- */
+.bookshelf-books .book:nth-child(1)  .book-spine { --book-color: #1a1a4e; } /* primary navy */
+.bookshelf-books .book:nth-child(2)  .book-spine { --book-color: #6b2f3e; } /* burgundy */
+.bookshelf-books .book:nth-child(3)  .book-spine { --book-color: #2a4a5e; } /* teal navy */
+.bookshelf-books .book:nth-child(4)  .book-spine { --book-color: #5a3a52; } /* plum */
+.bookshelf-books .book:nth-child(5)  .book-spine { --book-color: #1f4a3a; } /* forest */
+.bookshelf-books .book:nth-child(6)  .book-spine { --book-color: #8b4f2a; } /* rust */
+.bookshelf-books .book:nth-child(7)  .book-spine { --book-color: #14143e; } /* deep navy */
+.bookshelf-books .book:nth-child(8)  .book-spine { --book-color: #6b4a2a; } /* warm brown */
+.bookshelf-books .book:nth-child(9)  .book-spine { --book-color: #2a2a5e; } /* royal navy */
+.bookshelf-books .book:nth-child(10) .book-spine { --book-color: #3a2a4e; } /* aubergine */
+.bookshelf-books .book:nth-child(11) .book-spine { --book-color: #5a5a2e; } /* olive */
+.bookshelf-books .book:nth-child(12) .book-spine { --book-color: #1f1f3a; } /* charcoal navy */
+.bookshelf-books .book:nth-child(13) .book-spine { --book-color: #4e2a2e; } /* oxblood */
+.bookshelf-books .book:nth-child(14) .book-spine { --book-color: #1a3a4a; } /* slate blue */
+
+/* ---- Organic height variation so books feel real ---- */
+.bookshelf-books .book:nth-child(1)  .book-spine { height: 384px; width: 60px; }
+.bookshelf-books .book:nth-child(2)  .book-spine { height: 372px; width: 56px; }
+.bookshelf-books .book:nth-child(3)  .book-spine { height: 392px; width: 62px; }
+.bookshelf-books .book:nth-child(4)  .book-spine { height: 368px; width: 54px; }
+.bookshelf-books .book:nth-child(5)  .book-spine { height: 388px; width: 58px; }
+.bookshelf-books .book:nth-child(6)  .book-spine { height: 376px; width: 60px; }
+.bookshelf-books .book:nth-child(7)  .book-spine { height: 396px; width: 56px; }
+.bookshelf-books .book:nth-child(8)  .book-spine { height: 374px; width: 58px; }
+.bookshelf-books .book:nth-child(9)  .book-spine { height: 382px; width: 62px; }
+.bookshelf-books .book:nth-child(10) .book-spine { height: 390px; width: 54px; }
+.bookshelf-books .book:nth-child(11) .book-spine { height: 378px; width: 60px; }
+.bookshelf-books .book:nth-child(12) .book-spine { height: 386px; width: 58px; }
+.bookshelf-books .book:nth-child(13) .book-spine { height: 394px; width: 56px; }
+.bookshelf-books .book:nth-child(14) .book-spine { height: 370px; width: 58px; }
+
+/* A couple books tilted very slightly — organic feel */
+.bookshelf-books .book:nth-child(5)  .book-spine { transform: rotate(-1deg); }
+.bookshelf-books .book:nth-child(11) .book-spine { transform: rotate(0.7deg); }
+.bookshelf-books .book:nth-child(5)  .book-spine:hover  { transform: translateY(-14px) rotate(-1.6deg); }
+.bookshelf-books .book:nth-child(11) .book-spine:hover  { transform: translateY(-14px) rotate(0.1deg); }
+
+/* ---- Substantive wooden shelf plank ---- */
+.bookshelf {
+  position: relative;
+  background:
+    linear-gradient(180deg, transparent 0%, transparent 88%, rgba(26, 26, 78, 0.04) 100%),
+    repeating-linear-gradient(90deg, rgba(197, 168, 128, 0.02) 0 2px, transparent 2px 8px);
+  border-top: 1px solid rgba(26, 26, 78, 0.1);
+  padding-top: 1rem;
+}
+
+/* Books sit flush ON TOP of the plank — no overlap, no gap */
+.bookshelf-books {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  position: relative;
+  z-index: 2;
+}
+
+/* Each book casts a grounding shadow where it meets the shelf */
+.bookshelf-books .book-spine {
+  box-shadow:
+    inset 3px 0 0 rgba(255, 255, 255, 0.14),
+    inset -3px 0 0 rgba(0, 0, 0, 0.28),
+    inset 0 4px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -4px 0 rgba(0, 0, 0, 0.32),
+    0 8px 10px -3px rgba(0, 0, 0, 0.55),
+    0 2px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Proof section: intro + footnote stay on single lines at desktop.
+   Beat earlier rules that cap width at 58ch/62ch. */
+.proof-section {
+  overflow: hidden;
+}
+.proof-section > .container > p.fade-in.proof-intro-line,
+.proof-section p.proof-footnote {
+  white-space: nowrap !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(0.7rem, 1vw, 0.9rem) !important;
+  text-align: center;
+  margin-left: 0;
+  margin-right: 0;
+}
+@media (max-width: 900px) {
+  .proof-section > .container > p.fade-in.proof-intro-line,
+  .proof-section p.proof-footnote {
+    white-space: normal !important;
+    width: auto !important;
+    max-width: 58ch !important;
+    left: auto;
+    transform: none;
+    font-size: 0.9375rem !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Diamond emblem removed entirely — visually messy, no value */
+.bookshelf-books .book-spine::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Per-book diamond rules removed — diamonds deleted */
+
+/* Remove the tilt rotations on books 5 and 11 — keeping them straight
+   means their diamonds line up visually with their neighbours. */
+.bookshelf-books .book:nth-child(5)  .book-spine,
+.bookshelf-books .book:nth-child(11) .book-spine {
+  transform: none !important;
+}
+.bookshelf-books .book:nth-child(5)  .book-spine:hover,
+.bookshelf-books .book:nth-child(11) .book-spine:hover {
+  transform: translateY(-14px) rotate(0deg) !important;
+}
+
+.bookshelf .bookshelf-surface {
+  position: relative;
+  z-index: 1;
+  height: 34px;
+  margin-top: 0;
+  /* Wood-grain gradient: warm dark walnut with a bright top highlight and a deep under-shadow */
+  background:
+    /* top highlight rim where books meet shelf */
+    linear-gradient(180deg,
+      rgba(232, 213, 183, 0.38) 0%,
+      rgba(232, 213, 183, 0.08) 2px,
+      transparent 3px,
+      transparent 100%),
+    /* wood grain streaks */
+    repeating-linear-gradient(90deg,
+      rgba(0, 0, 0, 0.12) 0 1px,
+      transparent 1px 9px,
+      rgba(0, 0, 0, 0.06) 9px 10px,
+      transparent 10px 22px),
+    /* main wood body */
+    linear-gradient(180deg,
+      #3a2817 0%,
+      #5a3a1f 14%,
+      #6b4a2a 45%,
+      #4a3118 85%,
+      #1f1208 100%);
+  border-top: 1px solid rgba(232, 213, 183, 0.22);
+  box-shadow:
+    /* Shelf is mounted — cast shadow on the wall below it */
+    0 10px 20px -8px rgba(20, 20, 40, 0.55),
+    0 22px 36px -16px rgba(20, 20, 40, 0.35),
+    /* Subtle inset under-shadow for depth */
+    inset 0 -3px 6px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(232, 213, 183, 0.15);
+}
+
+/* Shelf brackets removed — user feedback: they read as "odd dots" */
+.bookshelf .bookshelf-surface::before,
+.bookshelf .bookshelf-surface::after {
+  display: none !important;
+}
+
+/* Wall space below the shelf so the shadow has somewhere to fall */
+.bookshelf {
+  padding-bottom: 3rem;
+}
+
+/* Mobile — horizontal scroll strip so all 14 books stay in a single
+   visual row (no vertical stacking), swipe to browse.
+   Applies below 820px; above that the desktop shelf stays unchanged. */
+@media (max-width: 820px) {
+  .bookshelf {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 2rem !important;
+  }
+  .bookshelf-books {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    height: auto !important;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    justify-content: flex-start !important;
+    align-items: flex-end !important;
+    gap: 4px !important;
+    padding: 2rem 1.25rem 0.5rem !important;
+    min-height: 320px !important;
+    scroll-snap-type: x proximity;
+    scroll-padding-left: 1.25rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .bookshelf-books::-webkit-scrollbar { display: none; }
+  .bookshelf-books .book {
+    scroll-snap-align: start;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    height: auto !important;
+    display: block !important;
+  }
+  /* Collapsed detail must not expand the book wrapper — pull it out of flow */
+  .bookshelf-books .book .book-detail {
+    position: absolute !important;
+    top: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    width: auto !important;
+    max-height: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    overflow: hidden !important;
+  }
+  .bookshelf-books .book-spine {
+    width: 50px !important;
+    height: 280px !important;
+    padding: 0.875rem 0 1.125rem !important;
+  }
+  /* Varied heights for organic shelf look */
+  .bookshelf-books .book:nth-child(1)  .book-spine { height: 284px !important; }
+  .bookshelf-books .book:nth-child(2)  .book-spine { height: 272px !important; }
+  .bookshelf-books .book:nth-child(3)  .book-spine { height: 290px !important; width: 52px !important; }
+  .bookshelf-books .book:nth-child(4)  .book-spine { height: 268px !important; }
+  .bookshelf-books .book:nth-child(5)  .book-spine { height: 286px !important; }
+  .bookshelf-books .book:nth-child(6)  .book-spine { height: 274px !important; }
+  .bookshelf-books .book:nth-child(7)  .book-spine { height: 294px !important; }
+  .bookshelf-books .book:nth-child(8)  .book-spine { height: 272px !important; }
+  .bookshelf-books .book:nth-child(9)  .book-spine { height: 282px !important; }
+  .bookshelf-books .book:nth-child(10) .book-spine { height: 288px !important; }
+  .bookshelf-books .book:nth-child(11) .book-spine { height: 276px !important; }
+  .bookshelf-books .book:nth-child(12) .book-spine { height: 284px !important; }
+  .bookshelf-books .book:nth-child(13) .book-spine { height: 290px !important; }
+  .bookshelf-books .book:nth-child(14) .book-spine { height: 270px !important; }
+  .bookshelf-books .book-spine-title {
+    font-size: 0.8125rem !important;
+    max-height: 200px !important;
+  }
+  /* Kill any lingering bottom-band pseudo */
+  .bookshelf-books .book-spine::before { display: none !important; }
+  /* Popout detail: let it drop below the scrolled spine and fill the shelf width */
+  .bookshelf-books .book[data-expanded="true"] .book-detail,
+  .bookshelf-books .book.active .book-detail {
+    position: fixed !important;
+    left: 1rem !important;
+    right: 1rem !important;
+    bottom: 1rem !important;
+    top: auto !important;
+    width: auto !important;
+    max-width: none !important;
+    z-index: 200 !important;
+  }
+  /* Hint affordance: soft fade on the right edge so user knows it scrolls */
+  .bookshelf {
+    position: relative;
+  }
+  .bookshelf::after {
+    content: "";
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    bottom: 2rem;
+    width: 32px;
+    background: linear-gradient(90deg, transparent, var(--background, #f5f1e8));
+    pointer-events: none;
+    z-index: 3;
+  }
+  /* The wooden shelf plank extends the full scroll width so books sit on it */
+  .bookshelf-surface {
+    min-width: 100% !important;
+  }
+}
+
+/* ============================================================
+   FOUNDER CONVERSATIONS — tight centered block
+   ============================================================ */
+.founder-conversations {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+.founder-conversations .section-label {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.founder-conversations-h2 {
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  line-height: 1.12;
+  margin: 0 auto 1.25rem;
+  max-width: 100%;
+  white-space: nowrap;
+}
+.founder-conversations-sub {
+  max-width: 58ch;
+  margin: 0 auto 2rem;
+  line-height: 1.65;
+  color: rgba(249, 248, 245, 0.82);
+  font-size: 1.0625rem;
+}
+.founder-conversations-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 2.25rem;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+  text-align: left;
+}
+.founder-conversations-list li {
+  position: relative;
+  padding-left: 1.75rem;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  color: rgba(249, 248, 245, 0.92);
+}
+.founder-conversations-list li .takeaway-dot {
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent, #c5a880);
+  box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.18);
+}
+.founder-conversations-cta {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+.founder-conversations-email {
+  display: block;
+  width: 100%;
+  max-width: none;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: rgba(249, 248, 245, 0.6);
+  margin: 0 auto;
+  text-align: center;
+}
+.founder-conversations-email a {
+  color: #e8d5b7;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(232, 213, 183, 0.55);
+}
+
+/* On tablets allow H2 to wrap if it must, rather than overflow */
+@media (max-width: 820px) {
+  .founder-conversations-h2 {
+    white-space: normal;
+    font-size: clamp(1.5rem, 5.5vw, 2rem);
+  }
+  .founder-conversations-list li {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================================
+   V3 VISUAL POLISH — page-wide editorial upgrades
+   Turns the site from "templated" to "authored."
+   ============================================================ */
+
+/* -------- 1) DRAMATIC PROOF SECTION — full-bleed navy --------
+   The "What changes when you change the lens" section becomes
+   the visual centerpiece of the page. Navy background, huge
+   Fraunces stats, animated counters on scroll. */
+.proof-section {
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(197, 168, 128, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(197, 168, 128, 0.06) 0%, transparent 45%),
+    linear-gradient(180deg, #14143a 0%, #1a1a4e 50%, #0f0f2e 100%);
+  color: #f9f8f5;
+  position: relative;
+  overflow: hidden;
+}
+.proof-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(232, 213, 183, 0.02) 0 1px, transparent 1px 80px);
+  pointer-events: none;
+}
+.proof-section > .container { position: relative; z-index: 2; }
+.proof-section .section-label {
+  color: rgba(232, 213, 183, 0.7);
+}
+.proof-section h2 {
+  color: #f9f8f5 !important;
+}
+.proof-section h2 .metallic-text {
+  background: linear-gradient(135deg, #e8d5b7 0%, #c5a880 50%, #9c8560 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+.proof-section > .container > p.fade-in {
+  color: rgba(249, 248, 245, 0.72);
+  max-width: 58ch;
+  margin: 1rem auto 3.5rem;
+  text-align: center;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+.proof-section .section-label {
+  display: block;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.proof-section h2 {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.1;
+  margin: 0 auto 0;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+}
+
+/* Bar chart — dark theme */
+.proof-section .proof-chart {
+  max-width: 720px;
+  margin: 0 auto 3.5rem;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(232, 213, 183, 0.12);
+  border-radius: 4px;
+  padding: 2rem 2rem 1.5rem;
+  backdrop-filter: blur(4px);
+}
+.proof-section .proof-chart-label {
+  color: rgba(249, 248, 245, 0.85);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.proof-section .proof-chart-stat {
+  color: #e8d5b7;
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 72, "SOFT" 40;
+}
+.proof-section .proof-bar-track {
+  background: rgba(232, 213, 183, 0.08);
+  border: 1px solid rgba(232, 213, 183, 0.15);
+}
+.proof-section .proof-bar-default {
+  background: linear-gradient(90deg, #5a2e3e, #8b3f4e);
+}
+.proof-section .proof-bar-equity {
+  background: linear-gradient(90deg, #c5a880, #e8d5b7);
+  box-shadow: 0 0 20px rgba(197, 168, 128, 0.4);
+}
+
+/* Proof cards — dark glass */
+.proof-section .proof-grid {
+  gap: 1.5rem;
+}
+.proof-section .proof-card {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(232, 213, 183, 0.15) !important;
+  color: #f9f8f5 !important;
+  backdrop-filter: blur(4px);
+}
+.proof-section .proof-card p {
+  color: rgba(249, 248, 245, 0.72);
+}
+.proof-section .proof-card .section-label {
+  color: rgba(232, 213, 183, 0.7) !important;
+}
+.proof-section .proof-search {
+  color: rgba(232, 213, 183, 0.5);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+.proof-section .proof-stat {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 80;
+  font-size: clamp(4rem, 8vw, 6.5rem);
+  line-height: 0.9;
+  background: linear-gradient(135deg, #fff4d0 0%, #e8d5b7 40%, #c5a880 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 1rem 0 1.5rem;
+  font-weight: 400;
+}
+.proof-section .proof-card-default .proof-stat {
+  background: linear-gradient(135deg, #c58b9c 0%, #8b3f4e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.75;
+}
+.proof-section .proof-footnote {
+  color: rgba(249, 248, 245, 0.5);
+  text-align: center;
+  font-size: 0.9375rem;
+  max-width: 62ch;
+  margin: 3rem auto 0;
+  font-style: italic;
+}
+
+/* Hide the old dividers touching the proof section — navy is the divider */
+.proof-section + hr.section-divider {
+  display: none;
+}
+hr.section-divider:has(+ .proof-section) {
+  display: none;
+}
+
+/* -------- 2) STICKY FLOATING CTA — conversion lever --------
+   Appears after the user has scrolled past the hero.
+   Always in their peripheral vision, always one click away. */
+.sticky-cta {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: auto;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem 0.875rem 1.25rem;
+  background: linear-gradient(135deg, #1a1a4e 0%, #2a2a6e 100%);
+  color: #e8d5b7;
+  border: 1px solid rgba(232, 213, 183, 0.35);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 36, "SOFT" 40;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow:
+    0 10px 30px -8px rgba(20, 20, 58, 0.55),
+    0 4px 12px -2px rgba(20, 20, 58, 0.35),
+    inset 0 1px 0 rgba(232, 213, 183, 0.25);
+  transform: translateY(120%);
+  opacity: 0;
+  transition: transform 420ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 300ms ease, box-shadow 200ms ease;
+  pointer-events: none;
+}
+.sticky-cta::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e8d5b7;
+  box-shadow: 0 0 8px rgba(232, 213, 183, 0.8);
+  animation: sticky-cta-pulse 2.4s ease-in-out infinite;
+}
+.sticky-cta.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.sticky-cta:hover {
+  box-shadow:
+    0 14px 36px -8px rgba(20, 20, 58, 0.7),
+    0 6px 14px -2px rgba(20, 20, 58, 0.4),
+    inset 0 1px 0 rgba(232, 213, 183, 0.35);
+  transform: translateY(-2px);
+  color: #fff4d0;
+}
+@keyframes sticky-cta-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.85); }
+}
+@media (max-width: 640px) {
+  .sticky-cta {
+    bottom: 1rem;
+    left: 1rem;
+    right: auto;
+    padding: 0.75rem 1.125rem 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* -------- 3) EDITORIAL DROP CAP on About section --------
+   Signals "this is a person, not a landing page."  */
+#about .container > p.fade-in:first-of-type::first-letter,
+#about .about-content > p:first-of-type::first-letter {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 20;
+  font-size: 4.5em;
+  float: left;
+  line-height: 0.85;
+  padding: 0.15em 0.15em 0 0;
+  margin: 0.05em 0.05em 0 0;
+  color: var(--accent, #c5a880);
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* -------- 4) METALLIC-TEXT ACCESSIBILITY FALLBACK --------
+   The gold gradient can fail WCAG on some displays. Add a
+   strong text-shadow fallback + deeper underlying color so
+   the text stays legible even if the gradient fails to paint. */
+.metallic-text {
+  color: #8a6d3a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+@supports (-webkit-background-clip: text) {
+  .metallic-text {
+    color: transparent;
+    text-shadow: none;
+  }
+}
+/* Increase contrast inside dark sections */
+.proof-section .metallic-text,
+.breath-invite .metallic-text,
+#sessions .metallic-text {
+  color: #e8d5b7;
+}
+@supports (-webkit-background-clip: text) {
+  .proof-section .metallic-text,
+  .breath-invite .metallic-text,
+  #sessions .metallic-text {
+    color: transparent;
+  }
+}
+
+/* -------- 5) ORNAMENTAL DIVIDER upgrade --------
+   Replace the plain hr with a centered diamond + ink rule.
+   Small, quiet, editorial. */
+hr.section-divider {
+  border: 0;
+  height: auto;
+  max-width: 280px;
+  margin: 0 auto;
+  padding: 2.5rem 0;
+  position: relative;
+  overflow: visible;
+  background: none;
+}
+hr.section-divider::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(26, 26, 78, 0.15) 20%,
+    rgba(26, 26, 78, 0.25) 50%,
+    rgba(26, 26, 78, 0.15) 80%,
+    transparent 100%);
+}
+hr.section-divider::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: linear-gradient(135deg, #e8d5b7 0%, #c5a880 50%, #9c8560 100%);
+  border: 1px solid rgba(26, 26, 78, 0.25);
+  box-shadow: 0 0 0 6px #f9f8f5;
+}
+
+/* -------- 6) TIGHTEN THE METALLIC-TEXT CADENCE --------
+   Too many H2s wearing the gold gradient becomes wallpaper.
+   Keep it ONLY on hero, tools, proof, sessions, donate.
+   Everywhere else, use a clean Fraunces navy treatment. */
+#practices h2 .metallic-text,
+#approach h2 .metallic-text,
+#who-we-serve h2 .metallic-text,
+#about h2 .metallic-text,
+#values h2 .metallic-text,
+#testimonials h2 .metallic-text,
+.resources-section h2 .metallic-text,
+#faq h2 .metallic-text,
+#mission h2 .metallic-text {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: currentColor;
+  color: var(--primary, #1a1a4e);
+  font-variation-settings: "opsz" 144, "SOFT" 40;
+}
+
+/* -------- 7) SECTION HEADINGS — tighten the rhythm --------
+   H2s get more breathing room above, less below, so the label
+   → H2 → body stacks read as one unit. */
+section.section-padding h2 {
+  margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.012em;
+}
+section.section-padding > .container > .section-label,
+section.section-padding > .container > span.section-label {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+
+/* ============================================================
+   V3 ROUND 2 — hero proof line, framed photo,
+   credentials upgrade, expertise pillars, testimonial avatars,
+   FAQ 2-col, tool spine icons
+   ============================================================ */
+
+/* Hero proof line removed — pulled into credentials bar instead */
+.hero-proof { display: none !important; }
+
+/* Hero photo frame: no borders, no corner bracket. Just the photo. */
+.hero-image-frame {
+  position: relative;
+  padding: 0;
+  border-radius: 2px;
+}
+.hero-image-frame::before,
+.hero-image-frame::after {
+  content: none !important;
+  display: none !important;
+}
+.hero-image-frame .hero-founder-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.55),
+    0 12px 24px -8px rgba(20, 20, 58, 0.45);
+}
+
+/* -------- Credentials bar upgrade -------- */
+.credentials-bar {
+  padding: 3.5rem 0 3rem;
+  background:
+    linear-gradient(180deg, #f4f1e8 0%, #f9f8f5 100%);
+  border-top: 1px solid rgba(26, 26, 78, 0.08);
+  border-bottom: 1px solid rgba(26, 26, 78, 0.08);
+}
+.credentials-eyebrow {
+  display: block;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 78, 0.55);
+  margin-bottom: 1.25rem;
+}
+.credentials-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem 1.125rem;
+  margin-bottom: 2.5rem;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+}
+.credentials-logo {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 36, "SOFT" 30;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: rgba(26, 26, 78, 0.82);
+  letter-spacing: -0.005em;
+}
+.credentials-logo-sep {
+  color: rgba(197, 168, 128, 0.8);
+  font-size: 0.625rem;
+}
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+  padding-top: 1.75rem;
+  border-top: 1px dashed rgba(26, 26, 78, 0.12);
+}
+.credentials-grid .credential {
+  text-align: center;
+  padding: 0 0.5rem;
+}
+.credentials-grid .credential-number {
+  display: block;
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 96, "SOFT" 50;
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+  font-weight: 500;
+  background: linear-gradient(135deg, #9c8560 0%, #c5a880 50%, #9c8560 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+@supports not (-webkit-background-clip: text) {
+  .credentials-grid .credential-number { color: #8a6d3a; }
+}
+.credentials-grid .credential-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 78, 0.65);
+  line-height: 1.4;
+}
+@media (max-width: 820px) {
+  .credentials-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
+  .credentials-logos { gap: 0.5rem 0.75rem; }
+  .credentials-logo { font-size: 0.8125rem; }
+  .credentials-logo-sep { display: none; }
+}
+
+/* -------- Expertise section -------- */
+.expertise-section {
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(197, 168, 128, 0.07) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 100%, rgba(26, 26, 78, 0.04) 0%, transparent 50%),
+    #f9f8f5;
+}
+.expertise-header {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto 3.5rem;
+}
+.expertise-header h2 {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 144, "SOFT" 40;
+  font-size: clamp(1.375rem, 2.4vw, 2.125rem);
+  line-height: 1.15;
+  color: var(--primary, #1a1a4e);
+  margin: 0.75rem 0 1.25rem;
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .expertise-header h2 {
+    white-space: normal;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+}
+.expertise-intro {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: rgba(26, 26, 78, 0.75);
+  max-width: 62ch;
+  margin: 0 auto;
+}
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.expertise-pillar {
+  position: relative;
+  padding: 2.25rem 2rem 2rem;
+  background: #fff;
+  border: 1px solid rgba(26, 26, 78, 0.08);
+  border-radius: 3px;
+  box-shadow:
+    0 1px 0 rgba(26, 26, 78, 0.04),
+    0 12px 24px -16px rgba(26, 26, 78, 0.18);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.expertise-pillar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #c5a880 0%, #9c8560 100%);
+  border-radius: 3px 0 0 3px;
+}
+.expertise-pillar:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 1px 0 rgba(26, 26, 78, 0.04),
+    0 24px 40px -20px rgba(26, 26, 78, 0.25);
+}
+.expertise-pillar-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(197, 168, 128, 1);
+  background: rgba(197, 168, 128, 0.1);
+  padding: 0.3rem 0.625rem;
+  border-radius: 2px;
+  margin-bottom: 1.125rem;
+}
+.expertise-pillar h3 {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 72, "SOFT" 30;
+  font-size: 1.375rem;
+  line-height: 1.25;
+  color: var(--primary, #1a1a4e);
+  margin: 0 0 0.875rem;
+  font-weight: 500;
+}
+.expertise-pillar p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: rgba(26, 26, 78, 0.75);
+  margin: 0;
+}
+.expertise-footnote {
+  text-align: center;
+  max-width: 48ch;
+  margin: 3rem auto 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-variation-settings: "opsz" 36, "SOFT" 60;
+  font-size: 1.125rem;
+  color: rgba(26, 26, 78, 0.7);
+}
+@media (max-width: 820px) {
+  .expertise-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .expertise-pillar { padding: 1.75rem 1.5rem; }
+}
+
+/* -------- Testimonial avatar circles (initials) -------- */
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-top: 1.25rem;
+}
+.testimonial-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%, #fff4d0 0%, #e8d5b7 30%, #c5a880 65%, #9c8560 100%);
+  color: #1a1a4e;
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 36, "SOFT" 40;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow:
+    0 3px 8px -2px rgba(26, 26, 78, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(197, 168, 128, 0.8);
+  flex-shrink: 0;
+}
+.testimonial-name {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 78, 0.65);
+}
+
+/* -------- Donate: center everything, balanced spacing -------- */
+#donate .container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+#donate .donate-content {
+  text-align: center;
+}
+#donate .donate-content .section-label {
+  display: block;
+  margin-bottom: 1rem;
+}
+#donate .donate-content h2 {
+  margin: 0 auto 1rem;
+  max-width: 680px;
+}
+#donate .donate-content p {
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
+#donate .donate-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+#donate .donate-tax-note {
+  font-size: 0.8125rem;
+  opacity: 0.75;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* -------- FAQ: centered 2-col, 4 visible (2x2), rest under toggle -------- */
+#faq .container {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+#faq .section-label,
+#faq h2,
+#faq .faq-toggle {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#faq h2 {
+  margin-bottom: 2rem;
+}
+#faq .faq-toggle {
+  margin-top: 2rem;
+}
+/* Promote the first hidden item to visible so desktop shows a clean 2x2 */
+#faq-list .faq-item--extra:nth-of-type(4) {
+  display: block;
+}
+#faq-list.faq-list--expanded .faq-item--extra:nth-of-type(4) {
+  display: block;
+}
+@media (min-width: 900px) {
+  #faq .faq-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2rem;
+    align-items: start;
+    text-align: left;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  #faq .faq-item {
+    margin: 0;
+  }
+  /* On desktop, hide extras beyond the 4th until expanded */
+  #faq-list .faq-item--extra:nth-of-type(n+5) {
+    display: none;
+  }
+  #faq-list.faq-list--expanded .faq-item--extra:nth-of-type(n+5) {
+    display: block;
+  }
+}
+
+/* Tool library spine icons removed — cheesy against Fraunces + patina */
+
+/* ===========================================
+   Round 3: Reorder palette flips + rhythm
+   =========================================== */
+
+/* Testimonials → navy (flip from cream) */
+#testimonials.testimonials-section {
+  background: var(--primary, #1a1a4e) !important;
+  color: var(--primary-foreground, #f5f1e8) !important;
+}
+#testimonials .section-label,
+#testimonials h2,
+#testimonials .testimonials-context {
+  color: var(--primary-foreground, #f5f1e8) !important;
+}
+#testimonials .testimonial-card {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.12);
+}
+#testimonials .testimonial-card blockquote p,
+#testimonials .testimonial-name {
+  color: var(--primary-foreground, #f5f1e8) !important;
+}
+#testimonials .testimonial-avatar {
+  background: rgba(255,255,255,0.1);
+  color: var(--primary-foreground, #f5f1e8) !important;
+}
+
+/* Proof → cream (flip from navy) */
+.proof-section {
+  background: var(--background, #f5f1e8) !important;
+  color: var(--foreground, #1a1a4e) !important;
+}
+.proof-section .section-label,
+.proof-section h2,
+.proof-section .proof-intro-line,
+.proof-section .proof-footnote {
+  color: var(--foreground, #1a1a4e) !important;
+}
+.proof-section .proof-card {
+  background: rgba(26,26,78,0.04);
+  border-color: rgba(26,26,78,0.12);
+}
+.proof-section .proof-card-default,
+.proof-section .proof-card-equity {
+  color: var(--foreground, #1a1a4e) !important;
+}
+.proof-section .proof-card p,
+.proof-section .proof-search,
+.proof-section .proof-stat,
+.proof-section .proof-chart-label,
+.proof-section .proof-chart-stat {
+  color: var(--foreground, #1a1a4e) !important;
+}
+.proof-section .proof-bar-track {
+  background: rgba(26,26,78,0.08);
+}
+
+/* Section rhythm: tighten padding on short sections */
+#credentials.credentials-bar { padding-top: 4rem; padding-bottom: 4rem; }
+#value-stack.value-stack { padding-top: 4rem; padding-bottom: 4rem; }
+.breath-invite { padding-top: 4rem; padding-bottom: 4rem; }
+#donate.donate-section { padding-top: 4rem; padding-bottom: 4rem; }
+
+/* Tools section sits right after credentials — normalize top padding */
+#tools.section-padding { padding-top: 5rem; }
+
+/* Kill horizontal scroll: book-detail popouts can extend past viewport */
+html { overflow-x: hidden; }
+
+/* ===========================================
+   Round 4: breath button + donate fixes
+   =========================================== */
+
+/* --- Breath button: prettier pill, soft gold glow --- */
+.breath-invite-btn {
+  padding: 1rem 2.25rem !important;
+  border-radius: 999px !important;
+  background: linear-gradient(180deg, rgba(232,213,183,0.08), rgba(197,168,128,0.04)) !important;
+  border: 1px solid rgba(232,213,183,0.35) !important;
+  color: #f9f8f5 !important;
+  box-shadow:
+    0 0 0 1px rgba(232,213,183,0.05),
+    0 8px 24px -12px rgba(232,213,183,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.06) !important;
+  backdrop-filter: blur(2px);
+}
+.breath-invite-btn:hover {
+  background: linear-gradient(180deg, rgba(232,213,183,0.2), rgba(197,168,128,0.1)) !important;
+  border-color: rgba(232,213,183,0.7) !important;
+  box-shadow:
+    0 0 0 1px rgba(232,213,183,0.1),
+    0 12px 32px -10px rgba(232,213,183,0.45),
+    0 0 60px rgba(197,168,128,0.18) !important;
+  transform: translateY(-1px);
+}
+
+/* --- Breath note: pull out of absolute positioning so it never overlaps --- */
+.breath-invite-note {
+  position: static !important;
+  left: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  white-space: normal !important;
+  margin: 2rem auto 0 !important;
+  max-width: 40ch;
+  font-size: 0.75rem !important;
+  color: rgba(249, 248, 245, 0.45) !important;
+  text-align: center;
+}
+
+/* --- Donate: widen paragraph + tax note so they don't awkward-wrap --- */
+#donate .donate-content p {
+  max-width: none !important;
+}
+#donate .donate-content {
+  max-width: none !important;
+}
+#donate .container {
+  max-width: 900px !important;
+}
+#donate .donate-tax-note {
+  max-width: none !important;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  #donate .donate-tax-note {
+    white-space: normal;
+  }
+  #donate .donate-content p {
+    max-width: 90vw !important;
+  }
+}
+
+/* Mobile tuning */
+@media (max-width: 640px) {
+  .breath-invite-btn {
+    padding: 0.875rem 1.75rem !important;
+    font-size: 0.75rem !important;
+  }
+  .breath-invite-note {
+    font-size: 0.6875rem !important;
+    padding: 0 1rem;
+    margin-top: 1.5rem !important;
+  }
+  #donate .donate-content p,
+  #donate .donate-tax-note {
+    max-width: 90vw !important;
+    padding: 0 0.5rem;
+  }
+}
+
+/* ===========================================
+   Round 4b: Expandable "From chatting with AI"
+   When expanded, span full row with 2-col content
+   =========================================== */
+.resources-grid .resource-card-expandable[data-expanded="true"] {
+  grid-column: 1 / -1;
+  background: linear-gradient(180deg, rgba(26,26,78,0.03), rgba(197,168,128,0.04));
+  border-color: rgba(197,168,128,0.35);
+  box-shadow: 0 20px 60px -30px rgba(26,26,78,0.25);
+}
+.resources-grid .resource-card-expandable[data-expanded="true"] .resource-card-details {
+  max-height: none;
+  column-count: 2;
+  column-gap: 2.5rem;
+  column-rule: 1px solid rgba(26,26,78,0.08);
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(26,26,78,0.08);
+}
+.resources-grid .resource-card-expandable[data-expanded="true"] .resource-card-details > * {
+  break-inside: avoid;
+}
+.resources-grid .resource-card-expandable[data-expanded="true"] .resource-card-details p:first-of-type,
+.resources-grid .resource-card-expandable[data-expanded="true"] .resource-card-details > p[style*="font-weight: 600"]:first-of-type {
+  margin-top: 0;
+}
+/* Make the expandable card's top content (title + short blurb) full-width above the columns */
+.resources-grid .resource-card-expandable[data-expanded="true"] > h3.resource-card-toggle,
+.resources-grid .resource-card-expandable[data-expanded="true"] > p {
+  column-span: all;
+}
+
+@media (max-width: 900px) {
+  .resources-grid .resource-card-expandable[data-expanded="true"] .resource-card-details {
+    column-count: 1;
+    column-gap: 0;
+  }
 }

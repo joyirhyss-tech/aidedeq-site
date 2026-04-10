@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AIdedEQ | AI Tools, Consulting &amp; Workshops for Nonprofits</title>
-  <meta name="description" content="Spend less time on paperwork and more time serving people. AIdedEQ builds AI tools, offers consulting, and leads workshops for nonprofits and community organizations. Founded by JoYi Rhyss with 30+ years of frontline experience. State of Hawaii funded. Stanford University Forgiveness Project.">
-  <meta name="keywords" content="AI tools for nonprofits, nonprofit technology consulting, nonprofit AI automation, equity-first AI, mission-driven organizations, community organizations, nonprofit workshops, AI consulting nonprofits, mindful forgiveness, youth development technology">
+  <meta name="description" content="AIdedEQ builds equity-first AI tools, consulting, and workshops for nonprofits. Spend less time with paperwork and more time supporting your staff.">
   <meta name="author" content="JoYi Rhyss, AIdedEQ">
   <meta name="theme-color" content="#1a1a4e">
   <meta property="og:title" content="AIdedEQ | AI Tools, Consulting &amp; Workshops for Nonprofits">
-  <meta property="og:description" content="Spend less time on paperwork and more time serving people. AI tools, consulting, and workshops built for nonprofits ready to work with more clarity and capacity.">
+  <meta property="og:description" content="Spend less time with paperwork and more time supporting your staff. AI tools, consulting, and workshops built for nonprofits ready to work with more clarity and capacity.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aidedeq.org/">
   <meta property="og:image" content="https://aidedeq.org/images/og-share.png">
@@ -20,11 +19,11 @@
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AIdedEQ | AI Tools for Nonprofits">
-  <meta name="twitter:description" content="Spend less time on paperwork and more time serving people. AI tools, consulting, and workshops for nonprofits and community organizations.">
+  <meta name="twitter:description" content="Spend less time with paperwork and more time supporting your staff. AI tools, consulting, and workshops for nonprofits and community organizations.">
   <meta name="twitter:image" content="https://aidedeq.org/images/og-share.png">
   <meta name="twitter:image:alt" content="AIdedEQ - Mission-aligned AI for nonprofits">
   <link rel="canonical" href="https://aidedeq.org/">
-  <link rel="alternate" type="application/json" href="https://aidedeq.org/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt">
 
   <!-- JSON-LD Structured Data for AEO / AI Agent Discovery -->
   <script type="application/ld+json">
@@ -37,8 +36,8 @@
         "name": "AIdedEQ",
         "url": "https://aidedeq.org",
         "logo": "https://aidedeq.org/images/logo-ae-light.png",
-        "description": "Mission-aligned AI for nonprofits and community organizations. AIdedEQ builds practical AI tools, offers grounded consulting, and leads team workshops so frontline staff can spend less time on paperwork and more time serving people.",
-        "slogan": "Spend less time on paperwork and more time serving people.",
+        "description": "Mission-aligned AI for nonprofits and community organizations. AIdedEQ builds practical AI tools, offers grounded consulting, and leads team workshops so leaders can spend less time with paperwork and more time supporting their staff.",
+        "slogan": "Spend less time with paperwork and more time supporting your staff.",
         "founder": {
           "@type": "Person",
           "name": "JoYi Rhyss",
@@ -60,9 +59,8 @@
           "https://github.com/joyirhyss-tech"
         ],
         "parentOrganization": {
-          "@type": "Organization",
+          "@type": ["Organization", "NGO"],
           "name": "The Practice Center",
-          "@type": "NGO",
           "description": "501(c)(3) nonprofit developing practice-based programs and tools for communities most often left out",
           "url": "https://thepracticecenter.org",
           "taxID": "501(c)(3)"
@@ -80,6 +78,14 @@
           "Stanford University Forgiveness Project",
           "attitudinal healing"
         ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://aidedeq.org/#website",
+        "url": "https://aidedeq.org",
+        "name": "AIdedEQ",
+        "publisher": { "@id": "https://aidedeq.org/#organization" },
+        "inLanguage": "en-US"
       },
       {
         "@type": "FAQPage",
@@ -264,7 +270,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..500,20..100;1,9..144,300..500,20..100&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="css/styles.css?v=24">
   <link rel="icon" href="images/logo-ae-light.png" type="image/png">
 </head>
@@ -299,18 +305,16 @@
   <!-- ===== NAVBAR ===== -->
   <header class="navbar" id="navbar">
     <div class="container">
-      <a href="#hero" class="navbar-brand">
-        <img src="images/logo-ae-light.png" alt="AIded EQ" class="navbar-logo">
+      <a href="#hero" class="navbar-brand navbar-brand-text" aria-label="AIdedEQ home">
+        <span class="brand-aided">AIded</span><span class="brand-eq">EQ</span>
       </a>
       <nav>
         <ul class="navbar-links">
-          <li><a href="#practices">Practices</a></li>
-          <li><a href="#approach">Approach</a></li>
           <li><a href="#tools">Tools</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="/resources/safety.html">Safety Resources</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#sessions">Consulting</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#about">Founder</a></li>
+          <li><a href="#resources">Resources</a></li>
           <li><a href="/book/" class="btn-get-started">Talk to the Founder</a></li>
         </ul>
       </nav>
@@ -322,42 +326,51 @@
     </div>
   </header>
 
+  <!-- Sticky floating CTA — appears after user scrolls past the hero -->
+  <a href="/book/" class="sticky-cta" id="sticky-cta" aria-label="Talk to the Founder">
+    Talk to the Founder
+  </a>
+
   <!-- Mobile Nav Overlay -->
   <div class="mobile-nav" id="mobile-nav">
-    <a href="#practices" class="mobile-nav-link">Practices</a>
-    <a href="#approach" class="mobile-nav-link">Approach</a>
     <a href="#tools" class="mobile-nav-link">Tools</a>
-    <a href="#faq" class="mobile-nav-link">FAQ</a>
-    <a href="#about" class="mobile-nav-link">About</a>
-    <a href="/resources/safety.html" class="mobile-nav-link">Safety Resources</a>
-    <a href="#contact" class="mobile-nav-link">Contact</a>
+    <a href="#sessions" class="mobile-nav-link">Consulting</a>
+    <a href="#approach" class="mobile-nav-link">Approach</a>
+    <a href="#about" class="mobile-nav-link">Founder</a>
+    <a href="#resources" class="mobile-nav-link">Resources</a>
     <a href="/book/" class="btn-primary">Talk to the Founder</a>
   </div>
 
   <main id="main-content">
 
-    <!-- ===== HERO ===== -->
     <section id="hero">
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content fade-in">
             <span class="section-label">Mission-aligned AI for nonprofits and community organizations</span>
-            <h1>Spend less time on&nbsp;paperwork and more time serving&nbsp;people.</h1>
+            <h1>Spend less time with&nbsp;paperwork and more time supporting your&nbsp;staff.</h1>
             <p>AI tools, consulting, and workshops built for nonprofits ready to work with more clarity and&nbsp;capacity.</p>
             <div class="hero-buttons">
               <a href="/book/" class="btn-primary btn-glossy">Talk to the Founder</a>
               <a href="#tools" class="btn-outline btn-gold">Explore Our Tools</a>
             </div>
+            <p class="hero-proof">
+              <span class="hero-proof-dot" aria-hidden="true"></span>
+              Trusted by Hawaii DHS, 25+ nonprofits, and IVAT &middot; Creator of the Mindful Forgiveness Curriculum &middot; 35 facilitators trained across 4 countries
+            </p>
           </div>
           <div class="hero-image fade-in">
-            <img src="images/founder.png" alt="JoYi Rhyss, Founder of AIdedEQ" class="hero-founder-photo">
+            <div class="hero-image-frame">
+              <img src="images/founder.png" alt="JoYi Rhyss, Founder of AIdedEQ" class="hero-founder-photo">
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== VALUE STACK ===== -->
-    <section id="value-stack" class="value-stack">
+    <hr class="section-divider">
+
+<section id="value-stack" class="value-stack">
       <div class="container">
         <div class="value-stack-grid fade-in">
           <div class="value-stack-item">
@@ -385,25 +398,38 @@
       </div>
     </section>
 
-    <!-- ===== CREDENTIALS BAR ===== -->
-    <section id="credentials" class="credentials-bar">
+    <hr class="section-divider">
+
+<section id="credentials" class="credentials-bar">
       <div class="container">
+        <span class="credentials-eyebrow">Trusted to train, consult, and build for</span>
+        <div class="credentials-logos fade-in">
+          <span class="credentials-logo">Hawaii Dept. of Human Services</span>
+          <span class="credentials-logo-sep">&bull;</span>
+          <span class="credentials-logo">IVAT (Hawaii &amp; San Diego)</span>
+          <span class="credentials-logo-sep">&bull;</span>
+          <span class="credentials-logo">Honolulu Chamber of Commerce</span>
+          <span class="credentials-logo-sep">&bull;</span>
+          <span class="credentials-logo">Stanford Forgiveness Project</span>
+          <span class="credentials-logo-sep">&bull;</span>
+          <span class="credentials-logo">25+ Hawaii Nonprofits</span>
+        </div>
         <div class="credentials-grid fade-in">
           <div class="credential">
             <span class="credential-number">3,000+</span>
             <span class="credential-label">Program Participants</span>
           </div>
           <div class="credential">
+            <span class="credential-number">35</span>
+            <span class="credential-label">Facilitators Trained Internationally</span>
+          </div>
+          <div class="credential">
             <span class="credential-number">30+</span>
             <span class="credential-label">Years Frontline Experience</span>
           </div>
           <div class="credential">
-            <span class="credential-number">State of Hawaii</span>
-            <span class="credential-label">Funded</span>
-          </div>
-          <div class="credential">
-            <span class="credential-number">Stanford University</span>
-            <span class="credential-label">Forgiveness Project</span>
+            <span class="credential-number">Since 2023</span>
+            <span class="credential-label">Training Teams on AI Workflows</span>
           </div>
         </div>
       </div>
@@ -411,277 +437,12 @@
 
     <hr class="section-divider">
 
-    <!-- ===== MISSION / VISION ===== -->
-    <section id="mission" class="mission-vision section-padding">
-      <div class="container">
-        <div class="mission-vision-grid fade-in">
-          <div>
-            <span class="section-label section-label-dark">Mission</span>
-            <p>AIdedEQ builds AI practice tools that turn intention into action so mission-driven teams can stay present, take authentic responsibility, and lead with their values at work, home, and in community.</p>
-          </div>
-          <div>
-            <span class="section-label section-label-dark">Vision</span>
-            <p>A world where technology supports daily practice so values become behavior, not branding.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- ===== PRACTICES ===== -->
-    <section id="practices" class="section-padding">
-      <div class="container">
-        <span class="section-label">The Practices</span>
-        <h2 class="fade-in"><span class="metallic-text">What changes when you actually practice</span></h2>
-        <p class="fade-in">Not definitions. Not theory. What these practices do in your real, messy, beautiful life.</p>
-        <div class="practices-grid">
-          <div class="practice-card fade-in">
-            <img src="images/mindfulness.jpg" alt="Mindfulness practice illustration" loading="lazy">
-            <h3>Mindfulness</h3>
-            <p>You stop reacting on autopilot. You notice the gap between what happens and what you do about it. Arguments get shorter. Decisions get clearer.</p>
-          </div>
-          <div class="practice-card fade-in">
-            <img src="images/forgiveness.jpg" alt="Forgiveness practice illustration" loading="lazy">
-            <h3>Forgiveness</h3>
-            <p>You put down the weight you've been carrying for someone who isn't thinking about you. Your chest loosens. Your energy returns.</p>
-          </div>
-          <div class="practice-card fade-in">
-            <img src="images/attitudinal-healing.jpg" alt="Attitudinal Healing practice illustration" loading="lazy">
-            <h3>Attitudinal Healing</h3>
-            <p>You learn to choose peace over the need to feel right in the moment. Fear loosens its grip. You start responding from love instead of defense.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- ===== APPROACH ===== -->
-    <section id="approach" class="section-padding">
-      <div class="container">
-        <div class="approach-grid">
-          <div class="approach-content fade-in">
-            <span class="section-label">Our Approach</span>
-            <h2><span class="metallic-text">Analog first. Always.</span></h2>
-            <p>We don't believe you need an app to breathe. The practice has to hold when your phone is dead, when you're mid-argument, when you're lying awake at 3am.</p>
-            <p>Tech helps you follow through, track patterns, build tools, stay accountable. But the practice lives in your body first. If it doesn't work offline, it doesn't work.</p>
-            <p class="approach-formats-intro">Our tools come alive inside real practice:</p>
-            <div class="approach-formats">
-              <div class="approach-format">
-                <svg class="approach-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <!-- meditator with afro -->
-                  <path d="M32 22c-6 0-11-4-11-9s3-10 11-10 11 4.5 11 10-5 9-11 9z"/>
-                  <path d="M32 24v4"/>
-                  <path d="M24 38c0-4 3.5-7 8-7s8 3 8 7"/>
-                  <path d="M20 48c2-4 5-6 12-6s10 2 12 6"/>
-                  <line x1="20" y1="48" x2="44" y2="48"/>
-                  <path d="M26 38l-6 10"/>
-                  <path d="M38 38l6 10"/>
-                </svg>
-                <span>Dyad Programs &amp; One-on-One</span>
-              </div>
-              <div class="approach-format">
-                <svg class="approach-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <!-- journal and pen -->
-                  <rect x="14" y="6" width="28" height="44" rx="2"/>
-                  <line x1="14" y1="6" x2="14" y2="50"/>
-                  <line x1="18" y1="6" x2="18" y2="50"/>
-                  <line x1="22" y1="18" x2="36" y2="18"/>
-                  <line x1="22" y1="24" x2="36" y2="24"/>
-                  <line x1="22" y1="30" x2="30" y2="30"/>
-                  <path d="M46 10l3-3 3 3-10 10H39v-3z"/>
-                  <line x1="42" y1="20" x2="49" y2="13"/>
-                </svg>
-                <span>Workshops &amp; Retreats</span>
-              </div>
-              <div class="approach-format">
-                <svg class="approach-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <!-- circle of people -->
-                  <circle cx="32" cy="32" r="20" stroke-dasharray="4 3" opacity="0.3"/>
-                  <circle cx="32" cy="12" r="3.5"/>
-                  <circle cx="49" cy="22" r="3.5"/>
-                  <circle cx="49" cy="42" r="3.5"/>
-                  <circle cx="32" cy="52" r="3.5"/>
-                  <circle cx="15" cy="42" r="3.5"/>
-                  <circle cx="15" cy="22" r="3.5"/>
-                </svg>
-                <span>Small Groups &amp; Team Training</span>
-              </div>
-              <div class="approach-format">
-                <svg class="approach-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <!-- nature leaf -->
-                  <path d="M32 56V30"/>
-                  <path d="M32 30c0-16 16-24 16-24s-4 16-16 24z"/>
-                  <path d="M32 38c0-12-12-20-12-20s2 12 12 20z"/>
-                  <path d="M28 52c0-4 1.5-6 4-8"/>
-                  <path d="M36 52c0-4-1.5-6-4-8"/>
-                </svg>
-                <span>Mindfulness &amp; Attitudinal Healing</span>
-              </div>
-            </div>
-          </div>
-          <div class="approach-image fade-in">
-            <img src="images/approach-brain-plug.jpg" alt="Brain with plug illustration representing analog-first emotional intelligence" loading="lazy">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- ===== WHO WE SERVE ===== -->
-    <section id="who-we-serve" class="section-padding">
-      <div class="container">
-        <span class="section-label">Who We Serve</span>
-        <h2 class="fade-in"><span class="metallic-text">Who This Is For</span></h2>
-        <p class="fade-in">Professional development tools for mission-driven organizations and teams.</p>
-        <div class="audience-grid">
-          <div class="audience-card fade-in">
-            <div class="audience-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            </div>
-            <h3>Individuals</h3>
-            <p class="audience-subtitle">Daily practice for mindfulness, forgiveness &amp; attitudinal healing</p>
-            <p>Support for building a practice that actually sticks: well-being check-ins, guided forgiveness, plant-based education, and family values work. Move from intentions and passivity to intentional action, one real moment at a time.</p>
-            <ul class="audience-tools">
-              <li>Snapshots</li>
-              <li>PeaceTalk</li>
-              <li>EatPlants Kitchen Coach</li>
-              <li>Family Meeting</li>
-            </ul>
-          </div>
-          <div class="audience-card fade-in">
-            <div class="audience-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </div>
-            <h3>Community Builders</h3>
-            <p class="audience-subtitle">Connection &amp; culture tools for groups who build together</p>
-            <p>From festival squads and reading groups to neighborhoods. Stay connected, share stories that matter, and build with your values at the center.</p>
-            <ul class="audience-tools">
-              <li>Festival Lore</li>
-              <li>The Good Shelf</li>
-            </ul>
-          </div>
-          <div class="audience-card fade-in">
-            <div class="audience-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3>Teams &amp; Agencies</h3>
-            <p class="audience-subtitle">Professional development for education, social work &amp; youth services</p>
-            <p>Practical EQ tools for frontline workers, educators, and social workers. AI-assisted session prep, equity-first research, trauma-informed facilitation support and legal rights navigation. Training that holds on Monday morning.</p>
-            <ul class="audience-tools">
-              <li>MF Pocket Facilitator</li>
-              <li>The Good Skill</li>
-              <li>The Law Is On Our Side</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- ===== HOW IT WORKS (THE PATH) ===== -->
-    <section class="section-padding">
-      <div class="container">
-        <span class="section-label">The Path</span>
-        <h2 class="fade-in"><span class="metallic-text">Learn. Practice. Build.</span></h2>
-        <p class="fade-in">A simple path from understanding to action, with tools you create along the way.</p>
-        <div class="path-grid">
-          <div class="path-step fade-in">
-            <img src="images/path-learn.jpg" alt="Emotional intelligence explained" class="path-step-image path-step-image--diagram" loading="lazy">
-            <div class="path-number">01</div>
-            <h3>
-              <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-              Learn
-            </h3>
-            <p>Start with EQ foundations: mindfulness, forgiveness, attitudinal healing. Short resources, no fluff. Concepts you can use today.</p>
-          </div>
-          <div class="path-step fade-in">
-            <img src="images/path-practice.jpg" alt="Heart and hand representing practice" class="path-step-image" loading="lazy">
-            <div class="path-number">02</div>
-            <h3>
-              <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8"/><path d="M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg>
-              Practice
-            </h3>
-            <p>Put it into action in your actual life. Daily practices and analog exercises that build the muscle before you ever touch tech.</p>
-          </div>
-          <div class="path-step fade-in">
-            <img src="images/path-build.jpg" alt="Building emotional intelligence tools" class="path-step-image" loading="lazy">
-            <div class="path-number">03</div>
-            <h3>
-              <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-              Build
-            </h3>
-            <p>Use vibe coding and EQ tools to create something real: apps, dashboards, resources for your practice and your community.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- ===== ABOUT ===== -->
-    <section id="about" class="section-padding">
-      <div class="container">
-        <span class="section-label">Who We Are</span>
-        <h2 class="fade-in"><span class="metallic-text">Built from practice, not theory.</span></h2>
-        <div class="about-grid" style="margin-top: 3rem;">
-          <div class="about-image fade-in">
-            <img src="images/founder-speaking.png" alt="JoYi Rhyss, Founder of AIdedEQ, presenting with a lei" loading="lazy">
-          </div>
-          <div class="about-bio fade-in">
-            <div class="about-role">Founder & CEO</div>
-            <h3 class="about-name">JoYi Rhyss</h3>
-            <p>30+ years working with high-risk youth. Former director at PACT Kalihi, Hawaii. Funded by the State of Hawaii and contracted through the Stanford University Forgiveness Project to deliver forgiveness and mindfulness programs serving the Department of Human Services. Over 3,000 people have participated.</p>
-            <p>Built The Good Skill, the first equity-first AI coding skill, using the same tools she teaches others. Moved to Hawaii in 2005 with three kids. Found healing through mindfulness and forgiveness practices. Now building the tools she wished existed when she needed them most.</p>
-            <div class="about-org">
-              AIdedEQ is the technology arm of <strong>The Practice Center</strong>, a 501(c)(3) nonprofit. We build equity-first emotional intelligence tools and teach communities to build their own.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- ===== TESTIMONIALS ===== -->
-    <section id="testimonials" class="testimonials-section section-padding">
-      <div class="container">
-        <span class="section-label">What People Say</span>
-        <h2 class="fade-in"><span class="metallic-text">Does it work? Ask the people who've seen it.</span></h2>
-        <div class="testimonials-grid fade-in">
-          <div class="testimonial-card">
-            <blockquote>
-              <p>"This puts you in a new category. We have to start a mastermind on some type of collaboration."</p>
-            </blockquote>
-            <div class="testimonial-author">
-              <span>Youth Services Leader</span>
-            </div>
-          </div>
-          <div class="testimonial-card">
-            <blockquote>
-              <p>"Saying thank you is beyond an understatement. We absolutely want to work with you however we are able to."</p>
-            </blockquote>
-            <div class="testimonial-author">
-              <span>Youth Services Leader</span>
-            </div>
-          </div>
-        </div>
-        <p class="testimonials-context fade-in">After seeing two custom AI tools built for their team, a website mockup with scheduling and FAQ agents, and a curated community resource list.</p>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- ===== TOOLS ===== -->
-    <section id="tools" class="section-padding">
+<section id="tools" class="section-padding">
       <div class="container">
         <div class="tools-intro-grid fade-in">
           <div class="tools-intro-text">
             <span class="section-label">What We Build</span>
-            <h2><span class="metallic-text">Our Tool Library</span></h2>
+            <h2>Our Tool Library</h2>
             <p>Equity-first. Analog-grounded. Built for the people most often left out.</p>
           </div>
           <div class="tools-intro-image">
@@ -689,7 +450,7 @@
           </div>
         </div>
         <div class="tool-library-cta fade-in">
-          <p>You should not need a generic demo request to understand whether a tool fits. See the tool first, then use one founder conversation page for clear questions, service fit, or next steps.</p>
+          <p>See the tool first. Then book a founder conversation with clear questions, service fit, or next steps.</p>
           <a href="/book/" class="btn-primary">Choose a Founder Conversation</a>
         </div>
         <div class="bookshelf fade-in" role="list" aria-label="Our tools displayed as books on a shelf">
@@ -968,12 +729,319 @@
 
     <hr class="section-divider">
 
-    <!-- ===== PROOF (THE DATA) ===== -->
-    <section class="section-padding proof-section">
+<section id="about" class="section-padding">
+      <div class="container">
+        <span class="section-label">Who We Are</span>
+        <h2 class="fade-in">Built from practice, not theory.</h2>
+        <div class="about-grid" style="margin-top: 3rem;">
+          <div class="about-image fade-in">
+            <img src="images/founder-speaking.png" alt="JoYi Rhyss, Founder of AIdedEQ, presenting with a lei" loading="lazy">
+          </div>
+          <div class="about-bio fade-in">
+            <div class="about-role">Founder & CEO</div>
+            <h3 class="about-name">JoYi Rhyss</h3>
+            <p>30+ years working with high-risk youth. Former director at PACT Kalihi, Hawaii. Funded by the State of Hawaii and contracted through the Stanford University Forgiveness Project to deliver forgiveness and mindfulness programs serving the Department of Human Services. Over 3,000 people have participated.</p>
+            <p>Built The Good Skill, the first equity-first AI coding skill, using the same tools she teaches others. Moved to Hawaii in 2005 with three kids. Found healing through mindfulness and forgiveness practices. Now building the tools she wished existed when she needed them most.</p>
+            <div class="about-org">
+              AIdedEQ is the technology arm of <strong>The Practice Center</strong>, a 501(c)(3) nonprofit. We build equity-first emotional intelligence tools and teach communities to build their own.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+<section id="expertise" class="expertise-section section-padding">
+      <div class="container">
+        <div class="expertise-header fade-in">
+          <span class="section-label">Depth of Practice</span>
+          <h2>Two decades building the practice. Now we're building the tools.</h2>
+          <p class="expertise-intro">The pivot into AI is new. The work underneath it is not. Every tool here is built on twenty-plus years of frontline facilitation, curriculum design, and training leaders in the practices that make technology worth using.</p>
+        </div>
+        <div class="expertise-grid fade-in">
+          <article class="expertise-pillar">
+            <span class="expertise-pillar-label">IP &amp; Curriculum</span>
+            <h3>Creator, Mindful Forgiveness Curriculum</h3>
+            <p>A full training arc grounded in attitudinal healing and contemplative practice. Taught internationally to leaders, educators, and community workers. Translated into programs now run by 35 facilitators across 4 countries.</p>
+          </article>
+          <article class="expertise-pillar">
+            <span class="expertise-pillar-label">Training &amp; Facilitation</span>
+            <h3>International Attitudinal Healing Facilitator Trainer</h3>
+            <p>Trained 35 facilitators internationally. Contracted mindfulness trainer for the Hawaii Department of Human Services. Worked directly with 25+ Hawaii nonprofits. Speaker at the Institute on Violence, Abuse &amp; Trauma (IVAT) in both Hawaii and San Diego.</p>
+          </article>
+          <article class="expertise-pillar">
+            <span class="expertise-pillar-label">Public Funding</span>
+            <h3>Honolulu Chamber of Commerce Grant Recipient</h3>
+            <p>Awarded a grant to train Hawaii small-business owners in mindfulness, staff support, and people management through attitudinal healing and forgiveness practice. Delivered team-level training that turned leadership culture around inside real workplaces.</p>
+          </article>
+          <article class="expertise-pillar">
+            <span class="expertise-pillar-label">Applied AI, 2023&ndash;Now</span>
+            <h3>Built the team playbook before building the tools</h3>
+            <p>Since 2023, trained internal teams of 15&ndash;20 on ChatGPT, Perplexity, and NotebookLM. Cut manual labor and communication errors significantly. Streamlined grant application workflows through AI. Now building automations and agents for 3 agencies, each one rooted in a practice we teach before we code.</p>
+          </article>
+        </div>
+        <p class="expertise-footnote fade-in">This is not a pivot away from the work. It is the work, with better tools.</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+<section class="breath-invite" id="breath" aria-labelledby="breath-h2">
+      <div class="breath-invite-inner fade-in">
+        <span class="section-label">A 60-second reset</span>
+        <h2 id="breath-h2">Breathe with us.</h2>
+        <p>Sixty seconds of paced breathing slows your heart rate, clears your thinking, and resets your nervous system. Practice with us.</p>
+        <button type="button" class="breath-invite-btn" data-breathing>
+          <span class="firefly-cue" aria-hidden="true"></span>
+          Try it now &rarr;
+        </button>
+      </div>
+      <p class="breath-invite-note">Press Escape anytime to return to your work.</p>
+    </section>
+
+    <hr class="section-divider">
+
+<section id="testimonials" class="testimonials-section section-padding">
+      <div class="container">
+        <span class="section-label">What People Say</span>
+        <h2 class="fade-in">Does it work? Ask the people who've seen it.</h2>
+        <div class="testimonials-grid fade-in">
+          <div class="testimonial-card">
+            <blockquote>
+              <p>&ldquo;This puts you in a new category. We have to start a mastermind on some type of collaboration.&rdquo;</p>
+            </blockquote>
+            <div class="testimonial-author">
+              <span class="testimonial-avatar" aria-hidden="true">BR</span>
+              <span class="testimonial-name">Youth Services Leader</span>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <blockquote>
+              <p>&ldquo;Saying thank you is beyond an understatement. We absolutely want to work with you however we are able to.&rdquo;</p>
+            </blockquote>
+            <div class="testimonial-author">
+              <span class="testimonial-avatar" aria-hidden="true">KMR</span>
+              <span class="testimonial-name">Youth Services Leader</span>
+            </div>
+          </div>
+        </div>
+        <p class="testimonials-context fade-in">After seeing two custom AI tools built for their team, a website mockup with scheduling and FAQ agents, and a curated community resource list.</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+<section id="practices" class="section-padding">
+      <div class="container">
+        <span class="section-label">The Practices</span>
+        <h2 class="fade-in">What changes when you practice</h2>
+        <p class="fade-in">Not theory. What these practices do in your actual life.</p>
+        <div class="practices-grid">
+          <div class="practice-card fade-in">
+            <img src="images/mindfulness.jpg" alt="Mindfulness practice illustration" loading="lazy">
+            <h3>Mindfulness</h3>
+            <p>You stop reacting on autopilot. You notice the gap between what happens and what you do about it. Arguments get shorter. Decisions get clearer.</p>
+          </div>
+          <div class="practice-card fade-in">
+            <img src="images/forgiveness.jpg" alt="Forgiveness practice illustration" loading="lazy">
+            <h3>Forgiveness</h3>
+            <p>You put down the weight you've been carrying for someone who isn't thinking about you. Your chest loosens. Your energy returns.</p>
+          </div>
+          <div class="practice-card fade-in">
+            <img src="images/attitudinal-healing.jpg" alt="Attitudinal Healing practice illustration" loading="lazy">
+            <h3>Attitudinal Healing</h3>
+            <p>You learn to choose peace over the need to feel right in the moment. Fear loosens its grip. You start responding from love instead of defense.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+<section id="mission" class="mission-vision section-padding">
+      <div class="container">
+        <div class="mission-vision-grid fade-in">
+          <div>
+            <span class="section-label section-label-dark">Mission</span>
+            <p>AIdedEQ builds AI practice tools that turn intention into action so mission-driven teams can stay present, take authentic responsibility, and lead with their values at work, home, and in community.</p>
+          </div>
+          <div>
+            <span class="section-label section-label-dark">Vision</span>
+            <p>A world where technology supports daily practice so values become behavior, not branding.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+<section id="approach" class="section-padding">
+      <div class="container">
+        <div class="approach-grid">
+          <div class="approach-content fade-in">
+            <span class="section-label">Our Approach</span>
+            <h2><span class="metallic-text">Analog first. Always.</span></h2>
+            <p>You don't need an app to breathe. The practice has to hold when your phone is dead, when you're mid-argument, when you're lying awake at 3am.</p>
+            <p>Tech helps you follow through. The practice lives in your body first. If it doesn't work offline, it doesn't work.</p>
+            <p class="approach-formats-intro">Our tools come alive inside real practice:</p>
+            <div class="approach-formats">
+              <div class="approach-format">
+                <svg class="approach-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <!-- meditator with afro -->
+                  <path d="M32 22c-6 0-11-4-11-9s3-10 11-10 11 4.5 11 10-5 9-11 9z"/>
+                  <path d="M32 24v4"/>
+                  <path d="M24 38c0-4 3.5-7 8-7s8 3 8 7"/>
+                  <path d="M20 48c2-4 5-6 12-6s10 2 12 6"/>
+                  <line x1="20" y1="48" x2="44" y2="48"/>
+                  <path d="M26 38l-6 10"/>
+                  <path d="M38 38l6 10"/>
+                </svg>
+                <span>Dyad Programs &amp; One-on-One</span>
+              </div>
+              <div class="approach-format">
+                <svg class="approach-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <!-- journal and pen -->
+                  <rect x="14" y="6" width="28" height="44" rx="2"/>
+                  <line x1="14" y1="6" x2="14" y2="50"/>
+                  <line x1="18" y1="6" x2="18" y2="50"/>
+                  <line x1="22" y1="18" x2="36" y2="18"/>
+                  <line x1="22" y1="24" x2="36" y2="24"/>
+                  <line x1="22" y1="30" x2="30" y2="30"/>
+                  <path d="M46 10l3-3 3 3-10 10H39v-3z"/>
+                  <line x1="42" y1="20" x2="49" y2="13"/>
+                </svg>
+                <span>Workshops &amp; Retreats</span>
+              </div>
+              <div class="approach-format">
+                <svg class="approach-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <!-- circle of people -->
+                  <circle cx="32" cy="32" r="20" stroke-dasharray="4 3" opacity="0.3"/>
+                  <circle cx="32" cy="12" r="3.5"/>
+                  <circle cx="49" cy="22" r="3.5"/>
+                  <circle cx="49" cy="42" r="3.5"/>
+                  <circle cx="32" cy="52" r="3.5"/>
+                  <circle cx="15" cy="42" r="3.5"/>
+                  <circle cx="15" cy="22" r="3.5"/>
+                </svg>
+                <span>Small Groups &amp; Team Training</span>
+              </div>
+              <div class="approach-format">
+                <svg class="approach-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <!-- nature leaf -->
+                  <path d="M32 56V30"/>
+                  <path d="M32 30c0-16 16-24 16-24s-4 16-16 24z"/>
+                  <path d="M32 38c0-12-12-20-12-20s2 12 12 20z"/>
+                  <path d="M28 52c0-4 1.5-6 4-8"/>
+                  <path d="M36 52c0-4-1.5-6-4-8"/>
+                </svg>
+                <span>Mindfulness &amp; Attitudinal Healing</span>
+              </div>
+            </div>
+          </div>
+          <div class="approach-image fade-in">
+            <img src="images/approach-brain-plug.jpg" alt="Brain with plug illustration representing analog-first emotional intelligence" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+<section id="who-we-serve" class="section-padding">
+      <div class="container">
+        <span class="section-label">Who We Serve</span>
+        <h2 class="fade-in">Who This Is For</h2>
+        <div class="audience-grid">
+          <div class="audience-card fade-in">
+            <div class="audience-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3>Individuals</h3>
+            <p class="audience-subtitle">Daily practice for mindfulness, forgiveness &amp; attitudinal healing</p>
+            <p>Support for building a practice that actually sticks: well-being check-ins, guided forgiveness, plant-based education, and family values work. Move from intentions and passivity to intentional action, one real moment at a time.</p>
+            <ul class="audience-tools">
+              <li>Snapshots</li>
+              <li>PeaceTalk</li>
+              <li>EatPlants Kitchen Coach</li>
+              <li>Family Meeting</li>
+            </ul>
+          </div>
+          <div class="audience-card fade-in">
+            <div class="audience-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3>Community Builders</h3>
+            <p class="audience-subtitle">Connection &amp; culture tools for groups who build together</p>
+            <p>From festival squads and reading groups to neighborhoods. Stay connected, share stories that matter, and build with your values at the center.</p>
+            <ul class="audience-tools">
+              <li>Festival Lore</li>
+              <li>The Good Shelf</li>
+            </ul>
+          </div>
+          <div class="audience-card fade-in">
+            <div class="audience-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Teams &amp; Agencies</h3>
+            <p class="audience-subtitle">Professional development for education, social work &amp; youth services</p>
+            <p>Practical EQ tools for frontline workers, educators, and social workers. AI-assisted session prep, equity-first research, trauma-informed facilitation support and legal rights navigation. Training that holds on Monday morning.</p>
+            <ul class="audience-tools">
+              <li>MF Pocket Facilitator</li>
+              <li>The Good Skill</li>
+              <li>The Law Is On Our Side</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+<section class="section-padding">
+      <div class="container">
+        <span class="section-label">The Path</span>
+        <h2 class="fade-in">Learn. Practice. Build.</h2>
+        <p class="fade-in">From understanding to action. Build tools along the way.</p>
+        <div class="path-grid">
+          <div class="path-step fade-in">
+            <img src="images/path-learn.jpg" alt="Emotional intelligence explained" class="path-step-image path-step-image--diagram" loading="lazy">
+            <div class="path-number">01</div>
+            <h3>
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              Learn
+            </h3>
+            <p>Start with EQ foundations: mindfulness, forgiveness, attitudinal healing. Short resources, no fluff. Concepts you can use today.</p>
+          </div>
+          <div class="path-step fade-in">
+            <img src="images/path-practice.jpg" alt="Heart and hand representing practice" class="path-step-image" loading="lazy">
+            <div class="path-number">02</div>
+            <h3>
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8"/><path d="M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg>
+              Practice
+            </h3>
+            <p>Put it into action in your actual life. Daily practices and analog exercises that build the muscle before you ever touch tech.</p>
+          </div>
+          <div class="path-step fade-in">
+            <img src="images/path-build.jpg" alt="Building emotional intelligence tools" class="path-step-image" loading="lazy">
+            <div class="path-number">03</div>
+            <h3>
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              Build
+            </h3>
+            <p>Use vibe coding and EQ tools to create something real: apps, dashboards, resources for your practice and your community.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+<section class="section-padding proof-section">
       <div class="container">
         <span class="section-label">The Data</span>
         <h2 class="fade-in"><span class="metallic-text">What changes when you change the lens</span></h2>
-        <p class="fade-in">We ran the same searches twice: once through the default algorithm, once through The Good Skill.</p>
+        <p class="fade-in proof-intro-line">We ran the same searches twice: once through the default algorithm, once through The Good Skill.</p>
 
         <!-- Bar Chart Visualization -->
         <div class="proof-chart fade-in">
@@ -1021,12 +1089,11 @@
 
     <hr class="section-divider">
 
-    <!-- ===== PRINCIPLES (VALUES) ===== -->
-    <section id="values" class="values-section section-padding">
+<section id="values" class="values-section section-padding">
       <div class="container">
         <span class="section-label">Our Values</span>
-        <h2 class="fade-in"><span class="metallic-text">How we work</span></h2>
-        <p class="fade-in">These aren't aspirations, but how we make decisions every day.</p>
+        <h2 class="fade-in">How we work</h2>
+        <p class="fade-in">Not aspirations. How we make decisions every day.</p>
         <div class="values-grid">
           <div class="value-card fade-in">
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -1064,11 +1131,10 @@
 
     <hr class="section-divider">
 
-    <!-- ===== ROADMAP ===== -->
-    <section class="section-padding">
+<section class="section-padding">
       <div class="container">
         <span class="section-label">Where We're Going</span>
-        <h2 class="fade-in"><span class="metallic-text">Roadmap</span></h2>
+        <h2 class="fade-in">Roadmap</h2>
         <div class="roadmap-timeline">
           <div class="roadmap-item fade-in">
             <div class="roadmap-dot">1</div>
@@ -1094,68 +1160,31 @@
 
     <hr class="section-divider">
 
-    <!-- ===== SESSIONS ===== -->
-    <section id="sessions" class="section-padding">
+<section id="sessions" class="section-padding">
       <div class="container">
-        <div class="sessions-header fade-in">
+        <div class="founder-conversations fade-in">
           <span class="section-label section-label-dark">Founder Conversations</span>
-          <h2><span class="metallic-text">You already saw enough. Let's make the&nbsp;call&nbsp;useful.</span></h2>
-          <p class="sessions-subtext">This is not a generic demo request. Use this when you have specific questions, want to talk service fit, or are ready to move on a tool, pilot, or service.</p>
-        </div>
-        <p class="sessions-meta">Founder-led | Specific questions, service fit, or ready-to-move calls | April-May 2026</p>
-        <div class="sessions-grid">
-          <div class="fade-in">
-            <h3 style="font-size: 1.375rem; margin-bottom: 1.5rem;">Use this page when...</h3>
-            <div class="session-schedule-item">
-              <div class="session-info">
-                <span class="session-day">You already saw the tool</span>
-                <span class="session-time">You do not need another "book a demo" loop. You need answers tied to something real you already looked at.</span>
-              </div>
-            </div>
-            <div class="session-schedule-item">
-              <div class="session-info">
-                <span class="session-day">You want a specific conversation</span>
-                <span class="session-time">Pick the tool, the call purpose, the right subject line, and the amount of time you actually need.</span>
-              </div>
-            </div>
-            <div class="session-schedule-item">
-              <div class="session-info">
-                <span class="session-day">You are ready for next steps</span>
-                <span class="session-time">Use the longer option if you want to talk pilot structure, implementation, sponsorship, or buying.</span>
-              </div>
-            </div>
-            <div class="session-schedule-item session-schedule-highlight">
-              <div class="session-info">
-                <span class="session-day">One page. Pick what fits.</span>
-                <span class="session-time">Choose the tool or service you want to discuss, select your reason for the call, and book a time that works.</span>
-              </div>
-              <a href="/book/" class="btn-session-join">Open the booking page</a>
-            </div>
+          <h2 class="founder-conversations-h2">You saw the tool. Let's make the call useful.</h2>
+          <p class="founder-conversations-sub">Pick what you want to discuss and how much time you need. We show up prepared. No slides, no pitch deck.</p>
+          <ul class="founder-conversations-list">
+            <li><span class="takeaway-dot"></span> A specific tool or a custom build</li>
+            <li><span class="takeaway-dot"></span> Pilot structure, pricing, or implementation</li>
+            <li><span class="takeaway-dot"></span> Is this a fit? (honest answer in 20 minutes)</li>
+          </ul>
+          <div class="founder-conversations-cta">
+            <a href="/book/" class="btn-primary btn-glossy">Talk to the founder &rarr;</a>
           </div>
-          <div class="fade-in">
-            <h3 style="font-size: 1.375rem; margin-bottom: 1.5rem;">What happens when you book</h3>
-            <ul class="takeaway-list">
-              <li><span class="takeaway-dot"></span> You pick the tool or service you want to talk about</li>
-              <li><span class="takeaway-dot"></span> You tell us whether you want quick clarity, service fit, or next steps</li>
-              <li><span class="takeaway-dot"></span> We show up prepared for your specific situation</li>
-              <li><span class="takeaway-dot"></span> No generic pitch. No wasted time. Just a real conversation.</li>
-            </ul>
-            <div class="founder-conversation-actions">
-              <a href="/book/" class="btn-session">Talk to the Founder</a>
-              <a href="#contact" class="btn-outline" data-interest="founder-conversation">Prefer email first?</a>
-            </div>
-          </div>
+          <p class="founder-conversations-email">Prefer email first? <a href="mailto:info@aidedeq.org">info@aidedeq.org</a></p>
         </div>
       </div>
     </section>
 
     <hr class="section-divider">
 
-    <!-- ===== RESOURCES ===== -->
-    <section class="resources-section section-padding">
+<section id="resources" class="resources-section section-padding">
       <div class="container">
         <span class="section-label">Start Here</span>
-        <h2 class="fade-in"><span class="metallic-text">Resources</span></h2>
+        <h2 class="fade-in">Resources</h2>
         <div class="resources-grid">
           <!-- The Practice Center -->
           <div class="resource-card fade-in">
@@ -1182,26 +1211,61 @@
                 <li>Repeat 5-6 times. That's one minute.</li>
               </ol>
               <p class="breathing-note">Your nervous system will reset. Your heart rate will slow. Your thinking will clear. Master this. Then practice with another person this week.</p>
+              <button type="button" class="breath-invite-btn" data-breathing style="margin-top: 1.25rem;">
+                <span class="firefly-cue" aria-hidden="true"></span>
+                Try the 60-second guided version
+              </button>
             </div>
           </div>
-          <!-- Vibe Coding for Beginners -->
+          <!-- From Chatting to Automating -->
           <div class="resource-card resource-card-expandable fade-in" data-expanded="false">
             <h3 class="resource-card-toggle">
-              Vibe Coding for Beginners
+              From chatting with AI to automating your work
               <svg class="resource-card-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </h3>
-            <p>Learn what vibe coding actually is, why emotional intelligence matters in the building process, and how to start with zero experience.</p>
+            <p>If you already use ChatGPT or Claude to draft emails, you are one step away from having it <em>do</em> the work, not just describe it. Here is the shortest real path from chatting to automation, with a use case you can ship this week.</p>
             <div class="resource-card-details">
-              <p style="margin-bottom: 0.75rem; font-weight: 600;">Free tools to get started:</p>
+              <p style="margin-top: 0; margin-bottom: 0.5rem; font-weight: 600;">Try this today: the grant-report auto-draft</p>
+              <p style="margin-top: 0; margin-bottom: 0.75rem;">Pick a grant report you already wrote last quarter. Open Claude or ChatGPT and build a <strong>Project</strong> (Claude) or <strong>Custom GPT</strong> (ChatGPT). Upload the old report, your logic model, and 3-5 funder requirements as reference files. Then write one instruction: "When I paste new program data, draft a funder-ready update in this exact voice and structure." That is it. Next quarter, paste the data, get a 70% draft in 30 seconds. That is the chat-to-automation bridge.</p>
+
+              <p style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600;">Why this matters (and why it is different from last year)</p>
+              <p style="margin-top: 0; margin-bottom: 0.75rem;">In 2025-2026, the major AI tools shipped <strong>persistent memory</strong>, <strong>file context</strong>, and <strong>agentic actions</strong> (the AI can now take steps, not just respond). You no longer need to be technical to build a working tool. You need to be clear about the outcome.</p>
+
+              <p style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600;">Free tools worth starting with (ranked by time-to-value)</p>
               <ul class="resource-links-list">
-                <li><a href="https://claude.ai" target="_blank" rel="noopener noreferrer">Claude (claude.ai)</a> - AI assistant for building</li>
-                <li><a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable (lovable.dev)</a> - Build apps with AI</li>
+                <li><a href="https://claude.ai" target="_blank" rel="noopener noreferrer">Claude Projects</a> — upload reference files once, chat against them forever. Best for writing-heavy nonprofits.</li>
+                <li><a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer">ChatGPT Custom GPTs</a> — same idea, plus you can share a private GPT with your team.</li>
+                <li><a href="https://notebooklm.google.com" target="_blank" rel="noopener noreferrer">Google NotebookLM</a> — turn a folder of PDFs, meeting notes, and policies into a searchable brain for your staff. Free.</li>
+                <li><a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable</a> — describe an app in plain English, get a working web app with a database. Good for intake forms, dashboards, lightweight CRMs.</li>
+                <li><a href="https://make.com" target="_blank" rel="noopener noreferrer">Make.com</a> — connect the tools you already use (Gmail, Airtable, Google Drive) and have AI trigger real actions. Free tier is generous.</li>
               </ul>
-              <p style="margin-top: 0.75rem; margin-bottom: 0.75rem; font-weight: 600;">Learn from these creators:</p>
+
+              <p style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600;">The 4-step starter loop (do this once, reuse forever)</p>
+              <ol class="resource-links-list" style="padding-left: 1.25rem;">
+                <li><strong>Pick one repeating task.</strong> Something you do every week or month. Intake notes, meeting summaries, grant updates, volunteer onboarding.</li>
+                <li><strong>Gather 3-5 real examples.</strong> Past outputs in your actual voice. This is your training data.</li>
+                <li><strong>Build a Project / Custom GPT / NotebookLM notebook.</strong> Upload the examples + any policies or templates the AI should follow.</li>
+                <li><strong>Write one instruction sentence</strong> that says what you want the AI to do when you come back. Test it on a new input. Refine the instruction, not the examples.</li>
+              </ol>
+
+              <p style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600;">High-value starter use cases for nonprofit teams</p>
               <ul class="resource-links-list">
-                <li><a href="https://www.youtube.com/@SabrinaRamonov" target="_blank" rel="noopener noreferrer">Sabrina Romanov</a> - YouTube tutorials</li>
-                <li><a href="https://www.skool.com/women-codher" target="_blank" rel="noopener noreferrer">Women CodHer</a> - Community on Skool</li>
+                <li>Grant report first drafts from program data</li>
+                <li>Board-meeting minutes from a Zoom transcript</li>
+                <li>Plain-language translations of policies for families</li>
+                <li>Weekly fundraising email from your CRM export</li>
+                <li>Intake summaries that flag urgency for case managers</li>
+                <li>Volunteer onboarding FAQs answered from your handbook</li>
               </ul>
+
+              <p style="margin-top: 1rem; margin-bottom: 0.5rem; font-weight: 600;">Learn from people building in public</p>
+              <ul class="resource-links-list">
+                <li><a href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer">Anthropic News</a> — what Claude can actually do this month</li>
+                <li><a href="https://www.youtube.com/@SabrinaRamonov" target="_blank" rel="noopener noreferrer">Sabrina Ramonov</a> — practical AI workflows on YouTube</li>
+                <li><a href="https://www.skool.com/women-codher" target="_blank" rel="noopener noreferrer">Women CodHer</a> — community for non-technical builders</li>
+              </ul>
+
+              <p style="margin-top: 1rem; margin-bottom: 0; font-style: italic; color: rgba(26,26,78,0.7);">Stuck on what to automate first? <a href="/book/" style="text-decoration: underline;">Bring it to a founder conversation</a> and we will pick a use case you can ship in a week.</p>
             </div>
           </div>
           <!-- Snapshots -->
@@ -1253,11 +1317,10 @@
 
     <hr class="section-divider">
 
-    <!-- ===== FAQ ===== -->
-    <section id="faq" class="section-padding faq-section-compact">
+<section id="faq" class="section-padding faq-section-compact">
       <div class="container">
         <span class="section-label">Common Questions</span>
-        <h2 class="fade-in"><span class="metallic-text">FAQ</span></h2>
+        <h2 class="fade-in">FAQ</h2>
         <div class="faq-list fade-in" id="faq-list">
           <details class="faq-item">
             <summary>What does AIdedEQ do?</summary>
@@ -1296,21 +1359,18 @@
       </div>
     </section>
 
-    <!-- ===== DONATE / SUPPORT ===== -->
-    <section id="donate" class="donate-section donate-section-compact">
+    <hr class="section-divider">
+
+<section id="donate" class="donate-section donate-section-compact">
       <div class="container">
         <div class="donate-content fade-in">
           <span class="section-label">Support the Work</span>
-          <h2><span class="metallic-text">Help us build tools that center equity</span></h2>
-          <p>Every dollar goes directly toward building equity-first tools for communities that are usually last in line for good technology.</p>
+          <h2>Help us build tools that center equity</h2>
+          <p>Every dollar goes to equity-first tools for communities usually last in line for good technology.</p>
           <div class="donate-buttons">
             <a href="https://donate.stripe.com/eVq7sE7GoaRw8wN5WJ4800b" target="_blank" rel="noopener noreferrer" class="btn-donate btn-donate--stripe">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>
               Donate with Card
-            </a>
-            <a href="https://www.paypal.com/donate?business=admin%40thepracticecenter.org&currency_code=USD" target="_blank" rel="noopener noreferrer" class="btn-donate btn-donate--paypal">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797H9.603c-.564 0-1.04.408-1.13.964L7.076 21.337zm9.486-15.6c.04-.252.06-.483.06-.694 0-1.2-.77-1.685-2.16-1.685H11.18a.428.428 0 0 0-.422.36l-.82 5.166h2.024c2.66 0 4.053-1.163 4.6-3.147z"/></svg>
-              Donate with PayPal
             </a>
           </div>
           <p class="donate-tax-note">The Practice Center, a 501(c)(3) nonprofit. EIN: 41-3423272. Your donation may be tax-deductible.</p>
@@ -1324,8 +1384,8 @@
   <footer id="contact" class="section-padding">
     <div class="container">
       <div class="contact-intro fade-in">
-        <h2><span class="metallic-text">Get in Touch</span></h2>
-        <p>Questions, suggestions, collaborations, or just want to say hi? Reach out.</p>
+        <h2>Get in Touch</h2>
+        <p>Questions, collaborations, or press. Reach out.</p>
       </div>
 
       <!-- Contact Form -->
@@ -1420,7 +1480,8 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
-  <script src="js/main.js?v=14"></script>
+  <script src="js/breathing.js?v=1"></script>
+  <script src="js/main.js?v=16"></script>
   <script src="js/chat-widget.js?v=1" defer></script>
 </body>
 </html>

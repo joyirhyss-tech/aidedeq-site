@@ -337,3 +337,103 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+/* ============================================
+   V2 GRAFT — Firefly breathing launcher
+   Binds any element with [data-breathing] to open the full-screen
+   canvas overlay from breathing.js. Esc closes.
+   ============================================ */
+(function () {
+  function launchBreathing() {
+    if (!window.AidedEQBreathing) return;
+    var overlay = document.createElement("div");
+    overlay.className = "breathing-overlay";
+    document.body.appendChild(overlay);
+    var prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    function close() {
+      if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      document.body.style.overflow = prevOverflow;
+      document.removeEventListener("keydown", onKey);
+    }
+    function onKey(e) { if (e.key === "Escape") close(); }
+    document.addEventListener("keydown", onKey);
+    requestAnimationFrame(function () {
+      window.AidedEQBreathing.mount(overlay, close);
+    });
+  }
+  document.addEventListener("click", function (e) {
+    var trigger = e.target.closest("[data-breathing]");
+    if (!trigger) return;
+    e.preventDefault();
+    launchBreathing();
+  });
+})();
+
+/* ============================================
+   Sticky floating CTA — shows after hero scroll
+   ============================================ */
+(function () {
+  var cta = document.getElementById("sticky-cta");
+  if (!cta) return;
+  var hero = document.getElementById("hero");
+  var threshold = hero ? hero.offsetHeight * 0.75 : 600;
+  var ticking = false;
+
+  function update() {
+    var y = window.scrollY || window.pageYOffset;
+    if (y > threshold) {
+      cta.classList.add("is-visible");
+    } else {
+      cta.classList.remove("is-visible");
+    }
+    ticking = false;
+  }
+
+  window.addEventListener("scroll", function () {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+  update();
+})();
+
+/* ============================================
+   Proof stats — count up on scroll into view
+   ============================================ */
+(function () {
+  var stats = document.querySelectorAll(".proof-section .proof-stat");
+  if (!stats.length || !("IntersectionObserver" in window)) return;
+
+  function animate(el) {
+    var raw = el.textContent.trim();
+    var target = parseInt(raw, 10);
+    if (isNaN(target)) return;
+    var suffix = raw.replace(/[0-9]/g, "");
+    var duration = 1400;
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      // easeOutCubic
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var value = Math.round(target * eased);
+      el.textContent = value + suffix;
+      if (progress < 1) window.requestAnimationFrame(step);
+    }
+    el.textContent = "0" + suffix;
+    window.requestAnimationFrame(step);
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        animate(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  stats.forEach(function (el) { io.observe(el); });
+})();
