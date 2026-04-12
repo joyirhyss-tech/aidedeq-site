@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Women Build Safety | Session 3</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sage:#5B7B5E;--sage-deep:#3D5A40;--sage-mist:#E8F0E9;
+  --cream:#F5F0E8;--cream-warm:#FAF7F0;
+  --charcoal:#2D2D2D;--charcoal-soft:#4A4A4A;
+  --gold:#C4A265;--gold-light:#D4B87A;
+  --rust:#A85232;--pencil:#8A8677;
+  --physical:#C75B3F;--structural:#8B6DB0;--reproductive:#D4798A;
+  --digital:#3D7EAA;--economic:#C4A265;--psychological:#5B7B5E;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--charcoal);color:white;min-height:100vh;overflow-x:hidden;}
+
+/* ICONS */
+.icon{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;flex-shrink:0;}
+.icon svg{width:100%;height:100%;}
+.icon-sm{width:18px;height:18px;}
+.icon-lg{width:32px;height:32px;}
+.icon-xl{width:40px;height:40px;}
+
+/* TOP BAR */
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;background:var(--charcoal);z-index:100;}
+.top-bar .brand{font-size:0.62rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);}
+.top-bar .info{font-size:0.58rem;color:rgba(255,255,255,0.25);letter-spacing:1px;}
+
+/* TABS */
+.tab-bar{display:flex;justify-content:center;gap:2px;padding:16px 20px 0;border-bottom:1px solid rgba(255,255,255,0.04);flex-wrap:wrap;}
+.tab-btn{padding:12px 24px;border:none;background:transparent;color:rgba(255,255,255,0.3);font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.5px;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.3s;}
+.tab-btn:hover{color:rgba(255,255,255,0.55);}
+.tab-btn.active{color:white;border-bottom-color:var(--gold);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+
+/* STAGE */
+.stage{max-width:960px;margin:0 auto;padding:0 32px 80px;}
+
+/* COMMON */
+.section-label{font-size:0.58rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.hero-block{text-align:center;padding:44px 20px 36px;}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:400;line-height:1.3;margin-bottom:14px;}
+.hero-title em{color:var(--gold-light);font-style:italic;}
+.hero-sub{font-size:0.82rem;color:rgba(255,255,255,0.4);max-width:440px;margin:0 auto;line-height:1.7;}
+
+/* CARDS */
+.card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:28px 24px;margin-bottom:16px;position:relative;overflow:hidden;}
+.card h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;margin-bottom:12px;line-height:1.35;}
+.card h3 em{color:var(--gold-light);font-style:italic;}
+.card p{font-size:0.8rem;line-height:1.8;color:rgba(255,255,255,0.5);margin-bottom:10px;max-width:560px;}
+.card p strong{color:rgba(255,255,255,0.85);font-weight:600;}
+
+/* NAV BUTTONS */
+.section-nav{display:flex;justify-content:space-between;margin-top:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.05);}
+.nav-btn{padding:9px 22px;border:1px solid rgba(255,255,255,0.1);background:transparent;color:rgba(255,255,255,0.45);font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:500;border-radius:6px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:6px;}
+.nav-btn:hover{border-color:var(--gold);color:var(--gold);}
+.nav-btn.primary{background:rgba(196,162,101,0.1);border-color:rgba(196,162,101,0.3);color:var(--gold);}
+.nav-btn.hidden{visibility:hidden;}
+
+@keyframes fadeSlide{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.lesson-section,.step-content{display:none;animation:fadeSlide 0.45s ease;}
+.lesson-section.active,.step-content.active{display:block;}
+
+/* ============ TAB 1: ATTENTION ============ */
+.spine{display:flex;justify-content:center;align-items:center;gap:0;padding:28px 0 8px;}
+.spine-node{display:flex;flex-direction:column;align-items:center;cursor:pointer;transition:all 0.3s;}
+.spine-dot{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;transition:all 0.3s;background:transparent;}
+.spine-node.active .spine-dot{border-color:var(--gold);background:rgba(196,162,101,0.1);transform:scale(1.15);}
+.spine-node.done .spine-dot{border-color:rgba(91,123,94,0.4);background:rgba(91,123,94,0.08);}
+.spine-lbl{font-size:0.5rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.18);margin-top:6px;transition:color 0.3s;}
+.spine-node.active .spine-lbl{color:var(--gold);}
+.spine-wire{width:32px;height:1px;background:rgba(255,255,255,0.06);margin-bottom:18px;}
+
+/* Research nuggets */
+.nuggets{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:8px;}
+.nugget{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:20px 16px;cursor:pointer;transition:all 0.3s;}
+.nugget:hover{background:rgba(255,255,255,0.06);transform:translateY(-2px);}
+.nugget .n-stat{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--gold-light);margin-bottom:6px;}
+.nugget .n-text{font-size:0.75rem;line-height:1.6;color:rgba(255,255,255,0.45);margin-bottom:6px;}
+.nugget .n-src{font-size:0.55rem;color:rgba(255,255,255,0.2);text-transform:uppercase;letter-spacing:0.5px;}
+.nugget .n-more{font-size:0.72rem;line-height:1.6;color:rgba(255,255,255,0.35);max-height:0;overflow:hidden;transition:all 0.4s;}
+.nugget.open .n-more{max-height:100px;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.05);}
+
+/* Compare */
+.compare{display:flex;background:rgba(255,255,255,0.03);border-radius:10px;overflow:hidden;margin:16px 0;border:1px solid rgba(255,255,255,0.06);}
+.compare-side{flex:1;padding:24px 20px;cursor:pointer;transition:all 0.4s;text-align:center;}
+.compare-side:first-child{border-right:1px solid rgba(255,255,255,0.05);}
+.compare-side .c-label{font-size:0.55rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;transition:color 0.3s;color:rgba(255,255,255,0.3);}
+.compare-side .c-quote{font-family:'Playfair Display',serif;font-size:0.95rem;font-style:italic;line-height:1.5;color:rgba(255,255,255,0.45);transition:color 0.3s;margin-bottom:8px;}
+.compare-side .c-body{font-size:0.72rem;color:rgba(255,255,255,0.3);line-height:1.6;max-height:0;overflow:hidden;transition:all 0.4s;}
+.compare-side.lit{background:rgba(196,162,101,0.05);}
+.compare-side.lit .c-label{color:var(--gold);}
+.compare-side.lit .c-quote{color:var(--gold-light);}
+.compare-side.lit .c-body{max-height:120px;margin-top:6px;}
+.compare-side.dim{opacity:0.35;}
+
+/* Traps */
+.trap{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);border-radius:8px;cursor:pointer;transition:all 0.3s;margin-bottom:6px;}
+.trap:hover{background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);}
+.trap .trap-body{flex:1;}
+.trap .t-name{font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;margin-bottom:3px;}
+.trap .t-desc{font-size:0.72rem;color:rgba(255,255,255,0.38);line-height:1.6;}
+.trap .t-shift{font-size:0.72rem;color:var(--sage);font-weight:500;line-height:1.6;max-height:0;overflow:hidden;transition:all 0.4s;}
+.trap.open .t-shift{max-height:80px;margin-top:6px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.04);}
+.trap .t-arrow{font-size:0.65rem;color:rgba(255,255,255,0.12);transition:transform 0.3s;margin-top:3px;}
+.trap.open .t-arrow{transform:rotate(90deg);color:var(--sage);}
+
+/* Breathing */
+.breath-wrap{text-align:center;padding:36px 20px;}
+.breath-info{font-size:0.75rem;color:rgba(255,255,255,0.35);margin-bottom:20px;line-height:1.7;}
+.breath-outer{width:220px;height:220px;border-radius:50%;border:1px solid rgba(196,162,101,0.15);margin:0 auto 24px;display:flex;align-items:center;justify-content:center;position:relative;}
+.breath-inner{width:50px;height:50px;border-radius:50%;background:rgba(196,162,101,0.08);border:1.5px solid rgba(196,162,101,0.3);transition:all 4s ease-in-out;display:flex;align-items:center;justify-content:center;}
+.breath-inner.expand{width:170px;height:170px;background:rgba(196,162,101,0.04);border-color:rgba(196,162,101,0.5);}
+.breath-inner.hold{width:170px;height:170px;background:rgba(196,162,101,0.06);border-color:rgba(196,162,101,0.4);transition:all 0.3s;}
+.breath-word{font-family:'Playfair Display',serif;font-size:0.9rem;font-style:italic;color:var(--gold-light);position:absolute;}
+.breath-btn{padding:10px 28px;border:1px solid rgba(196,162,101,0.3);background:rgba(196,162,101,0.08);color:var(--gold);font-family:'Inter',sans-serif;font-size:0.75rem;font-weight:500;border-radius:6px;cursor:pointer;transition:all 0.2s;}
+.breath-btn:hover{background:rgba(196,162,101,0.15);border-color:var(--gold);}
+.breath-btn:disabled{opacity:0.35;cursor:default;}
+.breath-count{font-size:0.6rem;color:rgba(255,255,255,0.18);margin-top:12px;letter-spacing:1px;}
+
+/* Practice */
+.practice{background:rgba(91,123,94,0.07);border:1px solid rgba(91,123,94,0.18);border-radius:10px;padding:28px 24px;text-align:center;}
+.practice .p-label{font-size:0.55rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--sage);margin-bottom:12px;}
+.practice .p-prompt{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;line-height:1.6;color:rgba(255,255,255,0.7);max-width:420px;margin:0 auto;}
+
+/* ============ TAB 2: LANDSCAPE ============ */
+.dim-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;margin:8px 0 24px;}
+.dim-card{padding:28px 22px;background:rgba(255,255,255,0.03);border-left:3px solid;transition:background 0.3s;}
+.dim-card:hover{background:rgba(255,255,255,0.06);}
+.dim-card.physical{border-color:var(--physical);}
+.dim-card.structural{border-color:var(--structural);}
+.dim-card.reproductive{border-color:var(--reproductive);}
+.dim-card.digital{border-color:var(--digital);}
+.dim-card.economic{border-color:var(--economic);}
+.dim-card.psychological{border-color:var(--psychological);}
+.dim-card .d-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;opacity:0.1;position:absolute;top:12px;right:16px;}
+.dim-card{position:relative;}
+.dim-card h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;margin-bottom:6px;}
+.dim-card .d-q{font-size:0.72rem;font-style:italic;color:rgba(255,255,255,0.4);margin-bottom:8px;}
+.dim-card .d-tools{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;}
+.dim-card .d-tag{font-size:0.6rem;font-weight:500;padding:2px 8px;border-radius:3px;background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.4);}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:24px;padding:36px 0;text-align:center;}
+.stat .s-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--gold-light);line-height:1;margin-bottom:6px;}
+.stat .s-text{font-size:0.72rem;line-height:1.5;color:rgba(255,255,255,0.5);}
+.stat .s-src{font-size:0.55rem;color:rgba(255,255,255,0.2);margin-top:4px;text-transform:uppercase;letter-spacing:0.5px;}
+
+/* Gaps */
+.gaps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px;}
+.gap-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:22px 18px;border-top:3px solid var(--rust);cursor:pointer;transition:all 0.3s;}
+.gap-card:hover{background:rgba(255,255,255,0.06);transform:translateY(-2px);}
+.gap-card .g-num{font-size:0.58rem;font-weight:700;color:var(--rust);letter-spacing:1px;margin-bottom:6px;}
+.gap-card h4{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;margin-bottom:8px;line-height:1.35;}
+.gap-card p{font-size:0.72rem;line-height:1.6;color:rgba(255,255,255,0.4);margin-bottom:10px;}
+.gap-card .g-dims{display:flex;gap:4px;flex-wrap:wrap;}
+.gap-dim{font-size:0.55rem;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;padding:2px 7px;border-radius:3px;}
+.gap-dim.physical{background:rgba(199,91,63,0.1);color:var(--physical);}
+.gap-dim.structural{background:rgba(139,109,176,0.1);color:var(--structural);}
+.gap-dim.reproductive{background:rgba(212,121,138,0.1);color:var(--reproductive);}
+.gap-dim.digital{background:rgba(61,126,170,0.1);color:var(--digital);}
+.gap-dim.economic{background:rgba(196,162,101,0.1);color:#A08540;}
+.gap-dim.psychological{background:rgba(91,123,94,0.1);color:var(--psychological);}
+.gap-dim.all{background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.4);}
+
+/* ============ TAB 3: BUILD ============ */
+.ex-tabs{display:flex;justify-content:center;gap:4px;padding:20px 0 0;}
+.ex-tab{padding:12px 24px;border:none;background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.35);font-family:'Playfair Display',serif;font-size:0.88rem;cursor:pointer;border-radius:6px 6px 0 0;transition:all 0.3s;position:relative;}
+.ex-tab:hover{color:rgba(255,255,255,0.55);}
+.ex-tab.active{background:rgba(255,255,255,0.06);color:white;}
+.ex-tab.active::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:2px;background:var(--gold);}
+.ex-tab .et-dim{font-family:'Inter',sans-serif;font-size:0.55rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;display:block;margin-top:3px;}
+
+/* Step dots */
+.step-nav{display:flex;align-items:center;justify-content:center;gap:0;padding:24px 0 8px;}
+.s-dot{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.1);background:transparent;color:rgba(255,255,255,0.2);font-family:'Inter',sans-serif;font-size:0.65rem;font-weight:600;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;}
+.s-dot:hover{border-color:rgba(255,255,255,0.25);color:rgba(255,255,255,0.4);}
+.s-dot.active{border-color:var(--gold);color:var(--gold);background:rgba(196,162,101,0.1);transform:scale(1.12);}
+.s-dot.past{border-color:rgba(196,162,101,0.35);color:rgba(196,162,101,0.5);}
+.s-wire{width:48px;height:1px;background:rgba(255,255,255,0.06);z-index:1;}
+.step-labels{display:flex;justify-content:center;gap:0;margin-top:-8px;margin-bottom:24px;}
+.step-lbl{width:86px;text-align:center;font-size:0.5rem;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.15);transition:color 0.3s;}
+.step-lbl.active{color:var(--gold);}
+
+/* Voice */
+.voice{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);border-radius:10px;padding:36px 28px;position:relative;overflow:hidden;}
+.voice .q-mark{font-family:'Playfair Display',serif;font-size:5rem;color:rgba(196,162,101,0.1);position:absolute;top:6px;left:18px;line-height:1;}
+.voice .v-quote{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.8vw,1.7rem);font-style:italic;line-height:1.4;color:white;max-width:480px;position:relative;z-index:1;}
+.voice .v-quote em{color:var(--gold-light);}
+.voice .v-ctx{margin-top:18px;font-size:0.78rem;color:rgba(255,255,255,0.38);line-height:1.7;max-width:440px;position:relative;z-index:1;}
+.voice .v-arrow{font-size:0.7rem;color:var(--gold);margin-top:16px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;position:relative;z-index:1;transition:gap 0.2s;}
+.voice .v-arrow:hover{gap:10px;}
+
+/* Patterns */
+.pat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;}
+.pat{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);border-radius:8px;padding:20px 16px;cursor:pointer;transition:all 0.3s;position:relative;}
+.pat:hover{background:rgba(255,255,255,0.06);transform:translateY(-2px);}
+.pat .p-icon{margin-bottom:10px;}
+.pat .p-name{font-family:'Playfair Display',serif;font-size:0.88rem;font-weight:600;margin-bottom:6px;}
+.pat .p-who{font-size:0.68rem;color:rgba(255,255,255,0.3);line-height:1.5;margin-bottom:6px;}
+.pat .p-miss{font-size:0.72rem;color:var(--rust);font-weight:500;line-height:1.5;max-height:0;overflow:hidden;transition:all 0.4s;}
+.pat.expanded .p-miss{max-height:90px;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.05);}
+.pat .p-tap{font-size:0.5rem;color:rgba(255,255,255,0.15);text-transform:uppercase;letter-spacing:1px;position:absolute;bottom:8px;right:12px;transition:opacity 0.3s;}
+.pat.expanded .p-tap{opacity:0;}
+
+/* Void */
+.void{text-align:center;padding:32px 0;}
+.void-ring{width:240px;height:240px;border-radius:50%;border:1.5px dashed rgba(196,162,101,0.2);margin:0 auto 28px;display:flex;align-items:center;justify-content:center;position:relative;animation:voidPulse 4s ease-in-out infinite;}
+@keyframes voidPulse{0%,100%{border-color:rgba(196,162,101,0.15);}50%{border-color:rgba(196,162,101,0.35)}}
+.void-ring .v-center{font-family:'Playfair Display',serif;font-size:0.9rem;font-style:italic;color:var(--gold-light);max-width:160px;line-height:1.5;}
+.void-ring .o-dot{position:absolute;width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.12);}
+.void-ring .o-dot:nth-child(2){top:-3px;left:50%;transform:translateX(-50%);}
+.void-ring .o-dot:nth-child(3){top:18%;right:-3px;}
+.void-ring .o-dot:nth-child(4){bottom:18%;right:-3px;}
+.void-ring .o-dot:nth-child(5){bottom:-3px;left:50%;transform:translateX(-50%);}
+.void-ring .o-dot:nth-child(6){bottom:18%;left:-3px;}
+.void-ring .o-dot:nth-child(7){top:18%;left:-3px;}
+.void-ring .o-label{position:absolute;font-size:0.55rem;color:rgba(255,255,255,0.2);white-space:nowrap;}
+.void-ring .o-label:nth-child(8){top:-20px;left:50%;transform:translateX(-50%);}
+.void-ring .o-label:nth-child(9){top:16%;right:-70px;}
+.void-ring .o-label:nth-child(10){bottom:16%;right:-65px;}
+.void-ring .o-label:nth-child(11){bottom:-20px;left:50%;transform:translateX(-50%);}
+.void-ring .o-label:nth-child(12){bottom:16%;left:-60px;}
+.void-ring .o-label:nth-child(13){top:16%;left:-55px;}
+.gap-stmt{font-family:'Playfair Display',serif;font-size:clamp(0.95rem,2vw,1.2rem);font-style:italic;color:var(--gold-light);max-width:460px;margin:0 auto;line-height:1.6;padding:16px 20px;border:1px solid rgba(196,162,101,0.12);border-radius:8px;background:rgba(196,162,101,0.03);}
+
+/* Phone */
+.prd-layout{display:grid;grid-template-columns:280px 1fr;gap:28px;align-items:start;}
+@media(max-width:720px){.prd-layout{grid-template-columns:1fr;}}
+.phone{width:280px;background:#1a1a1a;border-radius:24px;padding:10px;border:2px solid rgba(255,255,255,0.07);margin:0 auto;}
+.phone-scr{background:#111;border-radius:18px;overflow:hidden;}
+.phone-bar{display:flex;justify-content:space-between;padding:7px 14px 3px;font-size:0.55rem;color:rgba(255,255,255,0.35);}
+.phone-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 8px;padding:14px 12px;}
+.p-app{text-align:center;cursor:pointer;transition:transform 0.2s;}
+.p-app:hover{transform:scale(1.08);}
+.p-app .a-icon{width:40px;height:40px;border-radius:10px;margin:0 auto 3px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+.p-app .a-lbl{font-size:0.45rem;color:rgba(255,255,255,0.35);}
+.p-app.secret .a-icon{background:rgba(255,255,255,0.06);border:1px dashed var(--gold);animation:secretP 3s ease-in-out infinite;}
+@keyframes secretP{0%,100%{border-color:rgba(196,162,101,0.25);}50%{border-color:rgba(196,162,101,0.65);}}
+.p-app.secret .a-lbl{color:var(--gold);font-weight:600;}
+.a-icon.weather{background:linear-gradient(135deg,#4A90D9,#7BC8F7);}
+.a-icon.photos{background:linear-gradient(135deg,#FF6B6B,#FFA07A);}
+.a-icon.msg{background:linear-gradient(135deg,#34C759,#30D158);}
+.a-icon.maps{background:linear-gradient(135deg,#5856D6,#AF52DE);}
+.a-icon.cal{background:#fff;color:#333;font-weight:700;font-size:0.75rem;}
+.a-icon.set{background:rgba(255,255,255,0.1);}
+.a-icon.cam{background:rgba(255,255,255,0.08);}
+
+/* PRD accordion */
+.prd-secs{display:flex;flex-direction:column;gap:5px;}
+.prd-sec{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);border-radius:7px;overflow:hidden;}
+.prd-sec:hover{border-color:rgba(255,255,255,0.08);}
+.prd-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;cursor:pointer;}
+.prd-hdr .ph-title{font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.6);}
+.prd-hdr .ph-chev{font-size:0.6rem;color:rgba(255,255,255,0.15);transition:transform 0.3s;}
+.prd-sec.open .ph-chev{transform:rotate(180deg);}
+.prd-body{max-height:0;overflow:hidden;transition:max-height 0.4s,padding 0.3s;padding:0 16px;}
+.prd-sec.open .prd-body{max-height:260px;padding:0 16px 14px;}
+.prd-body p,.prd-body li{font-size:0.72rem;line-height:1.7;color:rgba(255,255,255,0.42);}
+.prd-body ul{list-style:none;padding:0;}
+.prd-body ul li{padding:3px 0 3px 14px;position:relative;}
+.prd-body ul li::before{content:'\2192';position:absolute;left:0;color:var(--gold);font-size:0.65rem;}
+.prd-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:var(--gold-light);margin-bottom:4px;}
+.prd-liner{font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:16px;max-width:380px;}
+
+/* Seats */
+.seats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;}
+.seat{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);border-radius:8px;padding:24px 18px;text-align:center;transition:all 0.3s;cursor:pointer;}
+.seat:hover{border-color:rgba(196,162,101,0.25);background:rgba(255,255,255,0.05);transform:translateY(-2px);}
+.seat.filled{border-color:var(--sage);background:rgba(91,123,94,0.06);}
+.seat-icon{width:48px;height:48px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;}
+.seat.filled .seat-icon{background:rgba(91,123,94,0.12);border:1.5px solid var(--sage);}
+.seat.open .seat-icon{border:1.5px dashed rgba(196,162,101,0.35);animation:secretP 3s ease-in-out infinite;}
+.seat .s-role{font-family:'Playfair Display',serif;font-size:0.88rem;font-weight:600;margin-bottom:6px;}
+.seat.filled .s-role{color:var(--sage-mist);}
+.seat.open .s-role{color:var(--gold-light);}
+.seat .s-brings{font-size:0.68rem;line-height:1.5;color:rgba(255,255,255,0.35);margin-bottom:8px;}
+.seat .s-status{font-size:0.55rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:10px;display:inline-block;}
+.seat.filled .s-status{background:rgba(91,123,94,0.12);color:var(--sage);}
+.seat.open .s-status{background:rgba(196,162,101,0.08);color:var(--gold);}
+.claim{margin-top:24px;text-align:center;padding:24px 20px;border:1px dashed rgba(196,162,101,0.18);border-radius:8px;background:rgba(196,162,101,0.02);}
+.claim .cl-text{font-family:'Playfair Display',serif;font-size:0.95rem;font-style:italic;color:var(--gold-light);margin-bottom:6px;}
+.claim .cl-sub{font-size:0.68rem;color:rgba(255,255,255,0.25);}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:20px;font-size:0.6rem;color:rgba(255,255,255,0.15);border-top:1px solid rgba(255,255,255,0.04);}
+
+@media(max-width:640px){
+  .stage{padding:0 18px 60px;}
+  .dim-grid{grid-template-columns:1fr;}
+  .gaps-grid{grid-template-columns:1fr;}
+  .stats{grid-template-columns:repeat(2,1fr);gap:16px;}
+  .compare{flex-direction:column;}
+  .compare-side:first-child{border-right:none;border-bottom:1px solid rgba(255,255,255,0.05);}
+  .pat-grid{grid-template-columns:1fr 1fr;}
+  .seats{grid-template-columns:1fr;}
+  .prd-layout{grid-template-columns:1fr;}
+  .phone{width:240px;}
+  .s-wire{width:28px;}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="https://aidedeq.org" style="text-decoration:none;color:rgba(255,255,255,0.3);font-size:0.55rem;letter-spacing:1px;">AIdedEQ.org</a>
+  <span class="brand">Women Build Safety</span>
+  <span class="info">Session 3 &nbsp;|&nbsp; <a href="/resources/safety.html" style="color:var(--gold);text-decoration:none;font-size:0.58rem;">Tool Resource Sheet &rarr;</a></span>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="switchTab('lesson')">The Attention Lesson</button>
+  <button class="tab-btn" onclick="switchTab('landscape')">The Landscape</button>
+  <button class="tab-btn" onclick="switchTab('build')">Build an Idea</button>
+</div>
+
+<!-- ============================================================
+     TAB 1: THE ATTENTION LESSON
+     ============================================================ -->
+<div class="tab-panel active" id="tab-lesson">
+<div class="stage">
+
+  <div class="spine">
+    <div class="spine-node done"><div class="spine-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div><div class="spine-lbl">Intention</div></div>
+    <div class="spine-wire"></div>
+    <div class="spine-node active"><div class="spine-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M2 12c2-4 6-7 10-7s8 3 10 7c-2 4-6 7-10 7s-8-3-10-7z"/></svg></div><div class="spine-lbl">Attention</div></div>
+    <div class="spine-wire"></div>
+    <div class="spine-node"><div class="spine-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg></div><div class="spine-lbl">Meaning</div></div>
+    <div class="spine-wire"></div>
+    <div class="spine-node"><div class="spine-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c-4 0-7 3-7 6 0 4 7 12 7 12s7-8 7-12c0-3-3-6-7-6z"/><circle cx="12" cy="9" r="2"/></svg></div><div class="spine-lbl">Attitude</div></div>
+    <div class="spine-wire"></div>
+    <div class="spine-node"><div class="spine-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="spine-lbl">Response</div></div>
+  </div>
+
+  <!-- S1: What is attention -->
+  <div class="lesson-section active" data-ls="1">
+    <div class="hero-block">
+      <h2 class="hero-title">Where your attention goes,<br><em>your life follows.</em></h2>
+      <p class="hero-sub">Not what you believe. Not what you intend. What you actually pay attention to, day after day, is what you build.</p>
+    </div>
+    <div class="card">
+      <div class="section-label">The Research</div>
+      <h3>Your brain processes 11 million bits per second.<br>You are conscious of <em>about 50.</em></h3>
+      <p>Attention is not just focus. It is a filter. It decides what becomes your reality and what gets discarded. The question is not "am I paying attention?" The question is <strong>"what have I been paying attention to without realizing it?"</strong></p>
+    </div>
+    <div class="nuggets">
+      <div class="nugget" onclick="this.classList.toggle('open')">
+        <div class="n-stat">47%</div>
+        <div class="n-text">of waking hours, the average mind is wandering. Not present to what is actually happening.</div>
+        <div class="n-src">Harvard, Killingsworth & Gilbert, 2010</div>
+        <div class="n-more">The study tracked 2,250 adults via phone pings throughout the day. Mind-wandering predicted unhappiness more reliably than any activity they were doing.</div>
+      </div>
+      <div class="nugget" onclick="this.classList.toggle('open')">
+        <div class="n-stat">8 weeks</div>
+        <div class="n-text">of attention training physically changes the brain, increasing gray matter in areas tied to self-awareness and compassion.</div>
+        <div class="n-src">Harvard, Lazar et al., 2011</div>
+        <div class="n-more">MRI scans showed measurable thickening in the prefrontal cortex after 8 weeks of mindfulness practice. Attention is trainable, like a muscle.</div>
+      </div>
+      <div class="nugget" onclick="this.classList.toggle('open')">
+        <div class="n-stat">11:1</div>
+        <div class="n-text">ratio of negative to positive information the brain flags as important. Your attention has a built-in negativity bias.</div>
+        <div class="n-src">Baumeister et al., 2001</div>
+        <div class="n-more">Threats and criticisms register faster and stick longer than equivalent positive events. This was survival. Now it is often self-sabotage.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S2: Being vs Doing -->
+  <div class="lesson-section" data-ls="2">
+    <div class="hero-block">
+      <h2 class="hero-title">Being a good person<br>is not the same as<br><em>doing good things.</em></h2>
+      <p class="hero-sub">One is an identity you protect. The other is a practice you choose, again and again, with your attention.</p>
+    </div>
+    <div class="compare">
+      <div class="compare-side" onclick="litCompare(this)">
+        <div class="c-label">The Identity Trap</div>
+        <div class="c-quote">"I am a good person."</div>
+        <div class="c-body">When your attention is on <strong>being</strong> good, you monitor how you appear. You defend your image. You get fragile when challenged because it threatens who you think you are.</div>
+      </div>
+      <div class="compare-side" onclick="litCompare(this)">
+        <div class="c-label">The Practice Shift</div>
+        <div class="c-quote">"I am doing something that adds value."</div>
+        <div class="c-body">When your attention is on <strong>doing</strong> good, you look outward. You notice what is needed. You can be wrong, learn, and adjust because your worth is not on the table.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-label">Why This Matters for Building</div>
+      <p>If your attention is on <strong>"being a good founder"</strong> you will avoid feedback, resist pivots, and perform confidence instead of practicing honesty.</p>
+      <p>If your attention is on <strong>"building something that helps real people"</strong> you will seek feedback, listen to the room, and let the product change shape because your ego is not the product.</p>
+      <p style="color:var(--gold-light);font-family:'Playfair Display',serif;font-style:italic;">The difference is where you point your attention.</p>
+    </div>
+  </div>
+
+  <!-- S3: Traps -->
+  <div class="lesson-section" data-ls="3">
+    <div class="hero-block">
+      <h2 class="hero-title">Five ways attention<br><em>goes sideways.</em></h2>
+      <p class="hero-sub">Tap each one to see the shift.</p>
+    </div>
+    <div>
+      <div class="trap" onclick="this.classList.toggle('open')">
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 21v-1a5 5 0 0110 0v1"/></svg></div>
+        <div class="trap-body"><div class="t-name">The Mirror Trap</div><div class="t-desc">Attention stuck on how you look to others. Performing competence instead of building it.</div><div class="t-shift">Shift: Ask "Who is this actually helping?" If the answer is only your image, redirect.</div></div>
+        <div class="t-arrow">&#x203A;</div>
+      </div>
+      <div class="trap" onclick="this.classList.toggle('open')">
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5z"/></svg></div>
+        <div class="trap-body"><div class="t-name">The Loop Trap</div><div class="t-desc">Replaying the same worry, conversation, or mistake. Attention locked on the past or future.</div><div class="t-shift">Shift: Name the loop out loud: "I'm looping." Then redirect to one physical sensation right now.</div></div>
+        <div class="t-arrow">&#x203A;</div>
+      </div>
+      <div class="trap" onclick="this.classList.toggle('open')">
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+        <div class="trap-body"><div class="t-name">The Comparison Trap</div><div class="t-desc">Attention on what others have, what you lack. Measuring your chapter 1 against their chapter 20.</div><div class="t-shift">Shift: "What do I have right now that I can use?" Attention on assets, not gaps.</div></div>
+        <div class="t-arrow">&#x203A;</div>
+      </div>
+      <div class="trap" onclick="this.classList.toggle('open')">
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div class="trap-body"><div class="t-name">The Busy Trap</div><div class="t-desc">Attention on activity, not impact. Feeling productive without producing anything that matters.</div><div class="t-shift">Shift: At the end of each day, name one thing you did that made someone's life better. If you cannot, tomorrow starts there.</div></div>
+        <div class="t-arrow">&#x203A;</div>
+      </div>
+      <div class="trap" onclick="this.classList.toggle('open')">
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="trap-body"><div class="t-name">The Safety Trap</div><div class="t-desc">Attention on avoiding failure instead of pursuing growth. Playing not to lose instead of playing to build.</div><div class="t-shift">Shift: "What would I try if I knew the room would catch me?" This room will.</div></div>
+        <div class="t-arrow">&#x203A;</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S4: Breathing -->
+  <div class="lesson-section" data-ls="4">
+    <div class="hero-block">
+      <h2 class="hero-title">Before we go further,<br><em>come back to your body.</em></h2>
+      <p class="hero-sub">Attention starts here. Not in your head. In your breath.</p>
+    </div>
+    <div class="card" style="border-color:rgba(91,123,94,0.18);background:rgba(91,123,94,0.04);">
+      <div class="breath-wrap">
+        <div class="breath-info">4 counts in. 7 counts hold. 8 counts out.<br>Three rounds. Your nervous system will do the rest.</div>
+        <div class="breath-outer">
+          <div class="breath-inner" id="bCircle"></div>
+          <div class="breath-word" id="bText">ready</div>
+        </div>
+        <button class="breath-btn" id="bBtn" onclick="startBreath()">Begin breathing</button>
+        <div class="breath-count" id="bCount"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5: Practice -->
+  <div class="lesson-section" data-ls="5">
+    <div class="hero-block">
+      <h2 class="hero-title">Your practice<br><em>this week.</em></h2>
+      <p class="hero-sub">Not homework. A single redirection. Try it once today.</p>
+    </div>
+    <div class="practice">
+      <div class="p-label">Micro-Practice</div>
+      <div class="p-prompt">Three times today, pause and ask yourself:<br><br><strong style="color:var(--gold-light);">"What am I paying attention to right now, and is it adding value to anyone's life, including mine?"</strong><br><br>No judgment. Just notice. That noticing <em>is</em> the practice.</div>
+    </div>
+    <div class="card" style="margin-top:16px;">
+      <div class="section-label">Post in the Community</div>
+      <h3>After you try it, share what you noticed. One sentence. <em>That is enough.</em></h3>
+      <p>Not a report. Not a reflection essay. Just: "I noticed I was paying attention to ____." Let the group see it. That is how we practice out loud.</p>
+    </div>
+  </div>
+
+  <div class="section-nav">
+    <button class="nav-btn hidden" id="lPrev" onclick="lPrev()">&#8592; Back</button>
+    <button class="nav-btn primary" id="lNext" onclick="lNext()">Next &#8594;</button>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================
+     TAB 2: THE LANDSCAPE
+     ============================================================ -->
+<div class="tab-panel" id="tab-landscape">
+<div class="stage">
+
+  <div class="hero-block">
+    <h2 class="hero-title">Six dimensions of safety.<br><em>One woman navigating all of them.</em></h2>
+    <p class="hero-sub">Every existing tool addresses one or two. No one maps the whole picture. That is the gap. That is the opportunity.</p>
+  </div>
+
+  <div class="dim-grid">
+    <div class="dim-card physical"><span class="d-num">01</span><h4>Physical Safety</h4><div class="d-q">Can I walk home? Can I call for help?</div><div class="d-tools"><span class="d-tag">bSafe</span><span class="d-tag">Noonlight</span><span class="d-tag">The Guide</span><span class="d-tag">I Am Safe</span></div></div>
+    <div class="dim-card structural"><span class="d-num">02</span><h4>Structural Safety</h4><div class="d-q">Does the system see me? Does it protect me?</div><div class="d-tools"><span class="d-tag">Textio</span><span class="d-tag">Pymetrics</span><span class="d-tag">Vanta</span></div></div>
+    <div class="dim-card reproductive"><span class="d-num">03</span><h4>Reproductive Safety</h4><div class="d-q">Is my body my own? Is my data?</div><div class="d-tools"><span class="d-tag">Natural Cycles</span><span class="d-tag">Flo Health</span><span class="d-tag">Ovia Health</span></div></div>
+    <div class="dim-card digital"><span class="d-num">04</span><h4>Digital Safety</h4><div class="d-q">Who is using my image? Who is watching?</div><div class="d-tools"><span class="d-tag">Sensity AI</span><span class="d-tag">HacWare</span><span class="d-tag">Take It Down</span></div></div>
+    <div class="dim-card economic"><span class="d-num">05</span><h4>Economic Safety</h4><div class="d-q">Can I leave? Can I survive on my own?</div><div class="d-tools"><span class="d-tag">Ellevest</span><span class="d-tag">FreeFrom</span><span class="d-tag">Purple Purse</span></div></div>
+    <div class="dim-card psychological"><span class="d-num">06</span><h4>Psychological Safety</h4><div class="d-q">Can I be honest here? Can I be whole?</div><div class="d-tools"><span class="d-tag">Woebot</span><span class="d-tag">Wysa</span><span class="d-tag">Soula</span></div></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="s-num">550%</div><div class="s-text">increase in deepfake videos since 2019. 99% target women.</div><div class="s-src">UN Women, 2025</div></div>
+    <div class="stat"><div class="s-num">99%</div><div class="s-text">of domestic violence cases involve financial abuse.</div><div class="s-src">NNEDV</div></div>
+    <div class="stat"><div class="s-num">38%</div><div class="s-text">of women have experienced online violence.</div><div class="s-src">UN Women, 2025</div></div>
+    <div class="stat"><div class="s-num">55%</div><div class="s-text">more likely Black civilians experience police use of force.</div><div class="s-src">Johns Hopkins, 2024</div></div>
+  </div>
+
+  <div class="hero-block" style="padding-top:20px;">
+    <div class="section-label" style="text-align:center;">12 Build Opportunities</div>
+    <h2 class="hero-title" style="font-size:clamp(1.3rem,3vw,1.8rem);">Things that do not exist yet.<br><em>Or do not exist well enough.</em></h2>
+  </div>
+
+  <div class="gaps-grid">
+    <div class="gap-card"><div class="g-num">GAP 01</div><h4>Intersectional Safety Dashboard</h4><p>No tool maps safety across all 6 dimensions for one person. You could be physically safe but economically trapped.</p><div class="g-dims"><span class="gap-dim all">All 6 Dimensions</span></div></div>
+    <div class="gap-card"><div class="g-num">GAP 02</div><h4>Financial Escape Planning Tool</h4><p>99% of DV involves financial abuse but almost no apps help women secretly build independence while still in unsafe situations.</p><div class="g-dims"><span class="gap-dim economic">Economic</span><span class="gap-dim physical">Physical</span></div></div>
+    <div class="gap-card"><div class="g-num">GAP 03</div><h4>AI Legal Navigator for DV</h4><p>No app walks a survivor through protection orders, custody, housing rights in plain language, step by step.</p><div class="g-dims"><span class="gap-dim structural">Structural</span><span class="gap-dim economic">Economic</span></div></div>
+    <div class="gap-card"><div class="g-num">GAP 04</div><h4>Community Safety Network</h4><p>Every physical safety app assumes you need police. What about communities where police are not safe?</p><div class="g-dims"><span class="gap-dim physical">Physical</span><span class="gap-dim structural">Structural</span></div></div>
+    <div class="gap-card"><div class="g-num">GAP 05</div><h4>Deepfake Shield for Everyday Women</h4><p>Detection tools exist but are enterprise-only. No simple, free tool lets a woman check if her image is being used in synthetic media.</p><div class="g-dims"><span class="gap-dim digital">Digital</span><span class="gap-dim psychological">Psychological</span></div></div>
+    <div class="gap-card"><div class="g-num">GAP 06</div><h4>Reproductive Data Vault</h4><p>Post-Dobbs, period tracker data is being subpoenaed. No app offers truly sovereign, on-device-only reproductive tracking.</p><div class="g-dims"><span class="gap-dim reproductive">Reproductive</span><span class="gap-dim digital">Digital</span></div></div>
+    <div class="gap-card"><div class="g-num">GAP 07</div><h4>Workplace Microaggression Tracker</h4><p>AI detects bias in job postings but nothing helps women document daily workplace experiences. Private, timestamped, legally useful.</p><div class="g-dims"><span class="gap-dim structural">Structural</span><span class="gap-dim psychological">Psychological</span></div></div>
+    <div class="gap-card"><div class="g-num">GAP 08</div><h4>Culturally Specific Safety Resources</h4><p>Most safety apps are built for English-speaking Western women. Huge gap for multilingual, culturally contextualized tools.</p><div class="g-dims"><span class="gap-dim all">All 6 Dimensions</span></div></div>
+    <div class="gap-card"><div class="g-num">GAP 09</div><h4>Post-Trauma Financial Recovery AI</h4><p>After leaving abuse, women face destroyed credit, employment gaps, housing barriers. No AI provides a personalized recovery roadmap.</p><div class="g-dims"><span class="gap-dim economic">Economic</span><span class="gap-dim psychological">Psychological</span></div></div>
+    <div class="gap-card"><div class="g-num">GAP 10</div><h4>Safety-Centered Dating Intelligence</h4><p>No tool helps women research a date, verify identity, and share safety plans with friends in one private flow.</p><div class="g-dims"><span class="gap-dim physical">Physical</span><span class="gap-dim digital">Digital</span></div></div>
+    <div class="gap-card"><div class="g-num">GAP 11</div><h4>Housing Safety Checker</h4><p>No AI tool helps women evaluate housing safety: neighborhood data, landlord reviews, structural features, all through a safety lens.</p><div class="g-dims"><span class="gap-dim physical">Physical</span><span class="gap-dim structural">Structural</span></div></div>
+    <div class="gap-card"><div class="g-num">GAP 12</div><h4>Girls' Early Intervention Platform</h4><p>Almost every tool targets adult women. Nothing helps girls ages 10-17 develop safety literacy and digital resilience before crisis.</p><div class="g-dims"><span class="gap-dim psychological">Psychological</span><span class="gap-dim digital">Digital</span></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================
+     TAB 3: BUILD AN IDEA
+     ============================================================ -->
+<div class="tab-panel" id="tab-build">
+<div class="stage">
+
+  <div class="hero-block" style="padding-bottom:8px;">
+    <h2 class="hero-title">You saw the landscape.<br>Now watch an idea<br><em>become a product.</em></h2>
+    <p class="hero-sub">Two examples, five steps each. These ideas are unclaimed. If one moves you, comment and take it.</p>
+  </div>
+
+  <div class="ex-tabs">
+    <button class="ex-tab active" onclick="switchEx('safety')">The Circle of Safety<span class="et-dim" style="color:var(--physical);">Physical Safety</span></button>
+    <button class="ex-tab" onclick="switchEx('finance')">The Quiet Account<span class="et-dim" style="color:var(--economic);">Economic Safety</span></button>
+  </div>
+
+  <div class="step-nav" id="stepNav">
+    <button class="s-dot active" onclick="goStep(1)">1</button><div class="s-wire"></div>
+    <button class="s-dot" onclick="goStep(2)">2</button><div class="s-wire"></div>
+    <button class="s-dot" onclick="goStep(3)">3</button><div class="s-wire"></div>
+    <button class="s-dot" onclick="goStep(4)">4</button><div class="s-wire"></div>
+    <button class="s-dot" onclick="goStep(5)">5</button>
+  </div>
+  <div class="step-labels" id="stepLabels">
+    <div class="step-lbl active">The Voice</div><div class="step-lbl">The Pattern</div><div class="step-lbl">The Void</div><div class="step-lbl">The Product</div><div class="step-lbl">The Team</div>
+  </div>
+
+  <!-- EXAMPLE 1: CIRCLE OF SAFETY -->
+  <div id="ex-safety">
+    <div class="step-content active" data-st="1"><div class="voice"><span class="q-mark">&ldquo;</span><div class="v-quote">My neighbor called 911 during a break-in. The officers terrified her more than <em>the intruder did.</em></div><div class="v-ctx">This is a real sentence from a real woman. She does not need a better SOS button. She needs to choose who shows up.</div><div class="v-arrow" onclick="goStep(2)">See what exists &#8594;</div></div></div>
+
+    <div class="step-content" data-st="2"><div class="pat-grid">
+      <div class="pat" onclick="this.classList.toggle('expanded')"><div class="p-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--physical)" stroke-width="1.5"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></div><div class="p-name">Police as Default</div><div class="p-who">bSafe, Noonlight, I Am Safe: every SOS routes to law enforcement</div><div class="p-miss">No opt-out. If you do not trust police, you do not press the button.</div><span class="p-tap">tap</span></div>
+      <div class="pat" onclick="this.classList.toggle('expanded')"><div class="p-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pencil)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="p-name">Solo User Only</div><div class="p-who">Every safety app treats you as one person with emergency contacts</div><div class="p-miss">No network. No circle. No community-based response.</div><span class="p-tap">tap</span></div>
+      <div class="pat" onclick="this.classList.toggle('expanded')"><div class="p-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pencil)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/></svg></div><div class="p-name">One Size Fits All</div><div class="p-who">No tool adjusts for race, geography, immigration status</div><div class="p-miss">Safety is contextual. Your trusted circle knows that. The app does not.</div><span class="p-tap">tap</span></div>
+      <div class="pat" onclick="this.classList.toggle('expanded')"><div class="p-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pencil)" stroke-width="1.5"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="p-name">Enterprise Pricing</div><div class="p-who">The Guide (CES winner) is hardware-dependent and expensive</div><div class="p-miss">The most innovative safety tool is inaccessible to who needs it most.</div><span class="p-tap">tap</span></div>
+    </div></div>
+
+    <div class="step-content" data-st="3"><div class="void"><div class="void-ring"><div class="v-center">Nobody built this</div><div class="o-dot"></div><div class="o-dot"></div><div class="o-dot"></div><div class="o-dot"></div><div class="o-dot"></div><div class="o-dot"></div><span class="o-label">bSafe</span><span class="o-label">Noonlight</span><span class="o-label">The Guide</span><span class="o-label">I Am Safe</span><span class="o-label">Life360</span><span class="o-label">ADT</span></div><div class="gap-stmt">"No personal safety app lets a woman choose her own response network: the people she actually trusts to show up."</div></div></div>
+
+    <div class="step-content" data-st="4"><div class="prd-layout">
+      <div class="phone"><div class="phone-scr"><div class="phone-bar"><span>9:41</span><span>&#x2022;&#x2022;&#x2022;</span></div><div class="phone-grid"><div class="p-app"><div class="a-icon weather"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div><div class="a-lbl">Weather</div></div><div class="p-app"><div class="a-icon photos"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="a-lbl">Photos</div></div><div class="p-app"><div class="a-icon msg"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="a-lbl">Messages</div></div><div class="p-app"><div class="a-icon maps"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/></svg></div><div class="a-lbl">Maps</div></div><div class="p-app"><div class="a-icon cal">11</div><div class="a-lbl">Calendar</div></div><div class="p-app"><div class="a-icon set"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><div class="a-lbl">Settings</div></div><div class="p-app"><div class="a-icon cam"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><div class="a-lbl">Camera</div></div><div class="p-app secret"><div class="a-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 22c-4 0-7-3-7-6 0-4 7-12 7-12s7 8 7 12c0 3-3 6-7 6z"/><path d="M12 18a2 2 0 002-2c0-2-2-5-2-5s-2 3-2 5a2 2 0 002 2z"/></svg></div><div class="a-lbl">Circle</div></div></div></div></div>
+      <div><div class="prd-name">The Circle of Safety</div><div class="prd-liner">Build your own trusted safety network. One tap to alert the people you chose.</div><div class="prd-secs">
+        <div class="prd-sec open"><div class="prd-hdr" onclick="togglePrd(this)"><span class="ph-title">Core Features</span><span class="ph-chev">&#x25BE;</span></div><div class="prd-body"><ul><li>Trusted Circle: invite 3-8 people as your safety network</li><li>One-tap alert with live location to your circle</li><li>Check-in timer with auto-alert if missed</li><li>Safe walk companion: share your route live</li><li>911 is optional, never automatic</li><li>Disguised app icon on home screen</li></ul></div></div>
+        <div class="prd-sec"><div class="prd-hdr" onclick="togglePrd(this)"><span class="ph-title">What Makes It Different</span><span class="ph-chev">&#x25BE;</span></div><div class="prd-body"><p>Trust-first architecture. The woman decides who her safety network is. No assumptions about who is "safe." Community-centered, not institution-centered.</p></div></div>
+        <div class="prd-sec"><div class="prd-hdr" onclick="togglePrd(this)"><span class="ph-title">Revenue Model</span><span class="ph-chev">&#x25BE;</span></div><div class="prd-body"><p>Free core. Premium $4.99/mo for multi-circle, location history. B2B licensing to universities, tribal councils, community orgs.</p></div></div>
+        <div class="prd-sec"><div class="prd-hdr" onclick="togglePrd(this)"><span class="ph-title">Buildathon Scope (7 Days)</span><span class="ph-chev">&#x25BE;</span></div><div class="prd-body"><p>Working prototype: circle builder + one-tap alert + check-in timer. React Native. Live demo with 3 test users.</p></div></div>
+      </div></div>
+    </div></div>
+
+    <div class="step-content" data-st="5">
+      <div class="seats">
+        <div class="seat filled"><div class="seat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="s-role">Product & Community</div><div class="s-brings">30 years youth work. Lived experience. First 200 users. The why and the who.</div><span class="s-status">JoYi: seated</span></div>
+        <div class="seat open"><div class="seat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><div class="s-role">iOS / Mobile Dev</div><div class="s-brings">Shipped to App Store. Push notifications, location, privacy-first architecture.</div><span class="s-status">open seat</span></div>
+        <div class="seat open"><div class="seat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div><div class="s-role">Marketing / Growth</div><div class="s-brings">Storyteller who feels this problem. Social, content, community marketing.</div><span class="s-status">open seat</span></div>
+      </div>
+      <div class="claim"><div class="cl-text">This idea is unclaimed. Comment "I'm in" below.</div><div class="cl-sub">You do not need all the skills. You need to care about the problem.</div></div>
+    </div>
+  </div>
+
+  <!-- EXAMPLE 2: QUIET ACCOUNT -->
+  <div id="ex-finance" style="display:none;">
+    <div class="step-content active" data-st="1"><div class="voice"><span class="q-mark">&ldquo;</span><div class="v-quote">He checks my bank app every night before bed. I have <em>nowhere to save.</em></div><div class="v-ctx">She is 26. Works part-time. He monitors every transaction. She wants to leave but has $0 he does not know about.</div><div class="v-arrow" onclick="goStep(2)">See what exists &#8594;</div></div></div>
+
+    <div class="step-content" data-st="2"><div class="pat-grid">
+      <div class="pat" onclick="this.classList.toggle('expanded')"><div class="p-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--economic)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div class="p-name">Assumes Autonomy</div><div class="p-who">Ellevest, YNAB, Mint: every finance app</div><div class="p-miss">She does not control her money. Opening an account is a risk, not a step.</div><span class="p-tap">tap</span></div>
+      <div class="pat" onclick="this.classList.toggle('expanded')"><div class="p-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pencil)" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div><div class="p-name">Built for After</div><div class="p-who">FreeFrom, Purple Purse: the best DV tools</div><div class="p-miss">They serve survivors post-exit. Nothing for the woman still inside.</div><span class="p-tap">tap</span></div>
+      <div class="pat" onclick="this.classList.toggle('expanded')"><div class="p-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pencil)" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><div class="p-name">Visible on Phone</div><div class="p-who">Every app with icons, notifications, confirmations</div><div class="p-miss">He checks her phone. A finance icon is a confrontation. A notification is a crisis.</div><span class="p-tap">tap</span></div>
+      <div class="pat" onclick="this.classList.toggle('expanded')"><div class="p-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pencil)" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="p-name">Oversight = Feature</div><div class="p-who">Greenlight, Step: monitoring is the product</div><div class="p-miss">Monitoring is her problem. She needs the opposite: invisibility.</div><span class="p-tap">tap</span></div>
+    </div></div>
+
+    <div class="step-content" data-st="3"><div class="void"><div class="void-ring"><div class="v-center">Nobody built this</div><div class="o-dot"></div><div class="o-dot"></div><div class="o-dot"></div><div class="o-dot"></div><div class="o-dot"></div><div class="o-dot"></div><span class="o-label">Ellevest</span><span class="o-label">YNAB</span><span class="o-label">FreeFrom</span><span class="o-label">Purple Purse</span><span class="o-label">Greenlight</span><span class="o-label">Mint</span></div><div class="gap-stmt">"No financial tool is designed to be invisible: to help a woman build an exit runway without anyone knowing it exists on her phone."</div></div></div>
+
+    <div class="step-content" data-st="4"><div class="prd-layout">
+      <div class="phone"><div class="phone-scr"><div class="phone-bar"><span>9:41</span><span>&#x2022;&#x2022;&#x2022;</span></div><div class="phone-grid"><div class="p-app"><div class="a-icon weather"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div><div class="a-lbl">Weather</div></div><div class="p-app"><div class="a-icon photos"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="a-lbl">Photos</div></div><div class="p-app"><div class="a-icon msg"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="a-lbl">Messages</div></div><div class="p-app"><div class="a-icon maps"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/></svg></div><div class="a-lbl">Maps</div></div><div class="p-app"><div class="a-icon cal">11</div><div class="a-lbl">Calendar</div></div><div class="p-app"><div class="a-icon set"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><div class="a-lbl">Settings</div></div><div class="p-app"><div class="a-icon cam"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><div class="a-lbl">Camera</div></div><div class="p-app secret"><div class="a-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><rect x="4" y="2" width="16" height="20" rx="1"/><path d="M8 6h8M8 10h8M8 14h5"/></svg></div><div class="a-lbl">Calc</div></div></div></div></div>
+      <div><div class="prd-name">The Quiet Account</div><div class="prd-liner">A stealth financial safety app disguised as a calculator. Build your exit runway invisibly.</div><div class="prd-secs">
+        <div class="prd-sec open"><div class="prd-hdr" onclick="togglePrd(this)"><span class="ph-title">Core Features</span><span class="ph-chev">&#x25BE;</span></div><div class="prd-body"><ul><li>Disguised as a calculator app that works as a real calculator</li><li>Micro-savings tracker: log hidden cash, cash-back, side income</li><li>Document vault: encrypted IDs, pay stubs, lease docs</li><li>Exit calculator: "how much to leave?" with local cost of living</li><li>Resource finder: shelters, legal aid, DV hotlines by zip</li><li>Zero notifications. Zero email. Zero traces.</li></ul></div></div>
+        <div class="prd-sec"><div class="prd-hdr" onclick="togglePrd(this)"><span class="ph-title">What Makes It Different</span><span class="ph-chev">&#x25BE;</span></div><div class="prd-body"><p>Every feature is tested against one question: "What if he finds this on my phone?" If the answer is dangerous, it does not ship. Panic-tap clears to a working calculator instantly.</p></div></div>
+        <div class="prd-sec"><div class="prd-hdr" onclick="togglePrd(this)"><span class="ph-title">Revenue Model</span><span class="ph-chev">&#x25BE;</span></div><div class="prd-body"><p>Free for users, always. Funded through grants (VAWA, OVW), foundation partnerships, B2B licensing to DV orgs and shelters.</p></div></div>
+        <div class="prd-sec"><div class="prd-hdr" onclick="togglePrd(this)"><span class="ph-title">Buildathon Scope (7 Days)</span><span class="ph-chev">&#x25BE;</span></div><div class="prd-body"><p>Working PWA: disguised calculator UI + savings tracker + document vault + exit calculator. Live demo with stealth walkthrough.</p></div></div>
+      </div></div>
+    </div></div>
+
+    <div class="step-content" data-st="5">
+      <div class="seats">
+        <div class="seat open"><div class="seat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="s-role">Product Lead</div><div class="s-brings">DV awareness: lived, professional, or researched. Trauma-informed UX instinct.</div><span class="s-status">open seat</span></div>
+        <div class="seat open"><div class="seat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M16 18l2-2-2-2M8 18l-2-2 2-2M14 4l-4 16"/></svg></div><div class="s-role">PWA Developer</div><div class="s-brings">Encrypted local storage, offline-first, privacy-first. Understands why zero logs matters.</div><span class="s-status">open seat</span></div>
+        <div class="seat open"><div class="seat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="s-role">DV Advocate / Advisor</div><div class="s-brings">Connected to shelters or DV orgs. Validates features against real survivor needs.</div><span class="s-status">open seat</span></div>
+      </div>
+      <div class="claim"><div class="cl-text">All three seats are open. This idea is yours if you want it.</div><div class="cl-sub">Comment your name and what you would bring. A sentence is enough.</div></div>
+    </div>
+  </div>
+
+  <div class="section-nav">
+    <button class="nav-btn hidden" id="bPrev" onclick="bPrevStep()">&#8592; Back</button>
+    <button class="nav-btn primary" id="bNext" onclick="bNextStep()">Next step &#8594;</button>
+  </div>
+</div>
+</div>
+
+<footer class="page-footer">
+  Women Build Safety &middot; The Practice Center &middot; AIdedEQ.org
+</footer>
+
+<script>
+// TABS
+function switchTab(t){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelector(`.tab-btn[onclick="switchTab('${t}')"]`).classList.add('active');
+  document.getElementById('tab-'+t).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// LESSON NAV
+let ls=1;const lsTotal=5;
+function goLs(n){ls=n;updateLs();}
+function lNext(){if(ls<lsTotal){ls++;updateLs();}}
+function lPrev(){if(ls>1){ls--;updateLs();}}
+function updateLs(){
+  document.querySelectorAll('#tab-lesson .lesson-section').forEach(s=>s.classList.remove('active'));
+  const t=document.querySelector(`#tab-lesson .lesson-section[data-ls="${ls}"]`);
+  if(t){void t.offsetWidth;t.classList.add('active');}
+  document.getElementById('lPrev').classList.toggle('hidden',ls===1);
+  const nb=document.getElementById('lNext');
+  nb.innerHTML=ls===lsTotal?'Back to start &#8594;':'Next &#8594;';
+  nb.onclick=ls===lsTotal?()=>goLs(1):lNext;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// COMPARE
+function litCompare(el){
+  const sides=el.parentElement.querySelectorAll('.compare-side');
+  sides.forEach(s=>{s.classList.remove('lit','dim');});
+  el.classList.add('lit');
+  sides.forEach(s=>{if(s!==el)s.classList.add('dim');});
+}
+
+// BREATHING
+let bRunning=false;
+async function startBreath(){
+  if(bRunning)return;bRunning=true;
+  const btn=document.getElementById('bBtn'),c=document.getElementById('bCircle'),t=document.getElementById('bText'),ct=document.getElementById('bCount');
+  btn.disabled=true;btn.textContent='Breathing...';
+  for(let r=0;r<3;r++){
+    ct.textContent=`Round ${r+1} of 3`;
+    t.textContent='breathe in';c.className='breath-inner';await sl(50);c.style.transition='all 4s ease-in-out';c.classList.add('expand');await sl(4000);
+    t.textContent='hold';c.style.transition='all 0.3s';c.classList.remove('expand');c.classList.add('hold');await sl(7000);
+    t.textContent='breathe out';c.style.transition='all 8s ease-in-out';c.classList.remove('hold');await sl(8000);
+    if(r<2){t.textContent='again';await sl(1500);}
+  }
+  t.textContent='notice how you feel';ct.textContent='complete';btn.textContent='Breathe again';btn.disabled=false;bRunning=false;c.className='breath-inner';c.style.transition='all 4s ease-in-out';
+}
+function sl(ms){return new Promise(r=>setTimeout(r,ms));}
+
+// BUILD TAB
+let curEx='safety',curSt=1;const stTotal=5;
+function switchEx(ex){
+  curEx=ex;curSt=1;
+  document.querySelectorAll('.ex-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelector(`.ex-tab[onclick="switchEx('${ex}')"]`).classList.add('active');
+  document.getElementById('ex-safety').style.display=ex==='safety'?'block':'none';
+  document.getElementById('ex-finance').style.display=ex==='finance'?'block':'none';
+  updateBuild();
+}
+function goStep(n){curSt=n;updateBuild();}
+function bNextStep(){if(curSt<stTotal){curSt++;updateBuild();}}
+function bPrevStep(){if(curSt>1){curSt--;updateBuild();}}
+function updateBuild(){
+  const dots=document.querySelectorAll('.s-dot'),labels=document.querySelectorAll('.step-lbl');
+  dots.forEach((d,i)=>{d.classList.remove('active','past');if(i+1===curSt)d.classList.add('active');else if(i+1<curSt)d.classList.add('past');});
+  labels.forEach((l,i)=>{l.classList.remove('active');if(i+1===curSt)l.classList.add('active');});
+  const container=document.getElementById(`ex-${curEx}`);
+  container.querySelectorAll('.step-content').forEach(p=>p.classList.remove('active'));
+  const t=container.querySelector(`.step-content[data-st="${curSt}"]`);
+  if(t){void t.offsetWidth;t.classList.add('active');}
+  document.getElementById('bPrev').classList.toggle('hidden',curSt===1);
+  const nb=document.getElementById('bNext');
+  if(curSt===stTotal){nb.innerHTML=curEx==='safety'?'See Example 2 &#8594;':'See Example 1 &#8594;';nb.onclick=()=>switchEx(curEx==='safety'?'finance':'safety');}
+  else{nb.innerHTML='Next step &#8594;';nb.onclick=bNextStep;}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function togglePrd(h){h.parentElement.classList.toggle('open');}
+
+// KEYBOARD
+document.addEventListener('keydown',e=>{
+  const lesson=document.getElementById('tab-lesson');
+  const build=document.getElementById('tab-build');
+  if(lesson.classList.contains('active')){
+    if(e.key==='ArrowRight'){e.preventDefault();lNext();}
+    if(e.key==='ArrowLeft'){e.preventDefault();lPrev();}
+  }
+  if(build.classList.contains('active')){
+    if(e.key==='ArrowRight'){e.preventDefault();bNextStep();}
+    if(e.key==='ArrowLeft'){e.preventDefault();bPrevStep();}
+  }
+});
+</script>
+</body>
+</html>
