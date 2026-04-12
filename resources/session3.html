@@ -131,7 +131,7 @@ body{font-family:'Inter',sans-serif;background:var(--charcoal);color:white;min-h
 /* ============ TAB 2: LANDSCAPE ============ */
 .dim-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;margin:8px 0 24px;}
 .dim-card{padding:28px 22px;background:rgba(255,255,255,0.03);border-left:3px solid;transition:background 0.3s;}
-.dim-card:hover{background:rgba(255,255,255,0.06);}
+.dim-card:hover{background:rgba(255,255,255,0.06);cursor:pointer;transform:translateY(-2px);transition:all 0.3s;}
 .dim-card.physical{border-color:var(--physical);}
 .dim-card.structural{border-color:var(--structural);}
 .dim-card.reproductive{border-color:var(--reproductive);}
@@ -303,6 +303,37 @@ body{font-family:'Inter',sans-serif;background:var(--charcoal);color:white;min-h
   .phone{width:240px;}
   .s-wire{width:28px;}
 }
+
+/* Intention: crisis grid */
+.crisis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:12px 0;}
+.crisis-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:22px 18px;text-align:center;cursor:pointer;transition:all 0.3s;}
+.crisis-card:hover{background:rgba(255,255,255,0.06);transform:translateY(-2px);}
+.crisis-card .cc-stat{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;margin-bottom:6px;}
+.crisis-card .cc-stat.danger{color:var(--rust);}
+.crisis-card .cc-stat.warn{color:var(--reproductive);}
+.crisis-card .cc-stat.gold{color:var(--gold-light);}
+.crisis-card .cc-text{font-size:0.72rem;line-height:1.6;color:rgba(255,255,255,0.42);margin-bottom:6px;}
+.crisis-card .cc-src{font-size:0.52rem;color:rgba(255,255,255,0.18);text-transform:uppercase;letter-spacing:0.5px;}
+.crisis-card .cc-more{font-size:0.7rem;line-height:1.6;color:rgba(255,255,255,0.3);max-height:0;overflow:hidden;transition:all 0.4s;}
+.crisis-card.open .cc-more{max-height:140px;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.04);}
+
+.market-bar{display:flex;align-items:stretch;gap:2px;margin:16px 0;border-radius:8px;overflow:hidden;}
+.market-seg{flex:1;padding:20px 14px;background:rgba(255,255,255,0.03);text-align:center;transition:background 0.3s;}
+.market-seg:hover{background:rgba(255,255,255,0.06);}
+.market-seg .ms-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--gold-light);margin-bottom:4px;}
+.market-seg .ms-text{font-size:0.65rem;color:rgba(255,255,255,0.3);line-height:1.4;}
+
+.comp-strip{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0;}
+.comp-chip{padding:5px 12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:20px;font-size:0.65rem;color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:6px;}
+.comp-chip .cf{color:var(--gold);font-weight:600;}
+.comp-chip .cg{color:var(--rust);font-size:0.6rem;font-style:italic;}
+
+@media(max-width:640px){
+  .crisis-grid{grid-template-columns:1fr 1fr;}
+  .market-bar{flex-wrap:wrap;}
+  .market-seg{min-width:48%;}
+  .comp-strip{gap:4px;}
+}
 </style>
 </head>
 <body>
@@ -314,7 +345,7 @@ body{font-family:'Inter',sans-serif;background:var(--charcoal);color:white;min-h
 </div>
 
 <div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('lesson')">The Attention Lesson</button>
+  <button class="tab-btn active" onclick="switchTab('lesson')">The EQ Lesson</button>
   <button class="tab-btn" onclick="switchTab('landscape')">The Landscape</button>
   <button class="tab-btn" onclick="switchTab('build')">Build an Idea</button>
 </div>
@@ -326,19 +357,132 @@ body{font-family:'Inter',sans-serif;background:var(--charcoal);color:white;min-h
 <div class="stage">
 
   <div class="spine">
-    <div class="spine-node done"><div class="spine-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div><div class="spine-lbl">Intention</div></div>
+    <div class="spine-node active" onclick="goSpine(0)"><div class="spine-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div><div class="spine-lbl">Intention</div></div>
     <div class="spine-wire"></div>
-    <div class="spine-node active"><div class="spine-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M2 12c2-4 6-7 10-7s8 3 10 7c-2 4-6 7-10 7s-8-3-10-7z"/></svg></div><div class="spine-lbl">Attention</div></div>
+    <div class="spine-node" onclick="goSpine(1)"><div class="spine-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M2 12c2-4 6-7 10-7s8 3 10 7c-2 4-6 7-10 7s-8-3-10-7z"/></svg></div><div class="spine-lbl">Attention</div></div>
     <div class="spine-wire"></div>
-    <div class="spine-node"><div class="spine-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg></div><div class="spine-lbl">Meaning</div></div>
+    <div class="spine-node" onclick="goSpine(2)"><div class="spine-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg></div><div class="spine-lbl">Meaning</div></div>
     <div class="spine-wire"></div>
     <div class="spine-node"><div class="spine-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c-4 0-7 3-7 6 0 4 7 12 7 12s7-8 7-12c0-3-3-6-7-6z"/><circle cx="12" cy="9" r="2"/></svg></div><div class="spine-lbl">Attitude</div></div>
     <div class="spine-wire"></div>
     <div class="spine-node"><div class="spine-dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="spine-lbl">Response</div></div>
   </div>
 
-  <!-- S1: What is attention -->
+  <!-- I1: What Is Your Real Intention? -->
   <div class="lesson-section active" data-ls="1">
+    <div class="hero-block">
+      <h2 class="hero-title">You think you know<br><em>why you are here.</em></h2>
+      <p class="hero-sub">Most of us do. And most of us are partially wrong. That is where this lesson starts.</p>
+    </div>
+    <div class="card">
+      <div class="section-label">Week 1: Intention</div>
+      <h3>Intention is not aspiration. It is the <em>operating system</em> underneath your choices.</h3>
+      <p>"I want to build something that helps people" is an aspiration. Your intention is what is actually driving you under that sentence. It might be purpose. It might be fear. It is usually both.</p>
+      <p>Psychologist Peter Gollwitzer found that people who form specific implementation intentions are <strong>2-3x more likely to follow through</strong> than people who only set goals. But most people never look past the goal to the machinery underneath it.</p>
+      <p style="font-size:0.65rem;color:rgba(255,255,255,0.2);margin-top:4px;">Gollwitzer, P.M. (1999). Implementation Intentions. American Psychologist, 54(7).</p>
+    </div>
+    <div class="compare">
+      <div class="compare-side" onclick="litCompare(this)">
+        <div class="c-label">The Surface Intention</div>
+        <div class="c-quote">"I want to build an app that helps women."</div>
+        <div class="c-body">This feels true. It sounds right. But it does not tell you what is actually steering. Underneath this sentence could be purpose, or it could be a very sophisticated way to manage fear.</div>
+      </div>
+      <div class="compare-side" onclick="litCompare(this)">
+        <div class="c-label">The Honest Intention</div>
+        <div class="c-quote">"I want to solve a specific problem for a specific person, and I am willing to be bad at it in public while I learn."</div>
+        <div class="c-body">This one costs something. It requires tolerating imperfection, exposure, and the possibility of failure. If this sentence makes you uncomfortable, pay attention to that.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- I2: The Fear Underneath -->
+  <div class="lesson-section" data-ls="2">
+    <div class="hero-block">
+      <h2 class="hero-title">Many of us are building<br>to manage <em>fear.</em></h2>
+      <p class="hero-sub">That is not a judgment. It is a pattern. And patterns you can see, you can change.</p>
+    </div>
+    <div class="card">
+      <div class="section-label">The Honest Look</div>
+      <h3>Fear-based intention <em>feels like</em> purpose.</h3>
+      <p>It sounds like "I want to help." But it acts like "I want to feel safe." The difference shows up in behavior, not words.</p>
+    </div>
+    <div class="nuggets">
+      <div class="nugget" onclick="this.classList.toggle('open')">
+        <div class="n-stat">Research</div>
+        <div class="n-text">over-preparing instead of starting</div>
+        <div class="n-src">Fear sign #1</div>
+        <div class="n-more">When your intention is managing fear, research becomes a hiding place. You read 12 articles instead of building one prototype. Preparation feels productive. But preparation without action is a performance of readiness, not readiness itself.</div>
+      </div>
+      <div class="nugget" onclick="this.classList.toggle('open')">
+        <div class="n-stat">Approval</div>
+        <div class="n-text">building for validation instead of impact</div>
+        <div class="n-src">Fear sign #2</div>
+        <div class="n-more">If the first question in your head is "what will people think?" instead of "who does this help?", your intention has quietly shifted from serving others to protecting yourself. Both can coexist. But only one should steer.</div>
+      </div>
+      <div class="nugget" onclick="this.classList.toggle('open')">
+        <div class="n-stat">Permission</div>
+        <div class="n-text">waiting for someone to say you are ready</div>
+        <div class="n-src">Fear sign #3</div>
+        <div class="n-more">Readiness is a feeling you manufacture by starting, not a credential someone hands you. If you are waiting for permission, ask yourself: who exactly am I waiting for? And what happens if they never come?</div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px;border-color:rgba(196,162,101,0.15);">
+      <p style="font-family:'Playfair Display',serif;font-size:0.95rem;font-style:italic;color:var(--gold-light);line-height:1.6;">None of this makes you broken. It makes you human. Fear is not the problem. Letting fear set your intention without your consent is the problem.</p>
+    </div>
+  </div>
+
+  <!-- I3: The BOTH/AND -->
+  <div class="lesson-section" data-ls="3">
+    <div class="hero-block">
+      <h2 class="hero-title">The system is real.<br><em>And so are the patterns we have internalized.</em></h2>
+      <p class="hero-sub">This is not either/or. It is both/and. Tap each card.</p>
+    </div>
+    <div class="crisis-grid">
+      <div class="crisis-card" onclick="this.classList.toggle('open')">
+        <div class="cc-stat danger">2%</div>
+        <div class="cc-text">of venture capital goes to women-founded companies</div>
+        <div class="cc-src">PitchBook, 2023</div>
+        <div class="cc-more">This is structural. Real. Not imagined. Women face funding barriers that men do not. Investors ask women "prevention" questions and men "promotion" questions, shaping outcomes before the pitch ends.</div>
+      </div>
+      <div class="crisis-card" onclick="this.classList.toggle('open')">
+        <div class="cc-stat warn">100%</div>
+        <div class="cc-text">qualified: the threshold women set before applying. Men apply at 60%.</div>
+        <div class="cc-src">Mohr, 2014 / HP Internal Study</div>
+        <div class="cc-more">This is internal. Women hold themselves to a standard of readiness that men do not require of themselves. The system did not create this alone, but the system reinforces it. Both are true.</div>
+      </div>
+      <div class="crisis-card" onclick="this.classList.toggle('open')">
+        <div class="cc-stat danger">22%</div>
+        <div class="cc-text">of AI professionals globally are women</div>
+        <div class="cc-src">Stanford AI Index Report, 2023</div>
+        <div class="cc-more">The AI landscape was not built for women. The teams are male-dominated, the products reflect male assumptions, and the funding flows to male founders. This is why women building in AI matters. Not despite the gap, because of it.</div>
+      </div>
+      <div class="crisis-card" onclick="this.classList.toggle('open')">
+        <div class="cc-stat gold">2x</div>
+        <div class="cc-text">more revenue per dollar invested: what women-founded companies generate</div>
+        <div class="cc-src">BCG, 2018</div>
+        <div class="cc-more">When women build, they build well. The problem is not capability. The problem is that building starts later because the cost of failure has been made higher, AND because perfectionism has been internalized as a survival strategy.</div>
+      </div>
+      <div class="crisis-card" onclick="this.classList.toggle('open')">
+        <div class="cc-stat warn">30yrs</div>
+        <div class="cc-text">of rising perfectionism, disproportionately in women</div>
+        <div class="cc-src">Curran &amp; Hill, 2019</div>
+        <div class="cc-more">Perfectionism is not a personality trait. It is a response to environments where mistakes are punished more harshly. Women learn it. And then it becomes the voice that says "not yet, not ready, not enough."</div>
+      </div>
+      <div class="crisis-card" onclick="this.classList.toggle('open')">
+        <div class="cc-stat gold">Both</div>
+        <div class="cc-text">the system disadvantages women AND women internalize patterns that compound it</div>
+        <div class="cc-src">The BOTH/AND</div>
+        <div class="cc-more">Men do not build better products. They ship faster because the cost of failure is lower AND because they were socialized to tolerate imperfection. Women can learn to ship ugly, seek feedback instead of permission, and build in public. The system must change. And so can we, right now, without waiting for it.</div>
+      </div>
+    </div>
+    <div class="practice" style="margin-top:16px;">
+      <div class="p-label">Your Intention Practice</div>
+      <div class="p-prompt">Write your intention for this buildathon in one sentence.<br><br><strong style="color:var(--gold-light);">"I am building ____ because ____."</strong><br><br>Then ask: is this about managing my fear, or about solving someone's problem?<br>If it is both, that is honest. Start there.</div>
+    </div>
+  </div>
+
+  <!-- S1: What is attention -->
+  <div class="lesson-section" data-ls="4">
     <div class="hero-block">
       <h2 class="hero-title">Where your attention goes,<br><em>your life follows.</em></h2>
       <p class="hero-sub">Not what you believe. Not what you intend. What you actually pay attention to, day after day, is what you build.</p>
@@ -371,7 +515,7 @@ body{font-family:'Inter',sans-serif;background:var(--charcoal);color:white;min-h
   </div>
 
   <!-- S2: Being vs Doing -->
-  <div class="lesson-section" data-ls="2">
+  <div class="lesson-section" data-ls="5">
     <div class="hero-block">
       <h2 class="hero-title">Being a good person<br>is not the same as<br><em>doing good things.</em></h2>
       <p class="hero-sub">One is an identity you protect. The other is a practice you choose, again and again, with your attention.</p>
@@ -397,7 +541,7 @@ body{font-family:'Inter',sans-serif;background:var(--charcoal);color:white;min-h
   </div>
 
   <!-- S3: Traps -->
-  <div class="lesson-section" data-ls="3">
+  <div class="lesson-section" data-ls="6">
     <div class="hero-block">
       <h2 class="hero-title">Five ways attention<br><em>goes sideways.</em></h2>
       <p class="hero-sub">Tap each one to see the shift.</p>
@@ -432,7 +576,7 @@ body{font-family:'Inter',sans-serif;background:var(--charcoal);color:white;min-h
   </div>
 
   <!-- S4: Breathing -->
-  <div class="lesson-section" data-ls="4">
+  <div class="lesson-section" data-ls="7">
     <div class="hero-block">
       <h2 class="hero-title">Before we go further,<br><em>come back to your body.</em></h2>
       <p class="hero-sub">Attention starts here. Not in your head. In your breath.</p>
@@ -451,7 +595,7 @@ body{font-family:'Inter',sans-serif;background:var(--charcoal);color:white;min-h
   </div>
 
   <!-- S5: Practice -->
-  <div class="lesson-section" data-ls="5">
+  <div class="lesson-section" data-ls="8">
     <div class="hero-block">
       <h2 class="hero-title">Your practice<br><em>this week.</em></h2>
       <p class="hero-sub">Not homework. A single redirection. Try it once today.</p>
@@ -486,12 +630,12 @@ body{font-family:'Inter',sans-serif;background:var(--charcoal);color:white;min-h
   </div>
 
   <div class="dim-grid">
-    <div class="dim-card physical"><span class="d-num">01</span><h4>Physical Safety</h4><div class="d-q">Can I walk home? Can I call for help?</div><div class="d-tools"><span class="d-tag">bSafe</span><span class="d-tag">Noonlight</span><span class="d-tag">The Guide</span><span class="d-tag">I Am Safe</span></div></div>
-    <div class="dim-card structural"><span class="d-num">02</span><h4>Structural Safety</h4><div class="d-q">Does the system see me? Does it protect me?</div><div class="d-tools"><span class="d-tag">Textio</span><span class="d-tag">Pymetrics</span><span class="d-tag">Vanta</span></div></div>
-    <div class="dim-card reproductive"><span class="d-num">03</span><h4>Reproductive Safety</h4><div class="d-q">Is my body my own? Is my data?</div><div class="d-tools"><span class="d-tag">Natural Cycles</span><span class="d-tag">Flo Health</span><span class="d-tag">Ovia Health</span></div></div>
-    <div class="dim-card digital"><span class="d-num">04</span><h4>Digital Safety</h4><div class="d-q">Who is using my image? Who is watching?</div><div class="d-tools"><span class="d-tag">Sensity AI</span><span class="d-tag">HacWare</span><span class="d-tag">Take It Down</span></div></div>
-    <div class="dim-card economic"><span class="d-num">05</span><h4>Economic Safety</h4><div class="d-q">Can I leave? Can I survive on my own?</div><div class="d-tools"><span class="d-tag">Ellevest</span><span class="d-tag">FreeFrom</span><span class="d-tag">Purple Purse</span></div></div>
-    <div class="dim-card psychological"><span class="d-num">06</span><h4>Psychological Safety</h4><div class="d-q">Can I be honest here? Can I be whole?</div><div class="d-tools"><span class="d-tag">Woebot</span><span class="d-tag">Wysa</span><span class="d-tag">Soula</span></div></div>
+    <div class="dim-card physical" onclick="scrollToGaps('physical')"><span class="d-num">01</span><h4>Physical Safety</h4><div class="d-q">Can I walk home? Can I call for help?</div><div class="d-tools"><span class="d-tag">bSafe</span><span class="d-tag">Noonlight</span><span class="d-tag">The Guide</span><span class="d-tag">I Am Safe</span></div></div>
+    <div class="dim-card structural" onclick="scrollToGaps('structural')"><span class="d-num">02</span><h4>Structural Safety</h4><div class="d-q">Does the system see me? Does it protect me?</div><div class="d-tools"><span class="d-tag">Textio</span><span class="d-tag">Pymetrics</span><span class="d-tag">Vanta</span></div></div>
+    <div class="dim-card reproductive" onclick="scrollToGaps('reproductive')"><span class="d-num">03</span><h4>Reproductive Safety</h4><div class="d-q">Is my body my own? Is my data?</div><div class="d-tools"><span class="d-tag">Natural Cycles</span><span class="d-tag">Flo Health</span><span class="d-tag">Ovia Health</span></div></div>
+    <div class="dim-card digital" onclick="scrollToGaps('digital')"><span class="d-num">04</span><h4>Digital Safety</h4><div class="d-q">Who is using my image? Who is watching?</div><div class="d-tools"><span class="d-tag">Sensity AI</span><span class="d-tag">HacWare</span><span class="d-tag">Take It Down</span></div></div>
+    <div class="dim-card economic" onclick="scrollToGaps('economic')"><span class="d-num">05</span><h4>Economic Safety</h4><div class="d-q">Can I leave? Can I survive on my own?</div><div class="d-tools"><span class="d-tag">Ellevest</span><span class="d-tag">FreeFrom</span><span class="d-tag">Purple Purse</span></div></div>
+    <div class="dim-card psychological" onclick="scrollToGaps('psychological')"><span class="d-num">06</span><h4>Psychological Safety</h4><div class="d-q">Can I be honest here? Can I be whole?</div><div class="d-tools"><span class="d-tag">Woebot</span><span class="d-tag">Wysa</span><span class="d-tag">Soula</span></div></div>
   </div>
 
   <div class="stats">
@@ -499,6 +643,7 @@ body{font-family:'Inter',sans-serif;background:var(--charcoal);color:white;min-h
     <div class="stat"><div class="s-num">99%</div><div class="s-text">of domestic violence cases involve financial abuse.</div><div class="s-src">NNEDV</div></div>
     <div class="stat"><div class="s-num">38%</div><div class="s-text">of women have experienced online violence.</div><div class="s-src">UN Women, 2025</div></div>
     <div class="stat"><div class="s-num">55%</div><div class="s-text">more likely Black civilians experience police use of force.</div><div class="s-src">Johns Hopkins, 2024</div></div>
+    <div class="stat"><div class="s-num">73%</div><div class="s-text">of menopausal women receive no treatment. $27B market, 1.1B women.</div><div class="s-src">NAMS + Grand View Research</div></div>
   </div>
 
   <div class="hero-block" style="padding-top:20px;">
@@ -506,7 +651,7 @@ body{font-family:'Inter',sans-serif;background:var(--charcoal);color:white;min-h
     <h2 class="hero-title" style="font-size:clamp(1.3rem,3vw,1.8rem);">Things that do not exist yet.<br><em>Or do not exist well enough.</em></h2>
   </div>
 
-  <div class="gaps-grid">
+  <div class="gaps-grid" id="gapsGrid">
     <div class="gap-card"><div class="g-num">GAP 01</div><h4>Intersectional Safety Dashboard</h4><p>No tool maps safety across all 6 dimensions for one person. You could be physically safe but economically trapped.</p><div class="g-dims"><span class="gap-dim all">All 6 Dimensions</span></div></div>
     <div class="gap-card"><div class="g-num">GAP 02</div><h4>Financial Escape Planning Tool</h4><p>99% of DV involves financial abuse but almost no apps help women secretly build independence while still in unsafe situations.</p><div class="g-dims"><span class="gap-dim economic">Economic</span><span class="gap-dim physical">Physical</span></div></div>
     <div class="gap-card"><div class="g-num">GAP 03</div><h4>AI Legal Navigator for DV</h4><p>No app walks a survivor through protection orders, custody, housing rights in plain language, step by step.</p><div class="g-dims"><span class="gap-dim structural">Structural</span><span class="gap-dim economic">Economic</span></div></div>
@@ -519,6 +664,8 @@ body{font-family:'Inter',sans-serif;background:var(--charcoal);color:white;min-h
     <div class="gap-card"><div class="g-num">GAP 10</div><h4>Safety-Centered Dating Intelligence</h4><p>No tool helps women research a date, verify identity, and share safety plans with friends in one private flow.</p><div class="g-dims"><span class="gap-dim physical">Physical</span><span class="gap-dim digital">Digital</span></div></div>
     <div class="gap-card"><div class="g-num">GAP 11</div><h4>Housing Safety Checker</h4><p>No AI tool helps women evaluate housing safety: neighborhood data, landlord reviews, structural features, all through a safety lens.</p><div class="g-dims"><span class="gap-dim physical">Physical</span><span class="gap-dim structural">Structural</span></div></div>
     <div class="gap-card"><div class="g-num">GAP 12</div><h4>Girls' Early Intervention Platform</h4><p>Almost every tool targets adult women. Nothing helps girls ages 10-17 develop safety literacy and digital resilience before crisis.</p><div class="g-dims"><span class="gap-dim psychological">Psychological</span><span class="gap-dim digital">Digital</span></div></div>
+    <div class="gap-card" style="border-top-color:var(--reproductive);"><div class="g-num">GAP 13</div><h4>Menopause Safety Navigation</h4><p>4x depression risk, highest female suicide rate at 45-64, 73% untreated. No product maps menopause across physical, economic, and psychological safety dimensions.</p><div class="g-dims"><span class="gap-dim reproductive">Reproductive</span><span class="gap-dim psychological">Psychological</span><span class="gap-dim economic">Economic</span></div></div>
+    <div class="gap-card" style="border-top-color:var(--reproductive);"><div class="g-num">GAP 14</div><h4>Lifestyle-First Menopause Protocol</h4><p>Nine funded competitors, all HRT-forward. No product offers community cohorts, plant-based pathways, or lifestyle-first protocols. $27B market with the door wide open.</p><div class="g-dims"><span class="gap-dim reproductive">Reproductive</span><span class="gap-dim physical">Physical</span></div></div>
   </div>
 </div>
 </div>
@@ -531,12 +678,13 @@ body{font-family:'Inter',sans-serif;background:var(--charcoal);color:white;min-h
 
   <div class="hero-block" style="padding-bottom:8px;">
     <h2 class="hero-title">You saw the landscape.<br>Now watch an idea<br><em>become a product.</em></h2>
-    <p class="hero-sub">Two examples, five steps each. These ideas are unclaimed. If one moves you, comment and take it.</p>
+    <p class="hero-sub">Three ideas, five steps each. Every one is unclaimed. If one moves you, comment and take it.</p>
   </div>
 
   <div class="ex-tabs">
     <button class="ex-tab active" onclick="switchEx('safety')">The Circle of Safety<span class="et-dim" style="color:var(--physical);">Physical Safety</span></button>
     <button class="ex-tab" onclick="switchEx('finance')">The Quiet Account<span class="et-dim" style="color:var(--economic);">Economic Safety</span></button>
+    <button class="ex-tab" onclick="switchEx('menopause')">The Reset Protocol<span class="et-dim" style="color:var(--reproductive);">Reproductive + Psychological</span></button>
   </div>
 
   <div class="step-nav" id="stepNav">
@@ -616,9 +764,49 @@ body{font-family:'Inter',sans-serif;background:var(--charcoal);color:white;min-h
     </div>
   </div>
 
+  <!-- EXAMPLE 3: THE RESET PROTOCOL -->
+  <div id="ex-menopause" style="display:none;">
+    <div class="step-content active" data-st="1"><div class="voice"><span class="q-mark">&ldquo;</span><div class="v-quote">My doctor told me this is just aging. I lost my job, my marriage, and 30 pounds of confidence before anyone said <em>the word menopause.</em></div><div class="v-ctx">She is 49. She thought she was losing her mind. Brain fog. Rage she could not explain. Insomnia for months. Nobody connected it to hormones until she found research on her own.</div><div class="v-arrow" onclick="goStep(2)">See what exists &#8594;</div></div></div>
+
+    <div class="step-content" data-st="2"><div class="pat-grid">
+      <div class="pat" onclick="this.classList.toggle('expanded')"><div class="p-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--reproductive)" stroke-width="1.5"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 8v8M8 12h8"/></svg></div><div class="p-name">Prescription First</div><div class="p-who">Midi Health ($100M), Alloy ($21M), Evernow ($28.5M)</div><div class="p-miss">HRT is positioned as the only answer. No lifestyle protocol. No plant-based pathway. If you do not want a prescription, there is no product for you.</div><span class="p-tap">tap</span></div>
+      <div class="pat" onclick="this.classList.toggle('expanded')"><div class="p-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pencil)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="p-name">Solo Journey</div><div class="p-who">Stella, Balance, Flo Health: content and tracking, alone</div><div class="p-miss">No cohort model. No facilitated circles. No one to say "this happened to me too." Menopause in isolation compounds the psychological toll.</div><span class="p-tap">tap</span></div>
+      <div class="pat" onclick="this.classList.toggle('expanded')"><div class="p-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pencil)" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div><div class="p-name">Clinical Tone</div><div class="p-who">Elektra ("Harvard of menopause"), Gennev (acquired, now corporate)</div><div class="p-miss">Medical language that makes women feel like patients instead of people. No lived experience in the product. No warmth.</div><span class="p-tap">tap</span></div>
+      <div class="pat" onclick="this.classList.toggle('expanded')"><div class="p-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--pencil)" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg></div><div class="p-name">Post-Crisis Only</div><div class="p-who">Most tools arrive after symptoms derail life</div><div class="p-miss">Nothing for the woman in early perimenopause who feels something shifting but cannot name it. No early intervention. No prevention protocol.</div><span class="p-tap">tap</span></div>
+    </div></div>
+
+    <div class="step-content" data-st="3"><div class="void"><div class="void-ring"><div class="v-center">Nobody built this</div><div class="o-dot"></div><div class="o-dot"></div><div class="o-dot"></div><div class="o-dot"></div><div class="o-dot"></div><div class="o-dot"></div><span class="o-label">Midi Health</span><span class="o-label">Alloy</span><span class="o-label">Evernow</span><span class="o-label">Flo Health</span><span class="o-label">Elektra</span><span class="o-label">Peppy</span></div><div class="gap-stmt">"No menopause product is lifestyle-first, community-centered, and designed to meet women before the crisis, not after the damage is done."</div></div></div>
+
+    <div class="step-content" data-st="4"><div class="prd-layout">
+      <div class="phone"><div class="phone-scr"><div class="phone-bar"><span>9:41</span><span>&#x2022;&#x2022;&#x2022;</span></div><div class="phone-grid"><div class="p-app"><div class="a-icon weather"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></div><div class="a-lbl">Weather</div></div><div class="p-app"><div class="a-icon photos"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="a-lbl">Photos</div></div><div class="p-app"><div class="a-icon msg"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="a-lbl">Messages</div></div><div class="p-app"><div class="a-icon maps"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4z"/></svg></div><div class="a-lbl">Maps</div></div><div class="p-app"><div class="a-icon cal">11</div><div class="a-lbl">Calendar</div></div><div class="p-app"><div class="a-icon set"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><div class="a-lbl">Settings</div></div><div class="p-app"><div class="a-icon cam"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></div><div class="a-lbl">Camera</div></div><div class="p-app secret"><div class="a-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 22c-4.97 0-9-2.69-9-6v-4c0-3.31 4.03-6 9-6s9 2.69 9 6v4c0 3.31-4.03 6-9 6z"/><path d="M12 14c-2.21 0-4-1.12-4-2.5S9.79 9 12 9s4 1.12 4 2.5S14.21 14 12 14z"/></svg></div><div class="a-lbl">Reset</div></div></div></div></div>
+      <div><div class="prd-name">The Reset Protocol</div><div class="prd-liner">90-day lifestyle-first menopause program with community cohorts and clinical escalation when you need it.</div><div class="prd-secs">
+        <div class="prd-sec open"><div class="prd-hdr" onclick="togglePrd(this)"><span class="ph-title">Core Features</span><span class="ph-chev">&#x25BE;</span></div><div class="prd-body"><ul><li>90-day protocol: nutrition, movement, sleep, stress management</li><li>AI symptom tracker with pattern recognition across 34 symptoms</li><li>Cohort circles: 8-12 women matched by symptom profile</li><li>OBGYN escalation pathway when lifestyle alone is not enough</li><li>Partner/family education module</li><li>Plant-based and HRT pathways, woman chooses</li></ul></div></div>
+        <div class="prd-sec"><div class="prd-hdr" onclick="togglePrd(this)"><span class="ph-title">What Makes It Different</span><span class="ph-chev">&#x25BE;</span></div><div class="prd-body"><p>Lifestyle-first, not prescription-first. Community-centered, not solo. Meets women in early perimenopause before the crisis, not after the damage. Founder-led with lived protocol experience. OBGYN-backed clinical credibility without clinical coldness.</p></div></div>
+        <div class="prd-sec"><div class="prd-hdr" onclick="togglePrd(this)"><span class="ph-title">Revenue Model</span><span class="ph-chev">&#x25BE;</span></div><div class="prd-body"><p>Freemium consumer app with premium tier. Facilitated cohort seats as a paid experience. Potential facilitator certification for scale. Multiple revenue streams from day one.</p></div></div>
+        <div class="prd-sec"><div class="prd-hdr" onclick="togglePrd(this)"><span class="ph-title">Buildathon Scope (7 Days)</span><span class="ph-chev">&#x25BE;</span></div><div class="prd-body"><p>Working PWA: symptom tracker with AI pattern recognition + 90-day protocol content + cohort matching algorithm. Live demo with real users completing Week 1 of the protocol.</p></div></div>
+      </div></div>
+    </div></div>
+
+    <div class="step-content" data-st="5">
+      <div class="seats">
+        <div class="seat filled"><div class="seat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--sage)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="s-role">Protocol Lead</div><div class="s-brings">Lived menopause protocol experience. Community builder. First 200 users from The Practice Center.</div><span class="s-status">JoYi: seated</span></div>
+        <div class="seat open"><div class="seat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M16 18l2-2-2-2M8 18l-2-2 2-2M14 4l-4 16"/></svg></div><div class="s-role">Full-Stack Developer</div><div class="s-brings">PWA experience, AI/ML for symptom patterns, offline-first architecture. Privacy matters here.</div><span class="s-status">open seat</span></div>
+        <div class="seat open"><div class="seat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 8v8M8 12h8"/></svg></div><div class="s-role">Clinical Advisor / OBGYN</div><div class="s-brings">Validates protocol. Builds the escalation pathway. Credibility for investor conversations.</div><span class="s-status">open seat</span></div>
+        <div class="seat open"><div class="seat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div><div class="s-role">Growth / Community</div><div class="s-brings">Knows this audience. Can reach women 40-65 where they already are. Content, partnerships, community.</div><span class="s-status">open seat</span></div>
+      </div>
+      <div class="claim"><div class="cl-text">This idea is unclaimed. Comment "I'm in" and tell us what you bring.</div><div class="cl-sub">You do not need all the skills. You need to care about the problem.</div></div>
+    </div>
+  </div>
+
   <div class="section-nav">
     <button class="nav-btn hidden" id="bPrev" onclick="bPrevStep()">&#8592; Back</button>
     <button class="nav-btn primary" id="bNext" onclick="bNextStep()">Next step &#8594;</button>
+  </div>
+
+  <div class="card" style="margin-top:32px;border-color:rgba(196,162,101,0.18);background:rgba(196,162,101,0.03);text-align:center;">
+    <div class="section-label" style="text-align:center;">Next Step: Write Your PRD</div>
+    <h3 style="max-width:480px;margin:0 auto;">Grab the PRD lesson from <em>Jessica</em> in our Discord.</h3>
+    <p style="max-width:420px;margin:12px auto 0;">Head to the <strong>#resources</strong> channel. Jessica walks you through turning your idea into a buildable product requirement document, step by step. Do this before the Buildathon.</p>
   </div>
 </div>
 </div>
@@ -638,10 +826,19 @@ function switchTab(t){
 }
 
 // LESSON NAV
-let ls=1;const lsTotal=5;
+let ls=1;const lsTotal=8;
+// Spine mapping: sections 1-3 = Intention (node 0), sections 4-8 = Attention (node 1)
+const spineMap=[0,0,0,0,1,1,1,1,1]; // index 0 unused, 1-3=Intention, 4-8=Attention
+
 function goLs(n){ls=n;updateLs();}
-function lNext(){if(ls<lsTotal){ls++;updateLs();}}
+function lNext(){if(ls<lsTotal){ls++;updateLs();}else{goLs(1);}}
 function lPrev(){if(ls>1){ls--;updateLs();}}
+function goSpine(idx){
+  // Jump to first section of each spine segment
+  if(idx===0) goLs(1);
+  else if(idx===1) goLs(4);
+  else if(idx===2) switchTab('landscape');
+}
 function updateLs(){
   document.querySelectorAll('#tab-lesson .lesson-section').forEach(s=>s.classList.remove('active'));
   const t=document.querySelector(`#tab-lesson .lesson-section[data-ls="${ls}"]`);
@@ -650,6 +847,14 @@ function updateLs(){
   const nb=document.getElementById('lNext');
   nb.innerHTML=ls===lsTotal?'Back to start &#8594;':'Next &#8594;';
   nb.onclick=ls===lsTotal?()=>goLs(1):lNext;
+  // Update spine highlighting
+  const nodes=document.querySelectorAll('.spine-node');
+  const activeSpine=spineMap[ls]||0;
+  nodes.forEach((n,i)=>{
+    n.classList.remove('active','done');
+    if(i===activeSpine) n.classList.add('active');
+    else if(i<activeSpine) n.classList.add('done');
+  });
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
@@ -679,13 +884,16 @@ async function startBreath(){
 function sl(ms){return new Promise(r=>setTimeout(r,ms));}
 
 // BUILD TAB
+const exList=['safety','finance','menopause'];
 let curEx='safety',curSt=1;const stTotal=5;
 function switchEx(ex){
   curEx=ex;curSt=1;
   document.querySelectorAll('.ex-tab').forEach(t=>t.classList.remove('active'));
   document.querySelector(`.ex-tab[onclick="switchEx('${ex}')"]`).classList.add('active');
-  document.getElementById('ex-safety').style.display=ex==='safety'?'block':'none';
-  document.getElementById('ex-finance').style.display=ex==='finance'?'block':'none';
+  exList.forEach(e=>{
+    const el=document.getElementById('ex-'+e);
+    if(el) el.style.display=e===ex?'block':'none';
+  });
   updateBuild();
 }
 function goStep(n){curSt=n;updateBuild();}
@@ -701,11 +909,41 @@ function updateBuild(){
   if(t){void t.offsetWidth;t.classList.add('active');}
   document.getElementById('bPrev').classList.toggle('hidden',curSt===1);
   const nb=document.getElementById('bNext');
-  if(curSt===stTotal){nb.innerHTML=curEx==='safety'?'See Example 2 &#8594;':'See Example 1 &#8594;';nb.onclick=()=>switchEx(curEx==='safety'?'finance':'safety');}
-  else{nb.innerHTML='Next step &#8594;';nb.onclick=bNextStep;}
+  if(curSt===stTotal){
+    const ci=exList.indexOf(curEx);
+    const nextEx=exList[(ci+1)%exList.length];
+    const names={safety:'Circle of Safety',finance:'Quiet Account',menopause:'Reset Protocol'};
+    nb.innerHTML='See '+names[nextEx]+' &#8594;';
+    nb.onclick=()=>switchEx(nextEx);
+  } else{nb.innerHTML='Next step &#8594;';nb.onclick=bNextStep;}
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function togglePrd(h){h.parentElement.classList.toggle('open');}
+
+// LANDSCAPE: dimension card click -> scroll to gaps & highlight matching
+function scrollToGaps(dim){
+  const grid=document.getElementById('gapsGrid');
+  grid.scrollIntoView({behavior:'smooth',block:'start'});
+  // highlight matching gap cards
+  document.querySelectorAll('.gap-card').forEach(c=>{
+    c.style.transition='all 0.4s';
+    const dims=c.querySelectorAll('.gap-dim');
+    const match=Array.from(dims).some(d=>d.classList.contains(dim)||d.classList.contains('all'));
+    if(match){
+      c.style.transform='translateY(-4px)';
+      c.style.borderColor='rgba(196,162,101,0.4)';
+      c.style.background='rgba(255,255,255,0.07)';
+    } else {
+      c.style.opacity='0.3';
+    }
+  });
+  // reset after 3s
+  setTimeout(()=>{
+    document.querySelectorAll('.gap-card').forEach(c=>{
+      c.style.transform='';c.style.borderColor='';c.style.background='';c.style.opacity='';
+    });
+  },3500);
+}
 
 // KEYBOARD
 document.addEventListener('keydown',e=>{
