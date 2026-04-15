@@ -43,9 +43,17 @@ AIdedEQ is the technology arm of The Practice Center, a 501(c)(3) nonprofit foun
 - Founded on Basic Human Decency framework: notice harm, respond with integrity, repair what you can, rebuild culture on purpose
 - Built on IAMAR organizational alignment lens rooted in Aloha Spirit
 
+## Workshop Resources
+- Women Build Safety Session 3 (Meaning & Attitude): Interactive workshop page on attention as a practice, landscape of women's safety tools, and Buildathon product walkthroughs. https://aidedeq.org/resources/session3.html
+- Women Build Safety Resource Sheet: Curated scan of 20+ AI tools across 6 safety dimensions with 14 identified build gaps. https://aidedeq.org/resources/safety.html
+
+## Current Initiatives
+- Women Build AI community on Skool: https://www.skool.com/women-building-ai-2577
+- Women Build Safety Buildathon: three open product concepts (Circle of Safety, The Quiet Account, The Reset Protocol) with open team seats
+
 ## Contact
 - Website: https://aidedeq.org
 - Book a founder conversation: https://aidedeq.org/book/
 - Email: info@aidedeq.org
 - The Practice Center (nonprofit): https://thepracticecenter.org
-- Donate: https://thepracticecenter.org (PayPal, Venmo, Wise)
+- Donate: https://aidedeq.org/#donate (Stripe only)
