@@ -18,7 +18,6 @@ AIdedEQ is the technology arm of The Practice Center, a 501(c)(3) nonprofit foun
 - ROP Practice V1: Rite-of-passage practice tool for boys and young men. Spot harm, speak up, get help, hold your line. https://rop-practices-v1.netlify.app/
 - Family inFluency: Shared family language-learning tool. Daily practice, reflection, connection. https://www.familyinfluency.com/
 - FieldVoices: Turns feedback into themes, themes into shared action, action into trust. Shortlisted from 237 global hackathon submissions. https://fieldvoices.netlify.app/
-- Not in Jeopardy!: Custom Jeopardy-style team game builder for onboarding, training, team-building. https://not-in-jeopardy-production.up.railway.app/
 - TPC Board Dashboard: Nonprofit board management tool with meeting materials, governance tracking, organizational visibility. https://tpc-board-meeting-dashboard.netlify.app/
 - Festival LoreDrop: Event crew connection tool. Share pics, curate your crew's story. Crew pass $26, public keepsake $4.99. https://festivalloredrop.com/
 - The Law Is On Our Side: Legal research tool for contracts and MOAs. Understand rights, access protections, advocate for community. Demo available.
