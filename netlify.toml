@@ -5,6 +5,11 @@
 [functions."invoice-check"]
   schedule = "0 14 * * 1"
 
+# Daily Roo tool monitor — 2am CT (07:00 UTC) pings every external
+# tool URL from _tool-registry.json and files bugs on failure.
+[functions."roo-monitor"]
+  schedule = "0 7 * * *"
+
 [[headers]]
   for = "/css/*"
   [headers.values]

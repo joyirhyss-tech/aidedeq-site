@@ -1,0 +1,20 @@
+{
+  "comment": "Every external tool URL advertised on aidedeq.org. roo-monitor pings each one daily. When a tool moves or breaks, edit this file and redeploy — do not hardcode URLs elsewhere.",
+  "tools": [
+    { "slug": "the-good-skill", "name": "The Good Skill", "url": "https://github.com/joyirhyss-tech/TPC-AIded-EQ", "expect_status": 200, "timeout_ms": 10000 },
+    { "slug": "forgiveness-ai", "name": "MF Pocket Facilitator (ForgivenessAI)", "url": "https://forgivenessai.org", "expect_status": 200, "timeout_ms": 10000 },
+    { "slug": "anchored", "name": "anchorED", "url": "https://anchoredpractice.org/", "expect_status": 200, "timeout_ms": 10000 },
+    { "slug": "wellbeing-snapshot", "name": "WellBEing Snapshot", "url": "https://wellbeingsnapshot.lovable.app/", "expect_status": 200, "timeout_ms": 10000 },
+    { "slug": "sources-of-wholeness", "name": "Sources of Wholeness", "url": "https://sources-wholeness.lovable.app/", "expect_status": 200, "timeout_ms": 10000 },
+    { "slug": "rop-practice-v1", "name": "ROP Practice V1", "url": "https://rop-practices-v1.netlify.app/", "expect_status": 200, "timeout_ms": 10000 },
+    { "slug": "family-influency", "name": "Family inFluency", "url": "https://www.familyinfluency.com/", "expect_status": 200, "timeout_ms": 10000 },
+    { "slug": "festival-loredrop", "name": "Festival LoreDrop", "url": "https://festivalloredrop.com/", "expect_status": 200, "timeout_ms": 10000 },
+    { "slug": "the-good-shelf", "name": "The Good Shelf (demo)", "url": "https://comforting-heliotrope-abd4a4.netlify.app", "expect_status": 200, "timeout_ms": 10000 },
+    { "slug": "fieldvoices", "name": "FieldVoices", "url": "https://fieldvoices.netlify.app/", "expect_status": 200, "timeout_ms": 10000 },
+    { "slug": "tpc-board-dashboard", "name": "TPC Board Dashboard", "url": "https://tpc-board-meeting-dashboard.netlify.app/", "expect_status": 200, "timeout_ms": 10000 },
+    { "slug": "myitinerary", "name": "MyItinerary (HoloHolo)", "url": "https://holoholo-itinerary-app.netlify.app/", "expect_status": 200, "timeout_ms": 10000 }
+  ],
+  "disabled": [
+    { "slug": "not-in-jeopardy", "name": "Not in Jeopardy!", "url": "https://not-in-jeopardy-production.up.railway.app/", "note": "Railway deploy broken. JKR is migrating to Netlify. Re-enable by moving entry back to tools[] once the new URL is live." }
+  ]
+}
