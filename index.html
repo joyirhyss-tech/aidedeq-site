@@ -270,11 +270,12 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..500,20..100;1,9..144,300..500,20..100&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="css/styles.css?v=27">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..500,20..100;1,9..144,300..500,20..100&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/styles.css?v=51">
   <link rel="icon" href="images/logo-ae-light.png" type="image/png">
 </head>
 <body>
+
 
   <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
@@ -345,9 +346,15 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content fade-in">
-            <span class="section-label">Mission-aligned AI for nonprofits and community organizations</span>
-            <h1>Spend less time with&nbsp;paperwork and more time supporting your&nbsp;staff.</h1>
-            <p>AI tools, consulting, and workshops built for nonprofits ready to work with more clarity and&nbsp;capacity.</p>
+            <div class="hero-badge">
+              <span class="dot"></span>
+              Mission-aligned AI for nonprofits
+            </div>
+            <h1 style="font-size:2.4rem;">
+              <span style="display:block;">Spend less time on paperwork.</span>
+              <span style="display:block;white-space:nowrap;">More time serving <span class="text-cycle-wrap" id="textCycle"></span></span>
+            </h1>
+            <p>AI tools, consulting, and workshops built for nonprofits ready to work with more clarity and capacity.</p>
             <div class="hero-buttons">
               <a href="/book/" class="btn-primary btn-glossy">Talk to the Founder</a>
               <a href="#tools" class="btn-outline btn-gold">Explore Our Tools</a>
@@ -487,8 +494,9 @@
       <div class="container">
         <div class="tools-intro-grid fade-in">
           <div class="tools-intro-text">
-            <span class="section-label">Proof, Not Pitch</span>
-            <h2>We don't just talk about AI. We ship it.</h2>
+            <span class="section-label">What We've Built</span>
+            <h2>Our AI products,<br><span style="white-space:nowrap;">made to work for your mission.</span></h2>
+            <p style="white-space:nowrap;">Every tool here can be tailored to your organization's language, workflows, and community.</p>
             <p>Equity-first. Analog-grounded. Built for the people most often left out.</p>
           </div>
           <div class="tools-intro-image">
@@ -496,7 +504,7 @@
           </div>
         </div>
         <div class="tool-library-cta fade-in">
-          <p>See the tool first. Then book a founder conversation with clear questions, service fit, or next steps.</p>
+          <p style="white-space:nowrap;">See the tool first. Then book a founder conversation with clear questions, service fit, or next steps.</p>
           <a href="/book/" class="btn-primary">Choose a Founder Conversation</a>
         </div>
         <div class="bookshelf fade-in" role="list" aria-label="Our tools displayed as books on a shelf">
@@ -770,6 +778,64 @@
           </div>
           <div class="bookshelf-surface" aria-hidden="true"></div>
         </div>
+
+        <!-- Pageflip book with stack-card splash shape behind -->
+        <div class="po-detail" id="poDetail">
+          <div class="po-book-side">
+            <div class="po-splash" id="poSplash"></div>
+            <div class="po-book" id="poBook">
+              <div class="po-right-page">
+                <p class="po-page-text" id="poPageText"></p>
+              </div>
+              <div class="po-hinge po-p3"></div>
+              <div class="po-hinge po-p2">
+                <div class="po-p2-back">
+                  <div class="po-p2-back-content">
+                    <div class="po-p2-icon" id="poP2Icon"></div>
+                    <h4 class="po-p2-title" id="poP2Title"></h4>
+                  </div>
+                </div>
+              </div>
+              <div class="po-hinge po-cover" id="poCover">
+                <div class="po-cover-inner">
+                  <div class="po-icon" id="poIcon"></div>
+                  <h4 class="pb-title" id="poTitle"></h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="po-info">
+            <h3 class="po-info-title" id="poInfoTitle"></h3>
+            <p class="po-info-desc" id="poInfoDesc"></p>
+            <span class="po-book-status" id="poStatus"></span>
+            <div id="poLinks"></div>
+          </div>
+        </div>
+
+        <!-- Retained for rollback if JoYi prefers the old tilted card panel -->
+        <div class="bsh-hover-panel" aria-hidden="true" hidden>
+          <div class="bsh-hover-inner">
+            <div class="bsh-card-side">
+              <div class="bsh-splash"></div>
+              <div class="bsh-card">
+                <div class="bsh-bind-edge"></div>
+                <div class="bsh-cover-inner">
+                  <div class="bsh-logo" aria-hidden="true"></div>
+                  <h4 class="bsh-cover-title"></h4>
+                </div>
+              </div>
+            </div>
+            <div class="bsh-info">
+              <div class="bsh-header">
+                <h3 class="bsh-title"></h3>
+                <span class="bsh-badge"></span>
+              </div>
+              <p class="bsh-desc"></p>
+              <div class="bsh-links"></div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -852,25 +918,59 @@
       <div class="container">
         <span class="section-label">What People Say</span>
         <h2 class="fade-in">Does it work? Ask the people who've seen it.</h2>
-        <div class="testimonials-grid fade-in">
-          <div class="testimonial-card">
-            <blockquote>
-              <p>&ldquo;This puts you in a new category. We have to start a mastermind on some type of collaboration.&rdquo;</p>
-            </blockquote>
-            <div class="testimonial-author">
-              <span class="testimonial-avatar" aria-hidden="true">BR</span>
-              <span class="testimonial-name">Youth Services Leader</span>
+        <div class="stagger-wrap fade-in" id="staggerWrap">
+          <div class="stagger-card" data-idx="0">
+            <span class="corner-line" aria-hidden="true"></span>
+            <blockquote>&ldquo;This puts you in a new category. We have to start a mastermind on some type of collaboration.&rdquo;</blockquote>
+            <div class="t-author">
+              <div class="t-avatar" style="background:linear-gradient(135deg,#c5a880,#e8d5b7);">YS</div>
+              <div class="t-meta"><div class="t-name">Youth Services Leader</div></div>
             </div>
           </div>
-          <div class="testimonial-card">
-            <blockquote>
-              <p>&ldquo;Saying thank you is beyond an understatement. We absolutely want to work with you however we are able to.&rdquo;</p>
-            </blockquote>
-            <div class="testimonial-author">
-              <span class="testimonial-avatar" aria-hidden="true">KMR</span>
-              <span class="testimonial-name">Youth Services Leader</span>
+          <div class="stagger-card" data-idx="1">
+            <span class="corner-line" aria-hidden="true"></span>
+            <blockquote>&ldquo;Saying thank you is beyond an understatement. We absolutely want to work with you however we are able to.&rdquo;</blockquote>
+            <div class="t-author">
+              <div class="t-avatar" style="background:linear-gradient(135deg,#7a9a7e,#a0c4a4);">YS</div>
+              <div class="t-meta"><div class="t-name">Youth Services Leader</div></div>
             </div>
           </div>
+          <div class="stagger-card" data-idx="2">
+            <span class="corner-line" aria-hidden="true"></span>
+            <blockquote>&ldquo;The workshop gave our team language for conversations we had been avoiding for years. We still reference it.&rdquo;</blockquote>
+            <div class="t-author">
+              <div class="t-avatar" style="background:linear-gradient(135deg,#6b4c7a,#b89cc6);">PD</div>
+              <div class="t-meta"><div class="t-name">Program Director [sample]</div></div>
+            </div>
+          </div>
+          <div class="stagger-card" data-idx="3">
+            <span class="corner-line" aria-hidden="true"></span>
+            <blockquote>&ldquo;Nobody else is building technology this way. It actually fits how our community already works.&rdquo;</blockquote>
+            <div class="t-author">
+              <div class="t-avatar" style="background:linear-gradient(135deg,#b5545b,#d88a90);">NL</div>
+              <div class="t-meta"><div class="t-name">Nonprofit Leader [sample]</div></div>
+            </div>
+          </div>
+          <div class="stagger-card" data-idx="4">
+            <span class="corner-line" aria-hidden="true"></span>
+            <blockquote>&ldquo;She understands the frontline work because she has done the frontline work. That is what makes the tools land.&rdquo;</blockquote>
+            <div class="t-author">
+              <div class="t-avatar" style="background:linear-gradient(135deg,#4a6fa5,#7a9cc6);">FC</div>
+              <div class="t-meta"><div class="t-name">Facilitator [sample]</div></div>
+            </div>
+          </div>
+          <div class="stagger-card" data-idx="5">
+            <span class="corner-line" aria-hidden="true"></span>
+            <blockquote>&ldquo;Most mental health tech is designed for the org, not the person in the room. anchorED was built the other way around.&rdquo;</blockquote>
+            <div class="t-author">
+              <div class="t-avatar" style="background:linear-gradient(135deg,#B85C38,#c5a880);">AD</div>
+              <div class="t-meta"><div class="t-name">anchorED Designer</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="stagger-nav" aria-label="Testimonial navigation">
+          <button id="staggerPrev" type="button" aria-label="Previous testimonial"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+          <button id="staggerNext" type="button" aria-label="Next testimonial"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
         </div>
         <p class="testimonials-context fade-in">After seeing two custom AI tools built for their team, a website mockup with scheduling and FAQ agents, and a curated community resource list.</p>
       </div>
@@ -950,7 +1050,7 @@
 
     <hr class="section-divider">
 
-<section class="section-padding">
+<section id="path" class="section-padding">
       <div class="container">
         <span class="section-label">The Path</span>
         <h2 class="fade-in">Learn. Practice. Build.</h2>
@@ -991,48 +1091,63 @@
 
 <section class="section-padding proof-section">
       <div class="container">
-        <span class="section-label">The Data</span>
-        <h2 class="fade-in"><span class="metallic-text">What changes when you change the lens</span></h2>
-        <p class="fade-in proof-intro-line">We ran the same searches twice: once through the default algorithm, once through The Good Skill.</p>
-
-        <!-- Bar Chart Visualization -->
-        <div class="proof-chart fade-in">
-          <div class="proof-chart-row">
-            <div class="proof-chart-info">
-              <span class="proof-chart-label">Default Algorithm</span>
-              <span class="proof-chart-stat">57% deficit framing</span>
-            </div>
-            <div class="proof-bar-track">
-              <div class="proof-bar proof-bar-default"></div>
-            </div>
+        <div class="proof-2col">
+          <div class="proof-info-col">
+            <span class="section-label">The Data</span>
+            <h2 class="fade-in"><span class="metallic-text">What changes when you change the lens</span></h2>
+            <p class="fade-in">We ran the same searches twice: once through the default algorithm, once through The Good Skill, our free open-source equity-first research tool that centers marginalized voices by default.</p>
+            <a href="https://github.com/joyirhyss-tech/TPC-AIded-EQ" target="_blank" rel="noopener noreferrer" class="proof-goodskill-btn fade-in">
+              See The Good Skill
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
           </div>
-          <div class="proof-chart-row">
-            <div class="proof-chart-info">
-              <span class="proof-chart-label">Equity-First (The Good Skill)</span>
-              <span class="proof-chart-stat">100% agency &amp; innovation</span>
-            </div>
-            <div class="proof-bar-track">
-              <div class="proof-bar proof-bar-equity"></div>
-            </div>
+
+          <div class="proof-cards-col">
+            <ul class="stack-cards js-stack-cards">
+              <li class="stack-cards__item js-stack-cards__item">
+                <div class="ch-card-inner">
+                  <span class="ch-card-label">The Research</span>
+                  <div class="proof-chart">
+                    <div class="proof-chart-row">
+                      <div class="proof-chart-info">
+                        <span class="proof-chart-label">Default Algorithm</span>
+                        <span class="proof-chart-stat">57% deficit framing</span>
+                      </div>
+                      <div class="proof-bar-track">
+                        <div class="proof-bar proof-bar-default"></div>
+                      </div>
+                    </div>
+                    <div class="proof-chart-row">
+                      <div class="proof-chart-info">
+                        <span class="proof-chart-label">Equity-First (The Good Skill)</span>
+                        <span class="proof-chart-stat">100% agency &amp; innovation</span>
+                      </div>
+                      <div class="proof-bar-track">
+                        <div class="proof-bar proof-bar-equity"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="stack-cards__item js-stack-cards__item">
+                <div class="ch-card-inner">
+                  <span class="ch-card-label">Default Algorithm</span>
+                  <div class="ch-card-search">Search: "South Chicago news"</div>
+                  <div class="ch-card-stat">57%</div>
+                  <p>Of the time, default algorithms framed marginalized communities through deficit, crisis, and victimization. Of that, crime was 30% of the result.</p>
+                </div>
+              </li>
+              <li class="stack-cards__item js-stack-cards__item">
+                <div class="ch-card-inner" style="background: #1a1a4e; color: #f9f8f5;">
+                  <span class="ch-card-label" style="color: #c5a880;">Equity-First (The Good Skill)</span>
+                  <div class="ch-card-search">Search: "South Chicago news"</div>
+                  <div class="ch-card-stat">100%</div>
+                  <p>Of the time, equity-first framing surfaced agency, innovation, and joy. Of that, Black-owned business coverage was 30% of the result.</p>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
-
-        <div class="proof-grid">
-          <div class="proof-card proof-card-default fade-in">
-            <span class="section-label" style="color: var(--muted-foreground);">Default Algorithm</span>
-            <div class="proof-search">Search: "South Chicago news"</div>
-            <div class="proof-stat">57%</div>
-            <p>Of the time, default algorithms framed marginalized communities through deficit, crisis, and victimization. Of that, crime was 30% of the result.</p>
-          </div>
-          <div class="proof-card proof-card-equity fade-in">
-            <span class="section-label section-label-dark">Equity-First (The Good Skill)</span>
-            <div class="proof-search">Search: "South Chicago news"</div>
-            <div class="proof-stat">100%</div>
-            <p>Of the time, equity-first framing surfaced agency, innovation, and joy. Of that, Black-owned business coverage was 30% of the result.</p>
-          </div>
-        </div>
-
-        <!-- Programs section removed -->
 
         <p class="proof-footnote fade-in">The stories already exist. The default just wasn't showing them first. Full study with data across seven communities available on our Substack.</p>
 
@@ -1045,45 +1160,46 @@
       <div class="container">
         <span class="section-label">Start Here</span>
         <h2 class="fade-in">Resources</h2>
-        <div class="resources-grid">
-          <!-- Women Build Safety -->
-          <div class="resource-card resource-card-featured fade-in">
-            <span class="resource-card-badge">Active Initiative</span>
-            <h3>Women Build Safety</h3>
-            <p>A multi-session series exploring how AI can address women's safety across 6 dimensions: physical, structural, reproductive, digital, economic, and psychological. Research-driven. Build-focused. Community-led.</p>
-            <div class="resource-card-featured-links">
-              <a href="/resources/safety.html" class="resource-link">
-                Tool Resource Sheet
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </a>
-              <a href="/resources/session3.html" class="resource-link">
-                Session 3: The EQ Lesson
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </a>
-              <a href="https://www.skool.com/women-building-ai-2577" target="_blank" rel="noopener noreferrer" class="resource-link">
-                Join on Skool
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              </a>
+        <div class="resource-accordion js-resource-accordion">
+          <!-- Women Build Safety (default active, featured) -->
+          <article class="r-panel r-panel--featured r-panel--active" data-panel="0">
+            <div class="r-panel__sliver">
+              <span class="r-panel__num">01</span>
+              <span class="r-panel__title">Women Build Safety</span>
             </div>
-            <p class="resource-card-featured-next">Next session: April 16 - Meaning & Attitude</p>
-          </div>
-          <!-- The Practice Center -->
-          <div class="resource-card fade-in">
-            <h3>The Practice Center</h3>
-            <p>Our 501(c)(3) nonprofit home. Grounding emotional intelligence in community practice, not theory.</p>
-            <a href="https://thepracticecenter.org" target="_blank" rel="noopener noreferrer" class="resource-link">
-              Visit
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </div>
-          <!-- Emergency Breathing -->
-          <div class="resource-card resource-card-expandable fade-in" data-expanded="false">
-            <h3 class="resource-card-toggle">
-              Emergency Breathing
-              <svg class="resource-card-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </h3>
-            <p>Five to six breaths each minute. Reset your parasympathetic nervous system.</p>
-            <div class="resource-card-details">
+            <div class="r-panel__content">
+              <span class="r-panel__badge">Active Initiative</span>
+              <h3 class="r-panel__heading">Women Build Safety</h3>
+              <p>A multi-session series exploring how AI can address women's safety across 6 dimensions: physical, structural, reproductive, digital, economic, and psychological. Research-driven. Build-focused. Community-led.</p>
+              <div class="r-panel__links">
+                <a href="/resources/safety.html" class="r-panel__link">Tool Resource Sheet →</a>
+                <a href="/resources/session3.html" class="r-panel__link">Session 3: The EQ Lesson →</a>
+                <a href="https://www.skool.com/women-building-ai-2577" target="_blank" rel="noopener noreferrer" class="r-panel__link">Join on Skool →</a>
+              </div>
+              <p class="r-panel__next">Next session: April 16 - Meaning & Attitude</p>
+            </div>
+          </article>
+          <article class="r-panel" data-panel="1">
+            <div class="r-panel__sliver">
+              <span class="r-panel__num">02</span>
+              <span class="r-panel__title">The Practice Center</span>
+            </div>
+            <div class="r-panel__content">
+              <h3 class="r-panel__heading">The Practice Center</h3>
+              <p>Our 501(c)(3) nonprofit home. Grounding emotional intelligence in community practice, not theory.</p>
+              <div class="r-panel__links">
+                <a href="https://thepracticecenter.org" target="_blank" rel="noopener noreferrer" class="r-panel__link">Visit thepracticecenter.org →</a>
+              </div>
+            </div>
+          </article>
+          <article class="r-panel" data-panel="2">
+            <div class="r-panel__sliver">
+              <span class="r-panel__num">03</span>
+              <span class="r-panel__title">Emergency Breathing</span>
+            </div>
+            <div class="r-panel__content">
+              <h3 class="r-panel__heading">Emergency Breathing</h3>
+              <p>Five to six breaths each minute. Reset your parasympathetic nervous system.</p>
               <ol class="breathing-steps">
                 <li>Stop what you're doing. Sit or stand still.</li>
                 <li>Breathe in slowly through your nose for 4 seconds.</li>
@@ -1091,21 +1207,19 @@
                 <li>Breathe out slowly through your mouth for 6 seconds.</li>
                 <li>Repeat 5-6 times. That's one minute.</li>
               </ol>
-              <p class="breathing-note">Your nervous system will reset. Your heart rate will slow. Your thinking will clear. Master this. Then practice with another person this week.</p>
+              <p class="breathing-note">Your nervous system will reset. Your heart rate will slow. Your thinking will clear.</p>
               <button type="button" class="breath-invite-btn" data-breathing style="margin-top: 1.25rem;">
                 <span class="firefly-cue" aria-hidden="true"></span>
                 Try the 60-second guided version
               </button>
             </div>
-          </div>
-          <!-- From Chatting to Automating -->
-          <div class="resource-card resource-card-expandable fade-in" data-expanded="false">
-            <h3 class="resource-card-toggle">
-              From chatting with AI to automating your work
-              <svg class="resource-card-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </h3>
-            <p>If you already use ChatGPT or Claude to draft emails, you are one step away from having it <em>do</em> the work, not just describe it. Here is the shortest real path from chatting to automation, with a use case you can ship this week.</p>
-            <div class="resource-card-details">
+          </article>
+          <article class="r-panel" data-panel="3">
+            <div class="r-panel__sliver">
+              <span class="r-panel__num">04</span>
+              <span class="r-panel__title">From Chatting to Automating</span>
+            </div>
+            <div class="r-panel__content"><div class="r-panel__rich">
               <p style="margin-top: 0; margin-bottom: 0.5rem; font-weight: 600;">Try this today: the grant-report auto-draft</p>
               <p style="margin-top: 0; margin-bottom: 0.75rem;">Pick a grant report you already wrote last quarter. Open Claude or ChatGPT and build a <strong>Project</strong> (Claude) or <strong>Custom GPT</strong> (ChatGPT). Upload the old report, your logic model, and 3-5 funder requirements as reference files. Then write one instruction: "When I paste new program data, draft a funder-ready update in this exact voice and structure." That is it. Next quarter, paste the data, get a 70% draft in 30 seconds. That is the chat-to-automation bridge.</p>
 
@@ -1146,39 +1260,44 @@
                 <li><a href="https://www.skool.com/women-codher" target="_blank" rel="noopener noreferrer">Women CodHer</a> — community for non-technical builders</li>
               </ul>
 
-              <p style="margin-top: 1rem; margin-bottom: 0; font-style: italic; color: rgba(26,26,78,0.7);">Stuck on what to automate first? <a href="/book/" style="text-decoration: underline;">Bring it to a founder conversation</a> and we will pick a use case you can ship in a week.</p>
+              <p style="margin-top: 1rem; margin-bottom: 0; font-style: italic;">Stuck on what to automate first? <a href="/book/" style="text-decoration: underline;">Bring it to a founder conversation</a> and we will pick a use case you can ship in a week.</p>
+            </div></div>
+          </article>
+          <article class="r-panel" data-panel="4">
+            <div class="r-panel__sliver">
+              <span class="r-panel__num">05</span>
+              <span class="r-panel__title">Snapshots</span>
             </div>
-          </div>
-          <!-- Snapshots -->
-          <div class="resource-card fade-in">
-            <h3>Snapshots</h3>
-            <p>Quick self-assessments. 5 minutes. No login. No data stored.</p>
-            <a href="https://wellbeingsnapshot.lovable.app/" target="_blank" rel="noopener noreferrer" class="resource-link">
-              WellBEing Snapshot
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-            <a href="https://sources-wholeness.lovable.app/" target="_blank" rel="noopener noreferrer" class="resource-link">
-              Sources of Wholeness
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </div>
-          <!-- Attitudinal Healing International -->
-          <div class="resource-card fade-in">
-            <h3>Attitudinal Healing International</h3>
-            <p>The foundation of our healing practice. Choosing peace over fear and empathy over judgment. Principles that guide everything we build.</p>
-            <a href="https://ahinternational.org" target="_blank" rel="noopener noreferrer" class="resource-link">
-              Visit
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </div>
-          <!-- Thinking Clearly -->
-          <div class="resource-card resource-card-expandable fade-in" data-expanded="false">
-            <h3 class="resource-card-toggle">
-              Thinking Clearly
-              <svg class="resource-card-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-            </h3>
-            <p>Align your builds with your intentions. Solve a real problem, not just automate more noise.</p>
-            <div class="resource-card-details">
+            <div class="r-panel__content">
+              <h3 class="r-panel__heading">Snapshots</h3>
+              <p>Quick self-assessments. 5 minutes. No login. No data stored.</p>
+              <div class="r-panel__links">
+                <a href="https://wellbeingsnapshot.lovable.app/" target="_blank" rel="noopener noreferrer" class="r-panel__link">WellBEing Snapshot →</a>
+                <a href="https://sources-wholeness.lovable.app/" target="_blank" rel="noopener noreferrer" class="r-panel__link">Sources of Wholeness →</a>
+              </div>
+            </div>
+          </article>
+          <article class="r-panel" data-panel="5">
+            <div class="r-panel__sliver">
+              <span class="r-panel__num">06</span>
+              <span class="r-panel__title">Attitudinal Healing International</span>
+            </div>
+            <div class="r-panel__content">
+              <h3 class="r-panel__heading">Attitudinal Healing International</h3>
+              <p>The foundation of our healing practice. Choosing peace over fear and empathy over judgment. Principles that guide everything we build.</p>
+              <div class="r-panel__links">
+                <a href="https://ahinternational.org" target="_blank" rel="noopener noreferrer" class="r-panel__link">Visit ahinternational.org →</a>
+              </div>
+            </div>
+          </article>
+          <article class="r-panel" data-panel="6">
+            <div class="r-panel__sliver">
+              <span class="r-panel__num">07</span>
+              <span class="r-panel__title">Thinking Clearly</span>
+            </div>
+            <div class="r-panel__content"><div class="r-panel__rich">
+              <h3 class="r-panel__heading">Thinking Clearly</h3>
+              <p>Align your builds with your intentions. Solve a real problem, not just automate more noise.</p>
               <p>So many amazing tools are being used to automate and 10x productivity like every other work slop coming out right now. The AIdedEQ way is different.</p>
               <p>Start by truly considering yourself, your family, your friends, your neighborhood, and your community. Then intentionally set your sights on one issue you can actually solve.</p>
               <p style="margin-top: 0.75rem;"><strong>The IAMAR Framework:</strong></p>
@@ -1190,8 +1309,8 @@
                 <li><strong>R</strong>esponse: What's your best next action?</li>
               </ul>
               <p style="margin-top: 0.75rem;">Building from "I don't want this" is different than knowing your values, listening to yourself and others, clearly defining the issues, deciding what's in your sphere of influence, and choosing a path forward. That's the solution route.</p>
-            </div>
-          </div>
+            </div></div>
+          </article>
         </div>
       </div>
     </section>
@@ -1200,43 +1319,49 @@
 
 <section id="faq" class="section-padding faq-section-compact">
       <div class="container">
-        <span class="section-label">Common Questions</span>
-        <h2 class="fade-in">FAQ</h2>
-        <div class="faq-list fade-in" id="faq-list">
-          <details class="faq-item">
-            <summary>What does AIdedEQ do?</summary>
-            <p>We build AI tools and provide consulting for nonprofits, schools, and mission-driven organizations. Our tools handle admin work so your team can focus on the people they serve.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Who is this for?</summary>
-            <p>Any mission-driven team spending more time on paperwork than with the communities they serve. Nonprofits, schools, youth-serving orgs, government agencies, and social enterprises.</p>
-          </details>
-          <details class="faq-item">
-            <summary>How much does consulting cost?</summary>
-            <p>Nonprofit AI Jumpstart: $1,500 for 3 sessions. Custom Tool Build: $2,500 to $5,000. CEO AI Support: $500/month, month-to-month. Mindful Forgiveness for Teams: $2,000 per cohort. Free 45-minute intro session available for teams of 5 or more.</p>
-          </details>
-          <details class="faq-item faq-item--extra">
-            <summary>What is the relationship between AIdedEQ and The Practice Center?</summary>
-            <p>The Practice Center is a 501(c)(3) nonprofit that develops programs and curriculum. AIdedEQ is the for-profit company that builds the technology to scale that work. Same founder, two entities that support each other.</p>
-          </details>
-          <details class="faq-item faq-item--extra">
-            <summary>What is Mindful Forgiveness for Teams?</summary>
-            <p>A 6-week cohort workshop (12 hours total) for up to 12 participants. Designed for nonprofit teams, school staff, and community organizations dealing with burnout and team dynamics.</p>
-          </details>
-          <details class="faq-item faq-item--extra">
-            <summary>Is my data safe?</summary>
-            <p>Yes. Our tools are built with privacy by default. Several tools require no login and store no personal data. We never sell or share user data. Full privacy policy at aidedeq.org/privacy.</p>
-          </details>
-          <details class="faq-item faq-item--extra">
-            <summary>Can you work with organizations outside of Hawaii?</summary>
-            <p>Yes. Workshops and consulting sessions are available via Zoom for organizations anywhere. In-person delivery is available in Hawaii.</p>
-          </details>
-          <details class="faq-item faq-item--extra">
-            <summary>How do I get started?</summary>
-            <p>Book a founder conversation at <a href="/book/">aidedeq.org/book</a>, use the chat widget on this page, or email <a href="mailto:info@aidedeq.org">info@aidedeq.org</a>.</p>
-          </details>
+        <div class="faq-2col">
+          <div class="faq-info-col">
+            <span class="section-label">Common Questions</span>
+            <h2 class="fade-in">FAQ</h2>
+          </div>
+          <div class="faq-list-col">
+            <div class="faq-list fade-in" id="faq-list">
+              <details class="faq-item">
+                <summary>What does AIdedEQ do?</summary>
+                <p>We build AI tools and provide consulting for nonprofits, schools, and mission-driven organizations. Our tools handle admin work so your team can focus on the people they serve.</p>
+              </details>
+              <details class="faq-item">
+                <summary>Who is this for?</summary>
+                <p>Any mission-driven team spending more time on paperwork than with the communities they serve. Nonprofits, schools, youth-serving orgs, government agencies, and social enterprises.</p>
+              </details>
+              <details class="faq-item">
+                <summary>How much does consulting cost?</summary>
+                <p>Nonprofit AI Jumpstart: $1,500 for 3 sessions. Custom Tool Build: $2,500 to $5,000. CEO AI Support: $500/month, month-to-month. Mindful Forgiveness for Teams: $2,000 per cohort. Free 45-minute intro session available for teams of 5 or more.</p>
+              </details>
+              <details class="faq-item faq-item--extra">
+                <summary>What is the relationship between AIdedEQ and The Practice Center?</summary>
+                <p>The Practice Center is a 501(c)(3) nonprofit that develops programs and curriculum. AIdedEQ is the for-profit company that builds the technology to scale that work. Same founder, two entities that support each other.</p>
+              </details>
+              <details class="faq-item faq-item--extra">
+                <summary>What is Mindful Forgiveness for Teams?</summary>
+                <p>A 6-week cohort workshop (12 hours total) for up to 12 participants. Designed for nonprofit teams, school staff, and community organizations dealing with burnout and team dynamics.</p>
+              </details>
+              <details class="faq-item faq-item--extra">
+                <summary>Is my data safe?</summary>
+                <p>Yes. Our tools are built with privacy by default. Several tools require no login and store no personal data. We never sell or share user data. Full privacy policy at aidedeq.org/privacy.</p>
+              </details>
+              <details class="faq-item faq-item--extra">
+                <summary>Can you work with organizations outside of Hawaii?</summary>
+                <p>Yes. Workshops and consulting sessions are available via Zoom for organizations anywhere. In-person delivery is available in Hawaii.</p>
+              </details>
+              <details class="faq-item faq-item--extra">
+                <summary>How do I get started?</summary>
+                <p>Book a founder conversation at <a href="/book/">aidedeq.org/book</a>, use the chat widget on this page, or email <a href="mailto:info@aidedeq.org">info@aidedeq.org</a>.</p>
+              </details>
+            </div>
+            <button type="button" class="faq-toggle" id="faq-toggle" aria-controls="faq-list" aria-expanded="false">Show 5 more questions</button>
+          </div>
         </div>
-        <button class="faq-toggle" id="faq-toggle" aria-expanded="false">Show more questions</button>
       </div>
     </section>
 
@@ -1362,7 +1487,7 @@
   </button>
 
   <script src="js/breathing.js?v=1"></script>
-  <script src="js/main.js?v=16"></script>
+  <script src="js/main.js?v=42"></script>
   <script src="js/chat-widget.js?v=roo1" defer></script>
 </body>
 </html>
