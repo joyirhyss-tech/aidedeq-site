@@ -21,7 +21,7 @@
   --border: #d4cdc3;
   --radius: 0.5rem;
   /* Type system — V2 editorial fonts mapped onto V1 token names */
-  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
   --font-serif: var(--font-display); /* V1 alias — many rules still read --font-serif */
   --font-mono: 'JetBrains Mono', 'Courier New', monospace;
@@ -7681,6 +7681,8 @@ html { overflow-x: hidden; }
 
 /* Hide the retired tilted card panel so only the pageflip book renders */
 .bsh-hover-panel { display: none !important; }
+
+/* (Source Serif 4 is now the site-wide --font-display token — scoped overrides removed) */
 
 /* Breath-invite button inside the Resources accordion uses a light/beige panel,
    so force dark text + dark border (the default cream was invisible). */
